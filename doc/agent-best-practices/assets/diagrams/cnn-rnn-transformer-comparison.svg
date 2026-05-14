@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">CNN、RNN 和 Transformer 的差异</title>
+  <desc id="desc">比较 CNN 的局部特征、RNN 的顺序状态和 Transformer 的全局自注意力。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8faf7; }
+      .panel { fill: #ffffff; stroke: #d7ded3; stroke-width: 2; }
+      .title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .head { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #465867; }
+      .token { fill: #e7f0ed; stroke: #8fb5aa; stroke-width: 2; }
+      .token2 { fill: #fff0d3; stroke: #d6a64d; stroke-width: 2; }
+      .token3 { fill: #eee9f8; stroke: #a99ad0; stroke-width: 2; }
+      .line { stroke: #53767b; stroke-width: 3; fill: none; }
+      .thin { stroke: #6d7f88; stroke-width: 2; fill: none; opacity: .75; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1,1 L9,5 L1,9 Z" fill="#53767b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="460"/>
+  <text class="title" x="48" y="52">CNN、RNN、Transformer：三种处理序列的方式</text>
+
+  <g transform="translate(48 92)">
+    <rect class="panel" width="330" height="300" rx="16"/>
+    <text class="head" x="24" y="42">CNN：看局部窗口</text>
+    <rect class="token" x="34" y="86" width="42" height="42" rx="8"/>
+    <rect class="token" x="86" y="86" width="42" height="42" rx="8"/>
+    <rect class="token" x="138" y="86" width="42" height="42" rx="8"/>
+    <rect class="token" x="190" y="86" width="42" height="42" rx="8"/>
+    <rect class="token" x="242" y="86" width="42" height="42" rx="8"/>
+    <path class="line" d="M54 154 H158"/>
+    <path class="line" d="M106 190 H210"/>
+    <path class="line" d="M158 226 H262"/>
+    <text class="body" x="24" y="258">优势：局部特征、并行、参数共享</text>
+    <text class="body" x="24" y="282">限制：长距离依赖需要额外结构</text>
+  </g>
+
+  <g transform="translate(435 92)">
+    <rect class="panel" width="330" height="300" rx="16"/>
+    <text class="head" x="24" y="42">RNN：顺序传递状态</text>
+    <rect class="token2" x="32" y="102" width="48" height="48" rx="10"/>
+    <rect class="token2" x="106" y="102" width="48" height="48" rx="10"/>
+    <rect class="token2" x="180" y="102" width="48" height="48" rx="10"/>
+    <rect class="token2" x="254" y="102" width="48" height="48" rx="10"/>
+    <path class="line" marker-end="url(#arrow)" d="M80 126 H102"/>
+    <path class="line" marker-end="url(#arrow)" d="M154 126 H176"/>
+    <path class="line" marker-end="url(#arrow)" d="M228 126 H250"/>
+    <text class="body" x="24" y="214">优势：贴合文本顺序</text>
+    <text class="body" x="24" y="238">限制：难并行，长历史被压缩</text>
+    <text class="body" x="24" y="262">LSTM/GRU 用门控缓解遗忘</text>
+  </g>
+
+  <g transform="translate(822 92)">
+    <rect class="panel" width="330" height="300" rx="16"/>
+    <text class="head" x="24" y="42">Transformer：全局自注意力</text>
+    <rect class="token3" x="36" y="88" width="42" height="42" rx="8"/>
+    <rect class="token3" x="104" y="88" width="42" height="42" rx="8"/>
+    <rect class="token3" x="172" y="88" width="42" height="42" rx="8"/>
+    <rect class="token3" x="240" y="88" width="42" height="42" rx="8"/>
+    <path class="thin" d="M57 130 C70 178, 232 178, 261 130"/>
+    <path class="thin" d="M125 130 C138 162, 170 162, 193 130"/>
+    <path class="thin" d="M57 88 C76 50, 228 50, 261 88"/>
+    <path class="thin" d="M125 88 C142 64, 180 64, 193 88"/>
+    <text class="body" x="24" y="214">优势：直接建模全局关系</text>
+    <text class="body" x="24" y="238">优势：训练并行，规模化友好</text>
+    <text class="body" x="24" y="262">代价：上下文和算力成本更高</text>
+  </g>
+
+  <text class="body" x="48" y="430">结论：现代 LLM 依靠 Transformer 处理上下文关系，但输出仍然是概率分布，需要工程系统稳定它。</text>
+</svg>

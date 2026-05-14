@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 工程范式演进</title>
+  <desc id="desc">展示 Agent 工程从 Prompt 优化、上下文工程、记忆与状态、工具调用、角色分工、错误恢复到长时间运行和反馈闭环的演进路径。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#3f5f6a"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .stage { fill: #ffffff; stroke: #d7d0c2; stroke-width: 2; }
+      .core { fill: #e8f1ef; stroke: #7fa79d; stroke-width: 2; }
+      .title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .head { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #4a5a66; }
+      .arrow { stroke: #3f5f6a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .ring { fill: none; stroke: #d19a42; stroke-width: 3; stroke-dasharray: 9 7; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="500"/>
+  <text class="title" x="48" y="52">Agent 工程演进：让概率预测机器稳定运行</text>
+
+  <g transform="translate(480 92)">
+    <rect class="core" width="240" height="78" rx="18"/>
+    <text class="head" x="44" y="34">大模型</text>
+    <text class="body" x="44" y="58">context -> probability -> output</text>
+  </g>
+
+  <g transform="translate(62 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">Prompt 优化</text>
+    <text class="body" x="18" y="60">怎么问</text>
+  </g>
+  <path class="arrow" d="M198 276 H248"/>
+
+  <g transform="translate(252 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">上下文工程</text>
+    <text class="body" x="18" y="60">给它看什么</text>
+  </g>
+  <path class="arrow" d="M388 276 H438"/>
+
+  <g transform="translate(442 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">记忆与状态</text>
+    <text class="body" x="18" y="60">长期连续</text>
+  </g>
+  <path class="arrow" d="M578 276 H628"/>
+
+  <g transform="translate(632 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">工具调用</text>
+    <text class="body" x="18" y="60">连接真实世界</text>
+  </g>
+  <path class="arrow" d="M768 276 H818"/>
+
+  <g transform="translate(822 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">角色分工</text>
+    <text class="body" x="18" y="60">规划、执行、验证</text>
+  </g>
+  <path class="arrow" d="M958 276 H1008"/>
+
+  <g transform="translate(1012 230)">
+    <rect class="stage" width="130" height="92" rx="14"/>
+    <text class="head" x="18" y="34">错误恢复</text>
+    <text class="body" x="18" y="60">重试、回滚、降级</text>
+  </g>
+
+  <path class="arrow" d="M1077 330 C1077 394, 920 410, 800 410"/>
+
+  <g transform="translate(500 368)">
+    <rect class="stage" width="220" height="78" rx="14"/>
+    <text class="head" x="28" y="32">长时间运行</text>
+    <text class="body" x="28" y="56">checkpoint / trace / resume</text>
+  </g>
+
+  <path class="arrow" d="M492 410 C330 410, 130 382, 126 330"/>
+
+  <ellipse class="ring" cx="602" cy="276" rx="548" ry="148"/>
+  <text class="body" x="430" y="474">外层闭环：eval、观测、权限、成本控制、反馈迭代、团队规范</text>
+</svg>

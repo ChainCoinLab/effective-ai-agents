@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">QKV 注意力机制示例</title>
+  <desc id="desc">用“我喜欢苹果，它体验很好”和“我喜欢苹果，它味道很美”说明 Query、Key、Value 如何根据上下文区分苹果公司和苹果水果。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#45606f"/>
+    </marker>
+    <style>
+      .bg { fill: #f8faf7; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #53616b; }
+      .panel { fill: #ffffff; stroke: #d4dcd0; stroke-width: 2; }
+      .panel-a { fill: #eef5fb; stroke: #86a7c8; stroke-width: 2; }
+      .panel-b { fill: #fff3df; stroke: #d3a456; stroke-width: 2; }
+      .head { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2e3a; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #3f505d; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5f6f77; }
+      .token { fill: #ffffff; stroke: #9dafb8; stroke-width: 2; }
+      .apple-device { fill: #dcecf8; stroke: #6b9bc4; stroke-width: 2; }
+      .apple-fruit { fill: #ffe6c2; stroke: #ce8d35; stroke-width: 2; }
+      .q { fill: #e8f3ee; stroke: #7fad96; stroke-width: 2; }
+      .k { fill: #f0e9f8; stroke: #a38bc6; stroke-width: 2; }
+      .v { fill: #f9eadf; stroke: #c98e67; stroke-width: 2; }
+      .arrow { stroke: #45606f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .thin { stroke: #6e8490; stroke-width: 2; fill: none; opacity: .75; marker-end: url(#arrow); }
+      .dim { fill: #ffffff; stroke: #ccd4d8; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="620"/>
+  <text class="title" x="48" y="48">Q/K/V：同一个“苹果”，在不同上下文里被读成不同含义</text>
+  <text class="subtitle" x="48" y="76">Query 像“当前 token 想找什么信息”，Key 像“每个 token 能被什么问题匹配到”，Value 像“匹配后真正取走的信息”。</text>
+
+  <g transform="translate(48 112)">
+    <rect class="panel-a" width="520" height="190" rx="18"/>
+    <text class="head" x="24" y="40">句子 A：我喜欢苹果，它体验很好</text>
+    <rect class="token" x="26" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="42" y="94">我</text>
+    <rect class="token" x="90" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="108" y="94">喜欢</text>
+    <rect class="apple-device" x="170" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="188" y="94">苹果</text>
+    <rect class="token" x="250" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="270" y="94">它</text>
+    <rect class="q" x="314" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="332" y="94">体验</text>
+    <rect class="token" x="394" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="410" y="94">很好</text>
+    <path class="thin" d="M349 112 C330 150, 250 150, 205 112"/>
+    <text class="body" x="26" y="142">“体验”这个 Query 更像在找产品、设备、软件、服务。</text>
+    <text class="small" x="26" y="168">因此“苹果”的 Key 在品牌/产品维度更匹配，Value 传递“Apple 产品”语义。</text>
+  </g>
+
+  <g transform="translate(632 112)">
+    <rect class="panel-b" width="520" height="190" rx="18"/>
+    <text class="head" x="24" y="40">句子 B：我喜欢苹果，它味道很美</text>
+    <rect class="token" x="26" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="42" y="94">我</text>
+    <rect class="token" x="90" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="108" y="94">喜欢</text>
+    <rect class="apple-fruit" x="170" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="188" y="94">苹果</text>
+    <rect class="token" x="250" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="270" y="94">它</text>
+    <rect class="q" x="314" y="70" width="70" height="38" rx="10"/>
+    <text class="body" x="332" y="94">味道</text>
+    <rect class="token" x="394" y="70" width="54" height="38" rx="10"/>
+    <text class="body" x="410" y="94">很美</text>
+    <path class="thin" d="M349 112 C330 150, 250 150, 205 112"/>
+    <text class="body" x="26" y="142">“味道”这个 Query 更像在找食物、水果、口感、气味。</text>
+    <text class="small" x="26" y="168">因此“苹果”的 Key 在水果/食物维度更匹配，Value 传递“apple fruit”语义。</text>
+  </g>
+
+  <g transform="translate(76 348)">
+    <rect class="panel" width="1048" height="190" rx="18"/>
+    <text class="head" x="28" y="40">注意力计算的简化过程</text>
+
+    <rect class="q" x="36" y="72" width="150" height="62" rx="14"/>
+    <text class="head" x="72" y="98">Query</text>
+    <text class="small" x="58" y="120">当前想找什么</text>
+
+    <path class="arrow" d="M198 103 H258"/>
+
+    <rect class="k" x="270" y="72" width="150" height="62" rx="14"/>
+    <text class="head" x="313" y="98">Key</text>
+    <text class="small" x="292" y="120">每个词如何被匹配</text>
+
+    <path class="arrow" d="M432 103 H492"/>
+
+    <rect class="dim" x="504" y="66" width="178" height="74" rx="14"/>
+    <text class="body" x="532" y="96">Q · K -> score</text>
+    <text class="small" x="524" y="120">softmax 得到权重</text>
+
+    <path class="arrow" d="M694 103 H754"/>
+
+    <rect class="v" x="766" y="72" width="150" height="62" rx="14"/>
+    <text class="head" x="809" y="98">Value</text>
+    <text class="small" x="788" y="120">真正取走的信息</text>
+
+    <path class="arrow" d="M928 103 H988"/>
+
+    <rect class="dim" x="1000" y="66" width="40" height="74" rx="14"/>
+    <text class="head" x="1012" y="108">Σ</text>
+
+    <text class="body" x="36" y="166">公式：attention(Q, K, V) = softmax(QKᵀ / √d) V。多头注意力会从多个语义维度并行做这件事。</text>
+  </g>
+</svg>

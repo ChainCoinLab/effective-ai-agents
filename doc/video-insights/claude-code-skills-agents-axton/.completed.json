@@ -1,0 +1,12 @@
+{
+  "completed_at": "2026-05-14T07:46:59.356434+00:00",
+  "status": "已提炼",
+  "segment_count": 569,
+  "required_files": {
+    "readme": true,
+    "structured": true,
+    "mindmap": true,
+    "useful": true,
+    "experience": true
+  }
+}

@@ -1,0 +1,5 @@
+name = "ai-learn"
+compatibility_date = "2026-05-15"
+
+[assets]
+directory = "doc/agent-best-practices/_book"

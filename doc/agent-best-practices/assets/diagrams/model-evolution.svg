@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">大模型结构演进</title>
+  <desc id="desc">从统计语言模型、CNN、RNN、Attention 到 Transformer 和现代大语言模型的发展路径。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f4ed; }
+      .card { fill: #ffffff; stroke: #d8d1c3; stroke-width: 2; }
+      .title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .label { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #425466; }
+      .year { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #7a4f18; }
+      .arrow { stroke: #2f5d62; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .accent1 { fill: #dce8e6; }
+      .accent2 { fill: #f4dfbc; }
+      .accent3 { fill: #e5e0f0; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="360"/>
+  <text class="title" x="48" y="52">大模型结构演进：从局部特征到全局上下文</text>
+
+  <g transform="translate(48 96)">
+    <rect class="card" width="152" height="170" rx="14"/>
+    <circle class="accent2" cx="36" cy="38" r="20"/>
+    <text class="year" x="20" y="43">早期</text>
+    <text class="label" x="22" y="82">统计语言模型</text>
+    <text class="body" x="22" y="116">根据前几个词</text>
+    <text class="body" x="22" y="140">预测下一个词</text>
+  </g>
+
+  <path class="arrow" d="M214 181 H276"/>
+
+  <g transform="translate(290 96)">
+    <rect class="card" width="152" height="170" rx="14"/>
+    <rect class="accent1" x="22" y="22" width="48" height="48" rx="10"/>
+    <text class="year" x="31" y="52">CNN</text>
+    <text class="label" x="22" y="82">卷积网络</text>
+    <text class="body" x="22" y="116">擅长局部特征</text>
+    <text class="body" x="22" y="140">并行、参数共享</text>
+  </g>
+
+  <path class="arrow" d="M456 181 H518"/>
+
+  <g transform="translate(532 96)">
+    <rect class="card" width="152" height="170" rx="14"/>
+    <circle class="accent3" cx="46" cy="46" r="24"/>
+    <text class="year" x="30" y="51">RNN</text>
+    <text class="label" x="22" y="82">循环网络</text>
+    <text class="body" x="22" y="116">按顺序读文本</text>
+    <text class="body" x="22" y="140">历史压缩成状态</text>
+  </g>
+
+  <path class="arrow" d="M698 181 H760"/>
+
+  <g transform="translate(774 96)">
+    <rect class="card" width="152" height="170" rx="14"/>
+    <path d="M26 46 C48 18, 82 18, 104 46 C82 74, 48 74, 26 46 Z" fill="#f7d9d2"/>
+    <circle cx="65" cy="46" r="9" fill="#b85c48"/>
+    <text class="label" x="22" y="82">Attention</text>
+    <text class="body" x="22" y="116">直接关注相关位置</text>
+    <text class="body" x="22" y="140">缓解长距离依赖</text>
+  </g>
+
+  <path class="arrow" d="M940 181 H1002"/>
+
+  <g transform="translate(1016 96)">
+    <rect class="card" width="152" height="170" rx="14"/>
+    <rect class="accent1" x="24" y="24" width="80" height="42" rx="10"/>
+    <text class="year" x="37" y="51">2017+</text>
+    <text class="label" x="22" y="82">Transformer</text>
+    <text class="body" x="22" y="116">自注意力建模全局</text>
+    <text class="body" x="22" y="140">支撑现代 LLM</text>
+  </g>
+
+  <text class="body" x="48" y="318">工程含义：模型越强，越需要管理上下文、评测输出、控制工具副作用，并建立反馈闭环。</text>
+</svg>

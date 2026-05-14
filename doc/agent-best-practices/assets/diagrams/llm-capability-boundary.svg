@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">大模型能力边界</title>
+  <desc id="desc">展示大模型擅长的能力、典型边界关键词，以及需要工程系统补位的部分。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#586f7c"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f8f4; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52616b; }
+      .panel-good { fill: #edf6f1; stroke: #76a98c; stroke-width: 2; }
+      .panel-risk { fill: #fff1e5; stroke: #d18a42; stroke-width: 2; }
+      .panel-system { fill: #eef2fa; stroke: #8298c4; stroke-width: 2; }
+      .panel-key { fill: #ffffff; stroke: #d4d0c4; stroke-width: 2; }
+      .head { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2e3a; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #3e4f5d; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b6972; }
+      .pill { fill: #ffffff; stroke-width: 1.5; }
+      .pill-good { stroke: #8ab89d; }
+      .pill-risk { stroke: #db9b5c; }
+      .pill-system { stroke: #8fa3cc; }
+      .keyword { fill: #fbfaf6; stroke: #cfc7b7; stroke-width: 1.5; }
+      .keyword-hot { fill: #fff6ec; stroke: #d69a5e; stroke-width: 1.5; }
+      .keyword-blue { fill: #f2f5fb; stroke: #8fa3cc; stroke-width: 1.5; }
+      .keywordText { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #27343e; }
+      .keywordSmall { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #61717a; }
+      .arrow { stroke: #586f7c; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="48" y="50">大模型能力边界：强在上下文推理，稳在工程补位</text>
+  <text class="subtitle" x="48" y="78">模型根据上下文预测输出；角色、证据和顺序会影响概率分布，但事实、权限、状态和恢复要交给工程系统。</text>
+
+  <g transform="translate(48 116)">
+    <rect class="panel-good" width="330" height="300" rx="18"/>
+    <text class="head" x="26" y="44">适合交给模型</text>
+    <text class="small" x="26" y="70">上下文充分时的强项</text>
+
+    <rect class="pill pill-good" x="24" y="94" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="116">语言理解、改写、总结、翻译</text>
+    <rect class="pill pill-good" x="24" y="138" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="160">归纳、推理、计划、候选方案</text>
+    <rect class="pill pill-good" x="24" y="182" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="204">代码阅读、解释、草拟和修正</text>
+    <rect class="pill pill-good" x="24" y="226" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="248">任务拆解、角色扮演、工具选择</text>
+  </g>
+
+  <path class="arrow" d="M394 266 H458"/>
+
+  <g transform="translate(472 116)">
+    <rect class="panel-risk" width="330" height="300" rx="18"/>
+    <text class="head" x="26" y="44">不能单独依赖模型</text>
+    <text class="small" x="26" y="70">概率系统的典型风险</text>
+
+    <rect class="pill pill-risk" x="24" y="94" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="116">实时事实、精确事实、权威事实</text>
+    <rect class="pill pill-risk" x="24" y="138" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="160">精确计算、边界条件、格式细节</text>
+    <rect class="pill pill-risk" x="24" y="182" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="204">权限决策、身份判断、安全边界</text>
+    <rect class="pill pill-risk" x="24" y="226" width="282" height="32" rx="16"/>
+    <text class="body" x="42" y="248">长期记忆、长链路、一致状态</text>
+  </g>
+
+  <path class="arrow" d="M818 266 H882"/>
+
+  <g transform="translate(896 116)">
+    <rect class="panel-system" width="256" height="300" rx="18"/>
+    <text class="head" x="24" y="44">工程系统补位</text>
+    <text class="small" x="24" y="70">让输出可控、可测、可恢复</text>
+
+    <rect class="pill pill-system" x="22" y="94" width="208" height="32" rx="16"/>
+    <text class="body" x="38" y="116">RAG / 搜索 / 数据库</text>
+    <rect class="pill pill-system" x="22" y="138" width="208" height="32" rx="16"/>
+    <text class="body" x="38" y="160">计算器 / 测试 / 规则引擎</text>
+    <rect class="pill pill-system" x="22" y="182" width="208" height="32" rx="16"/>
+    <text class="body" x="38" y="204">权限 / 审计 / 人工确认</text>
+    <rect class="pill pill-system" x="22" y="226" width="208" height="32" rx="16"/>
+    <text class="body" x="38" y="248">状态机 / Trace / 回滚</text>
+  </g>
+
+  <g transform="translate(48 454)">
+    <rect class="panel-key" width="1104" height="214" rx="18"/>
+    <text class="head" x="26" y="42">能力边界关键词</text>
+    <text class="small" x="26" y="68">这些关键词解释为什么要做 Prompt、上下文、记忆、评测和工具管控。</text>
+
+    <rect class="keyword-blue" x="26" y="92" width="168" height="72" rx="14"/>
+    <text class="keywordText" x="46" y="120">上下文依赖</text>
+    <text class="keywordSmall" x="46" y="145">推理强，前提是材料足够</text>
+
+    <rect class="keyword-hot" x="212" y="92" width="168" height="72" rx="14"/>
+    <text class="keywordText" x="232" y="120">上下文焦虑</text>
+    <text class="keywordSmall" x="232" y="145">塞太多会稀释重点</text>
+
+    <rect class="keyword-hot" x="398" y="92" width="168" height="72" rx="14"/>
+    <text class="keywordText" x="418" y="120">迷失中间</text>
+    <text class="keywordSmall" x="418" y="145">长上下文中段易被忽略</text>
+
+    <rect class="keyword" x="584" y="92" width="168" height="72" rx="14"/>
+    <text class="keywordText" x="604" y="120">能力锯齿</text>
+    <text class="keywordSmall" x="604" y="145">难题会做，简单题也会错</text>
+
+    <rect class="keyword" x="770" y="92" width="134" height="72" rx="14"/>
+    <text class="keywordText" x="790" y="120">随机性</text>
+    <text class="keywordSmall" x="790" y="145">输出不是天然稳定</text>
+
+    <rect class="keyword-blue" x="922" y="92" width="154" height="72" rx="14"/>
+    <text class="keywordText" x="942" y="120">角色概率偏置</text>
+    <text class="keywordSmall" x="942" y="145">角色会影响输出倾向</text>
+  </g>
+
+  <text class="body" x="48" y="716">判断原则：模型负责生成候选和解释，确定性系统负责事实来源、权限边界、状态一致性、验证和外部副作用。</text>
+</svg>

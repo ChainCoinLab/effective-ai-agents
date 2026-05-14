@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "docs:build": "honkit build doc/agent-best-practices \"$PWD/doc/agent-best-practices/_book\" && node scripts/postbuild-agent-search.js",
+    "docs:serve": "honkit serve doc/agent-best-practices",
+    "deploy:worker": "npm run docs:build && npx wrangler deploy",
+    "video:batch": "python3 tools/video_insights_batch.py"
+  },
+  "devDependencies": {
+    "honkit": "^6.1.7"
+  }
+}

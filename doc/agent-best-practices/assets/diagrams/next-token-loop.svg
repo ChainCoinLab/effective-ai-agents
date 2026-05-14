@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">大模型 next-token 预测循环</title>
+  <desc id="desc">展示上下文经过 tokenizer、embedding、Transformer、概率分布和解码策略生成输出，再回到上下文继续预测。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#315f72"/>
+    </marker>
+    <style>
+      .bg { fill: #f6f8fb; }
+      .box { fill: #ffffff; stroke: #cbd8e3; stroke-width: 2; }
+      .box2 { fill: #eef6f4; stroke: #8fb7ac; stroke-width: 2; }
+      .box3 { fill: #fff3db; stroke: #d0a24b; stroke-width: 2; }
+      .title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #18232d; }
+      .head { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #445766; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5c6f7a; }
+      .arrow { stroke: #315f72; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #8a6d3b; stroke-width: 3; fill: none; stroke-dasharray: 8 8; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="430"/>
+  <text class="title" x="48" y="52">大模型工作原理：逐 token 的概率预测循环</text>
+
+  <g transform="translate(48 100)">
+    <rect class="box2" width="180" height="115" rx="14"/>
+    <text class="head" x="22" y="36">上下文</text>
+    <text class="body" x="22" y="68">系统指令、用户输入</text>
+    <text class="body" x="22" y="92">历史、检索、工具结果</text>
+  </g>
+
+  <path class="arrow" d="M240 158 H306"/>
+
+  <g transform="translate(320 100)">
+    <rect class="box" width="160" height="115" rx="14"/>
+    <text class="head" x="22" y="36">Tokenizer</text>
+    <text class="body" x="22" y="68">文本切成 token</text>
+    <text class="small" x="22" y="92">字、词片段、符号</text>
+  </g>
+
+  <path class="arrow" d="M492 158 H558"/>
+
+  <g transform="translate(572 100)">
+    <rect class="box" width="180" height="115" rx="14"/>
+    <text class="head" x="22" y="36">Embedding</text>
+    <text class="body" x="22" y="68">token 转向量</text>
+    <text class="small" x="22" y="92">加入位置信息</text>
+  </g>
+
+  <path class="arrow" d="M764 158 H830"/>
+
+  <g transform="translate(844 100)">
+    <rect class="box2" width="220" height="115" rx="14"/>
+    <text class="head" x="22" y="36">Transformer</text>
+    <text class="body" x="22" y="68">self-attention 建模关系</text>
+    <text class="small" x="22" y="92">输出候选 token 概率</text>
+  </g>
+
+  <path class="arrow" d="M954 225 V272"/>
+
+  <g transform="translate(814 286)">
+    <rect class="box3" width="280" height="90" rx="14"/>
+    <text class="head" x="22" y="34">概率分布 + 解码</text>
+    <text class="body" x="22" y="62">temperature / top-p / top-k</text>
+  </g>
+
+  <path class="arrow" d="M800 331 H704"/>
+
+  <g transform="translate(512 286)">
+    <rect class="box" width="180" height="90" rx="14"/>
+    <text class="head" x="22" y="34">选出下一个 token</text>
+    <text class="body" x="22" y="62">加入已生成文本</text>
+  </g>
+
+  <path class="loop" d="M512 332 C350 332, 168 298, 138 226"/>
+
+  <text class="body" x="48" y="405">关键点：模型不是一次性输出完整答案，而是在上下文中不断预测下一个 token；上下文和解码参数都会改变结果。</text>
+</svg>

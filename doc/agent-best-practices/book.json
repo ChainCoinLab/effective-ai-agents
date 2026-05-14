@@ -1,0 +1,9 @@
+{
+  "title": "Agent 最佳工程实践",
+  "description": "Agent engineering best practices in GitBook style.",
+  "language": "zh-hans",
+  "structure": {
+    "readme": "README.md",
+    "summary": "SUMMARY.md"
+  }
+}

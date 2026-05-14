@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+doc/agent-best-practices/_book/
+
+# Local caches and temporary outputs
+.cache/
+output/
+.venv*/
+*.log
+
+# Large raw media generated while analyzing videos
+doc/video-insights/**/raw/*.mp4
+doc/video-insights/**/raw/*.m4a
+doc/video-insights/**/raw/*.m4s
+doc/video-insights/**/raw/*.mov
+doc/video-insights/**/raw/*.wav
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
