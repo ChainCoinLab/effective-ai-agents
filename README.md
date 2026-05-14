@@ -39,4 +39,6 @@ Workers 静态资源目录由 `wrangler.toml` 指定为 `doc/agent-best-practice
 
 ## 部署到 GitHub Pages
 
-仓库包含 `.github/workflows/pages.yml`。推送到 `master` 后，GitHub Actions 会自动构建 HonKit，并把 `doc/agent-best-practices/_book` 发布到 GitHub Pages。
+仓库包含 `.github/workflows/pages.yml`。GitHub Pages 需要公开仓库，或账号计划支持私有仓库 Pages。
+
+满足条件后，在 GitHub Actions 里手动运行 `Deploy HonKit to GitHub Pages`，它会构建 HonKit，并把 `doc/agent-best-practices/_book` 发布到 GitHub Pages。
