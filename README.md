@@ -36,3 +36,7 @@ npm run deploy:worker
 ```
 
 Workers 静态资源目录由 `wrangler.toml` 指定为 `doc/agent-best-practices/_book`。
+
+## 部署到 GitHub Pages
+
+仓库包含 `.github/workflows/pages.yml`。推送到 `master` 后，GitHub Actions 会自动构建 HonKit，并把 `doc/agent-best-practices/_book` 发布到 GitHub Pages。
