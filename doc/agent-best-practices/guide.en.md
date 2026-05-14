@@ -2,7 +2,7 @@
 
 Language: [中文](guide.zh.md) | [English](guide.en.md)
 
-This guide links 50 core agent engineering practices plus focused extensions by functional module. Each practice has a dedicated page with the rule, rationale, optimization points, verification method, and references.
+This guide links 50 core agent engineering practices by functional module. Each practice has a dedicated page with the rule, rationale, optimization points, verification method, and references.
 
 ## How To Use
 
@@ -31,7 +31,7 @@ This guide links 50 core agent engineering practices plus focused extensions by 
 | 05 | Make outputs machine-checkable | Outputs should be validated by schemas, parsers, or rules. | [05](01-prompt-instruction/05-machine-checkable-output.md) |
 | 06 | Separate instructions, context, and user input | Prevent user input or external context from overriding system rules. | [06](01-prompt-instruction/06-separate-instructions-context-input.md) |
 | 07 | Use a few high-quality examples | Examples should cover normal, boundary, refusal, and failure cases. | [07](01-prompt-instruction/07-use-few-high-quality-examples.md) |
-| 08 | Split prompts by task | Separate prompts make behavior easier to test and debug. | [08](01-prompt-instruction/08-split-prompts.md) |
+| 08 | Split prompts by task | Separate prompts make behavior easier to test; prompts guide working memory and do not rewrite long-term parameters. | [08](01-prompt-instruction/08-split-prompts.md) |
 
 ## 02. Context Engineering And RAG
 
@@ -52,7 +52,7 @@ This guide links 50 core agent engineering practices plus focused extensions by 
 
 | No. | Practice | Core Rule | File |
 | --- | --- | --- | --- |
-| 19 | Separate short-term context, long-term memory, and business state | Conversation, preferences, and task state need different stores. | [19](03-memory-state/19-memory-context-state-boundaries.md) |
+| 19 | Separate short-term context, long-term memory, and business state | Conversation windows, summaries, retrieval memory, structured memory, and task state need different stores. | [19](03-memory-state/19-memory-context-state-boundaries.md) |
 | 20 | Define a memory write policy | Store only stable, explicit, authorized facts or preferences. | [20](03-memory-state/20-memory-write-policy.md) |
 | 21 | Make memory updateable and deletable | Corrections, revocation, and privacy deletion must work. | [21](03-memory-state/21-memory-update-delete.md) |
 | 22 | Store source and timestamp with memory | Memory needs source, time, confidence, and scope. | [22](03-memory-state/22-memory-source-timestamp.md) |
@@ -68,12 +68,11 @@ This guide links 50 core agent engineering practices plus focused extensions by 
 | 27 | Let the application enforce permissions | The model proposes intent; deterministic code enforces permissions and audit. | [27](04-tools-agents/27-intent-vs-permission.md) |
 | 28 | Confirm high-risk actions | Publishing, payment, deletion, and configuration changes need confirmation. | [28](04-tools-agents/28-confirm-high-risk-actions.md) |
 | 29 | Treat tool failure as a normal path | Timeouts, empty results, and permission failures need recovery behavior. | [29](04-tools-agents/29-tool-failure-normal-path.md) |
-| 30 | Prefer workflows before autonomous agents | Do not use autonomous agents when fixed workflows are enough. | [30](04-tools-agents/30-workflow-before-agent.md) |
+| 30 | Prefer workflows before autonomous agents | Fixed flows, long-text loops, and multi-module collaboration should be workflowed before agents handle dynamic judgment. | [30](04-tools-agents/30-workflow-before-agent.md) |
 | 31 | Define multi-agent ownership boundaries | Each agent needs clear input, output, and responsibility. | [31](04-tools-agents/31-multi-agent-boundaries.md) |
 | 32 | Multi-agent systems need verification | More roles are not the goal; independent verification is. | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Pass structured handoff context | Handoffs should include goal, evidence, constraints, and open checks. | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Make agent traces replayable | Tool inputs, outputs, and key decisions must be traceable and reproducible. | [34](04-tools-agents/34-replayable-agent-traces.md) |
-| 34A | Engineer long-text repeated execution as a loop | Long-text tasks need chunking, state, observations, circuit breakers, validation, and closure reports. | [34A](04-tools-agents/34a-long-text-repeated-execution-loop.md) |
 
 ## 05. Testing, Evaluation, And Verification
 

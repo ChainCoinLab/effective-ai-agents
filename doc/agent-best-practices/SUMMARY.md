@@ -59,8 +59,6 @@
   * [32. 多 Agent 的核心是测试和验证](04-tools-agents/32-multi-agent-test-verification.md)
   * [33. Agent handoff 要传结构化上下文](04-tools-agents/33-structured-handoff-context.md)
   * [34. Agent 轨迹要可回放](04-tools-agents/34-replayable-agent-traces.md)
-  * [34A. 长文本多轮执行要工程化闭环](04-tools-agents/34a-long-text-repeated-execution-loop.md)
-  * [34B. RAG、MCP、Agent、Skill 要工程化协作](04-tools-agents/34b-rag-mcp-agent-skill-collaboration.md)
 * [05. 测试、评测与验证](05-evaluation-verification/README.md)
   * [35. AI 系统需要扩展测试金字塔](05-evaluation-verification/35-extended-test-pyramid.md)
   * [36. Eval 数据集覆盖真实分布和边界](05-evaluation-verification/36-eval-data-real-boundary.md)

@@ -37,7 +37,7 @@
 | 05 | 输出格式要机器可校验 | 输出应能被 schema、解析器或规则自动检查。 | [05](01-prompt-instruction/05-machine-checkable-output.md) |
 | 06 | 分隔指令、上下文和用户输入 | 防止用户输入或外部上下文污染系统规则。 | [06](01-prompt-instruction/06-separate-instructions-context-input.md) |
 | 07 | 少量高质量示例优于大量松散示例 | 示例要覆盖典型、边界、拒答和失败情况。 | [07](01-prompt-instruction/07-use-few-high-quality-examples.md) |
-| 08 | 为不同任务拆分 Prompt | 不同任务用不同 Prompt，便于测试和定位问题。 | [08](01-prompt-instruction/08-split-prompts.md) |
+| 08 | 为不同任务拆分 Prompt | 不同任务用不同 Prompt；Prompt 只引导当前工作记忆，不改写长期认知或参数。 | [08](01-prompt-instruction/08-split-prompts.md) |
 
 ## 02. 上下文工程与 RAG
 
@@ -58,7 +58,7 @@
 
 | 编号 | 实践点 | 核心规则 | 文件 |
 | --- | --- | --- | --- |
-| 19 | 区分短期上下文、长期记忆和业务状态 | 会话、偏好、任务状态应分层管理。 | [19](03-memory-state/19-memory-context-state-boundaries.md) |
+| 19 | 区分短期上下文、长期记忆和业务状态 | 会话、摘要、检索记忆、结构化记忆和任务状态应分层管理。 | [19](03-memory-state/19-memory-context-state-boundaries.md) |
 | 20 | 记忆应有写入规则 | 只写稳定、明确、授权的事实或偏好。 | [20](03-memory-state/20-memory-write-policy.md) |
 | 21 | 记忆应可更新和删除 | 用户纠正、撤销和隐私删除应生效。 | [21](03-memory-state/21-memory-update-delete.md) |
 | 22 | 记忆要带来源和时间戳 | 记忆需要来源、时间、置信度和适用范围。 | [22](03-memory-state/22-memory-source-timestamp.md) |
@@ -74,13 +74,11 @@
 | 27 | 模型只提出调用意图，应用负责权限 | 权限、执行和审计由确定性系统控制。 | [27](04-tools-agents/27-intent-vs-permission.md) |
 | 28 | 高风险动作应确认 | 发布、付款、删除等动作需要人工确认。 | [28](04-tools-agents/28-confirm-high-risk-actions.md) |
 | 29 | 工具失败是正常路径 | 超时、空结果、权限失败都要有恢复策略。 | [29](04-tools-agents/29-tool-failure-normal-path.md) |
-| 30 | 优先 workflow，再升级 Agent | 固定流程能解决的问题不应过早使用自主 Agent。 | [30](04-tools-agents/30-workflow-before-agent.md) |
+| 30 | 优先 workflow，再升级 Agent | 固定流程、长文本多轮任务和多模块协作应先工作流化，再让 Agent 处理动态判断。 | [30](04-tools-agents/30-workflow-before-agent.md) |
 | 31 | 多 Agent 要有明确职责边界 | 每个 Agent 都要有清晰输入、输出和责任范围。 | [31](04-tools-agents/31-multi-agent-boundaries.md) |
 | 32 | 多 Agent 的核心是测试和验证 | 多 Agent 不是角色越多越好，关键是验证。 | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Agent handoff 要传结构化上下文 | 交接应传目标、证据、约束和待验证问题。 | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Agent 轨迹要可回放 | 工具输入输出和关键决策要可追踪、可复现。 | [34](04-tools-agents/34-replayable-agent-traces.md) |
-| 34A | 长文本多轮执行要工程化闭环 | 长文本任务要分块、记录状态、处理 observation、熔断、验证和结单。 | [34A](04-tools-agents/34a-long-text-repeated-execution-loop.md) |
-| 34B | RAG、MCP、Agent、Skill 要工程化协作 | 明确职责边界、调用链路、权限控制和验证方式，让模块围绕同一个任务状态协作。 | [34B](04-tools-agents/34b-rag-mcp-agent-skill-collaboration.md) |
 
 ## 05. 测试、评测与验证
 
