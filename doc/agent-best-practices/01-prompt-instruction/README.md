@@ -1,4 +1,4 @@
-# 提示词与 Instruction
+# 提示词与指令实践
 
 [返回全局摘要](../README.md)
 
@@ -14,4 +14,3 @@
 - [06. 分隔指令、上下文和用户输入](06-separate-instructions-context-input.md)
 - [07. 少量高质量示例优于大量松散示例](07-use-few-high-quality-examples.md)
 - [08. 为不同任务拆分 Prompt](08-split-prompts.md)
-

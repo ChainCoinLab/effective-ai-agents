@@ -1,6 +1,6 @@
 # 给模型明确退出路径
 
-[返回全局摘要](../README.md) · [返回本组：提示词与 Instruction](README.md)
+[返回全局摘要](../README.md) · [返回本组：提示词与指令](README.md)
 
 
 ## Rule
@@ -26,4 +26,4 @@
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：提示词与 Instruction](README.md)
+[返回全局摘要](../README.md) · [返回本组：提示词与指令](README.md)

@@ -21,4 +21,4 @@ Agent 系统的问题常发生在长链路中。没有可回放轨迹，就难�
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：工具调用与多 Agent](README.md)
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)

@@ -1,6 +1,7 @@
 {
   "name": "effective-ai-agents",
   "scripts": {
+    "build": "npm run docs:build",
     "docs:build": "honkit build doc/agent-best-practices \"$PWD/doc/agent-best-practices/_book\" && node scripts/postbuild-agent-search.js",
     "docs:serve": "honkit serve doc/agent-best-practices",
     "deploy:worker": "npm run docs:build && npx wrangler deploy",

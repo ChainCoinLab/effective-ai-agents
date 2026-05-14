@@ -1,6 +1,6 @@
 # 34A. 长文本多轮执行要工程化闭环
 
-[返回全局摘要](../README.md) · [返回本组：工具调用与多 Agent](README.md)
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)
 
 ## Status
 Recommended
@@ -188,4 +188,4 @@ Observation 的目标是让模型知道“上一轮为什么失败、失败在�
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：工具调用与多 Agent](README.md)
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)

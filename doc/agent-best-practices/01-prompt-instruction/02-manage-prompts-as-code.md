@@ -1,6 +1,6 @@
 # 把 Prompt 当作代码管理
 
-[返回全局摘要](../README.md) · [返回本组：提示词与 Instruction](README.md)
+[返回全局摘要](../README.md) · [返回本组：提示词与指令](README.md)
 
 
 ## Rule
@@ -59,4 +59,4 @@ Prompt 会直接改变系统行为。缺少版本和测试时，线上质量回�
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：提示词与 Instruction](README.md)
+[返回全局摘要](../README.md) · [返回本组：提示词与指令](README.md)

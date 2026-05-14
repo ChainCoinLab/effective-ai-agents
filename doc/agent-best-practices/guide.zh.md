@@ -2,25 +2,31 @@
 
 语言：[中文](guide.zh.md) | [English](guide.en.md)
 
-这份指南按功能模块串联 50 个 Agent 工程主实践和专题扩展。每个实践点都有独立页面，包含规则、原因、优化方向、验证方式和参考资料。
+这份指南先整理 AI 工程基础知识与原理，再串联 Agent 工程实践和专题扩展。基础页解释概念边界，实践页沉淀规则、原因、优化方向、验证方式和参考资料。
 
 ## 使用方式
 
 - 快速浏览：阅读本文件，按模块找到相关实践点。
 - 深入执行：点击单点文件，查看 `Rule`、`Why`、`Optimize`、`Verify`。
 
-## 00. 大模型与 Agent 基础
+## 00. AI 大模型与 Agent 基础原理
 
 | 主题 | 核心结论 | 文件 |
 | --- | --- | --- |
-| 大模型与 Agent 基础总览 | 大模型是概率预测机器，AI 工程的目标是把它包进可控、可测、可恢复的软件系统。 | [00](00-llm-basics/README.md) |
-| 大模型的发展历史 | 从统计语言模型、CNN、RNN、Attention 到 Transformer。 | [00.1](00-llm-basics/llm-history.md) |
-| Agent 的发展历史 | 从 Prompt 优化，到上下文、记忆、工具、角色、恢复和长时间运行。 | [00.2](00-llm-basics/agent-history.md) |
-| Transformer 的工作原理 | 解释 token、向量、位置编码、Q/K/V、注意力、next-token 预测。 | [00.3](00-llm-basics/transformer-principles.md) |
-| 上下文重放与记忆 | 多轮对话是每轮重新传入上下文，不是模型拥有持续记忆。 | [00.4](00-llm-basics/memory-context-replay.md) |
-| 大模型能力边界 | 解释上下文依赖、上下文焦虑、迷失中间、能力锯齿、随机性和角色概率偏置。 | [00.5](00-llm-basics/capability-boundary.md) |
+| AI 大模型与 Agent 基础原理总览 | 进入实践前先理解大模型、Agent 及相关工程模块的基础原理。 | [00](00-llm-basics/README.md) |
+| 大模型基础 | 解释大模型是什么、如何演变而来，以及它的能力边界。 | [00.1](00-llm-basics/llm-fundamentals.md) |
+| Transformer 的工作原理 | 解释 token、向量、位置编码、Q/K/V、注意力、next-token 预测。 | [00.2](00-llm-basics/transformer-principles.md) |
+| 上下文与上下文窗口 | 上下文是本轮模型实际看到的内容，窗口越大不等于效果越好。 | [00.3](00-llm-basics/context-window-basics.md) |
+| 提示词与指令基础 | Prompt 提供任务和上下文，Instruction 提供规则、边界和输出约束。 | [00.4](00-llm-basics/prompt-instruction-basics.md) |
+| Agent 概念与原理 | 解释 Agent 是什么、如何演进而来，以及为什么需要工具、记忆、状态和恢复机制。 | [00.5](00-llm-basics/agent-principles.md) |
+| MCP 概念与原理 | MCP 用标准协议暴露资源、工具和提示模板。 | [00.6](00-llm-basics/mcp-principles.md) |
+| Skill 概念与原理 | Skill 把专项任务的流程、工具用法和质量标准沉淀成可复用能力包。 | [00.7](00-llm-basics/skill-principles.md) |
+| RAG 概念与原理 | RAG 先检索证据，再把证据放入上下文辅助生成。 | [00.8](00-llm-basics/rag-principles.md) |
+| 记忆基础 | 记忆是应用保存并重新注入的事实或偏好，不是模型天然拥有的能力。 | [00.9](00-llm-basics/memory-basics.md) |
+| 状态管理基础 | 状态应由确定性系统管理，而不是只放在自然语言历史里。 | [00.10](00-llm-basics/state-management-basics.md) |
+| 工具调用基础 | 工具调用让模型提出动作意图，由应用校验权限并执行真实动作。 | [00.11](00-llm-basics/tool-calling-basics.md) |
 
-## 01. 提示词与 Instruction
+## 01. 提示词与指令实践
 
 | 编号 | 实践点 | 核心规则 | 文件 |
 | --- | --- | --- | --- |
@@ -59,7 +65,7 @@
 | 23 | 敏感信息不应默认进入长期记忆 | 隐私、密钥和商业数据默认不长期保存。 | [23](03-memory-state/23-sensitive-info-memory.md) |
 | 24 | 任务状态用确定性系统管理 | 流程进度、审批和工具结果不应只放在自然语言里。 | [24](03-memory-state/24-deterministic-task-state.md) |
 
-## 04. 工具调用与多 Agent
+## 04. MCP、工具调用与多 Agent
 
 | 编号 | 实践点 | 核心规则 | 文件 |
 | --- | --- | --- | --- |
@@ -74,6 +80,7 @@
 | 33 | Agent handoff 要传结构化上下文 | 交接应传目标、证据、约束和待验证问题。 | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Agent 轨迹要可回放 | 工具输入输出和关键决策要可追踪、可复现。 | [34](04-tools-agents/34-replayable-agent-traces.md) |
 | 34A | 长文本多轮执行要工程化闭环 | 长文本任务要分块、记录状态、处理 observation、熔断、验证和结单。 | [34A](04-tools-agents/34a-long-text-repeated-execution-loop.md) |
+| 34B | RAG、MCP、Agent、Skill 要工程化协作 | 明确职责边界、调用链路、权限控制和验证方式，让模块围绕同一个任务状态协作。 | [34B](04-tools-agents/34b-rag-mcp-agent-skill-collaboration.md) |
 
 ## 05. 测试、评测与验证
 

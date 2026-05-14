@@ -21,4 +21,4 @@ Category: tools-agents
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：工具调用与多 Agent](README.md)
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)

@@ -1,8 +1,8 @@
-# 工具调用与多 Agent
+# MCP、工具调用与多 Agent
 
 [返回全局摘要](../README.md)
 
-本模块关注工具接口、权限边界、失败处理、多 Agent 分工和轨迹回放。目标是让 Agent 的行动具备可控性、可验证性和可恢复性。
+本模块关注工具接口、权限边界、失败处理、多 Agent 分工、轨迹回放，以及 RAG、MCP、Agent、Skill 的工程化协作。目标是让 Agent 的行动具备可控性、可验证性和可恢复性。
 
 ## 实践点
 
@@ -17,3 +17,4 @@
 - [33. Agent handoff 要传结构化上下文](33-structured-handoff-context.md)
 - [34. Agent 轨迹要可回放](34-replayable-agent-traces.md)
 - [34A. 长文本多轮执行要工程化闭环](34a-long-text-repeated-execution-loop.md)
+- [34B. RAG、MCP、Agent、Skill 要工程化协作](34b-rag-mcp-agent-skill-collaboration.md)

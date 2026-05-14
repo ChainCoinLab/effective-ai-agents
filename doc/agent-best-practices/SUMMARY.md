@@ -4,18 +4,24 @@
 * [中文总览](guide.zh.md)
 * [English Guide](guide.en.md)
 
-## 开篇基础
+## 基础知识与原理
 
-* [00. 大模型与 Agent 基础](00-llm-basics/README.md)
-  * [00.1 大模型的发展历史](00-llm-basics/llm-history.md)
-  * [00.2 Agent 的发展历史](00-llm-basics/agent-history.md)
-  * [00.3 Transformer 的工作原理](00-llm-basics/transformer-principles.md)
-  * [00.4 上下文重放与记忆](00-llm-basics/memory-context-replay.md)
-  * [00.5 大模型能力边界](00-llm-basics/capability-boundary.md)
+* [00. AI 大模型与 Agent 基础原理](00-llm-basics/README.md)
+  * [00.1 大模型基础](00-llm-basics/llm-fundamentals.md)
+  * [00.2 Transformer 的工作原理](00-llm-basics/transformer-principles.md)
+  * [00.3 上下文与上下文窗口](00-llm-basics/context-window-basics.md)
+  * [00.4 提示词与指令基础](00-llm-basics/prompt-instruction-basics.md)
+  * [00.5 Agent 概念与原理](00-llm-basics/agent-principles.md)
+  * [00.6 MCP 概念与原理](00-llm-basics/mcp-principles.md)
+  * [00.7 Skill 概念与原理](00-llm-basics/skill-principles.md)
+  * [00.8 RAG 概念与原理](00-llm-basics/rag-principles.md)
+  * [00.9 记忆基础](00-llm-basics/memory-basics.md)
+  * [00.10 状态管理基础](00-llm-basics/state-management-basics.md)
+  * [00.11 工具调用基础](00-llm-basics/tool-calling-basics.md)
 
 ## 实践模块
 
-* [01. 提示词与 Instruction](01-prompt-instruction/README.md)
+* [01. 提示词与指令实践](01-prompt-instruction/README.md)
   * [01. 先定义成功标准，再写 Prompt](01-prompt-instruction/01-define-success-before-prompt.md)
   * [02. 把 Prompt 当作代码管理](01-prompt-instruction/02-manage-prompts-as-code.md)
   * [03. 把业务 SOP 转成可执行步骤](01-prompt-instruction/03-convert-sop-to-executable-steps.md)
@@ -42,7 +48,7 @@
   * [22. 记忆要带来源和时间戳](03-memory-state/22-memory-source-timestamp.md)
   * [23. 敏感信息不应默认进入长期记忆](03-memory-state/23-sensitive-info-memory.md)
   * [24. 任务状态用确定性系统管理](03-memory-state/24-deterministic-task-state.md)
-* [04. 工具调用与多 Agent](04-tools-agents/README.md)
+* [04. MCP、工具调用与多 Agent](04-tools-agents/README.md)
   * [25. 工具接口要小而清晰](04-tools-agents/25-small-clear-tool-interfaces.md)
   * [26. 工具描述要写清何时不用](04-tools-agents/26-tool-description-when-not-to-use.md)
   * [27. 模型只提出调用意图，应用负责权限](04-tools-agents/27-intent-vs-permission.md)
@@ -54,6 +60,7 @@
   * [33. Agent handoff 要传结构化上下文](04-tools-agents/33-structured-handoff-context.md)
   * [34. Agent 轨迹要可回放](04-tools-agents/34-replayable-agent-traces.md)
   * [34A. 长文本多轮执行要工程化闭环](04-tools-agents/34a-long-text-repeated-execution-loop.md)
+  * [34B. RAG、MCP、Agent、Skill 要工程化协作](04-tools-agents/34b-rag-mcp-agent-skill-collaboration.md)
 * [05. 测试、评测与验证](05-evaluation-verification/README.md)
   * [35. AI 系统需要扩展测试金字塔](05-evaluation-verification/35-extended-test-pyramid.md)
   * [36. Eval 数据集覆盖真实分布和边界](05-evaluation-verification/36-eval-data-real-boundary.md)

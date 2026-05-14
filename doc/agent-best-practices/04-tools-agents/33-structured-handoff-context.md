@@ -21,4 +21,4 @@ handoff 传结构化上下文，不只传聊天记录。
 
 ---
 
-[返回全局摘要](../README.md) · [返回本组：工具调用与多 Agent](README.md)
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)

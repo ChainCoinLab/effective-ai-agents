@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">多轮对话中的上下文装配流水线</title>
+  <desc id="desc">展示应用层如何从系统指令、历史消息、长期记忆、检索证据、工具结果和任务状态中筛选信息，组装成本轮上下文，再发送给大模型。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#2f6f73"/>
+    </marker>
+    <linearGradient id="contextFill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4fbfa"/>
+      <stop offset="1" stop-color="#e9f2ff"/>
+    </linearGradient>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #263238; letter-spacing: 0; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #60706f; }
+      .section { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #2f3d40; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5c6a6d; }
+      .tiny { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #68787a; }
+      .mono { font: 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #3d4c50; }
+      .source { fill: #ffffff; stroke: #d8ddd6; stroke-width: 2; }
+      .sourceAccent { fill: #dfeee9; }
+      .stage { fill: #f1f7f6; stroke: #a8c6c0; stroke-width: 2; }
+      .stageNum { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #2f6f73; }
+      .context { fill: url(#contextFill); stroke: #5e8fa3; stroke-width: 2.4; }
+      .model { fill: #27363a; stroke: #27363a; stroke-width: 2; }
+      .modelText { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #fffaf0; }
+      .modelSmall { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #d4e4e2; }
+      .arrow { stroke: #2f6f73; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .softArrow { stroke: #9bb8b2; stroke-width: 2; fill: none; marker-end: url(#arrow); opacity: .65; }
+      .rule { stroke: #d6ddd9; stroke-width: 1.5; }
+      .chip { fill: #fff5dc; stroke: #e5ca83; stroke-width: 1.5; }
+      .chipText { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #665324; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+
+  <text class="title" x="52" y="56">多轮对话不是模型自动记住，而是应用每轮重新装配上下文</text>
+  <text class="subtitle" x="52" y="84">应用层从多个信息源取数，筛选、压缩、排序后，形成本轮发送给大模型的 context package。</text>
+
+  <g transform="translate(52 128)">
+    <text class="section" x="0" y="0">信息来源</text>
+
+    <g transform="translate(0 28)">
+      <rect class="source" width="270" height="66" rx="12"/>
+      <rect class="sourceAccent" x="0" y="0" width="8" height="66" rx="4"/>
+      <text class="small" x="24" y="28">系统指令 / 开发者规则</text>
+      <text class="tiny" x="24" y="50">边界、角色、输出格式、工具权限</text>
+    </g>
+
+    <g transform="translate(0 110)">
+      <rect class="source" width="270" height="66" rx="12"/>
+      <rect class="sourceAccent" x="0" y="0" width="8" height="66" rx="4"/>
+      <text class="small" x="24" y="28">历史消息</text>
+      <text class="tiny" x="24" y="50">近期对话、当前用户输入</text>
+    </g>
+
+    <g transform="translate(0 192)">
+      <rect class="source" width="270" height="66" rx="12"/>
+      <rect class="sourceAccent" x="0" y="0" width="8" height="66" rx="4"/>
+      <text class="small" x="24" y="28">长期记忆</text>
+      <text class="tiny" x="24" y="50">用户偏好、项目背景、稳定事实</text>
+    </g>
+
+    <g transform="translate(0 274)">
+      <rect class="source" width="270" height="66" rx="12"/>
+      <rect class="sourceAccent" x="0" y="0" width="8" height="66" rx="4"/>
+      <text class="small" x="24" y="28">检索证据 / RAG</text>
+      <text class="tiny" x="24" y="50">文档片段、chunk_id、来源引用</text>
+    </g>
+
+    <g transform="translate(0 356)">
+      <rect class="source" width="270" height="66" rx="12"/>
+      <rect class="sourceAccent" x="0" y="0" width="8" height="66" rx="4"/>
+      <text class="small" x="24" y="28">工具结果与任务状态</text>
+      <text class="tiny" x="24" y="50">API 返回、审批进度、trace</text>
+    </g>
+  </g>
+
+  <g transform="translate(385 156)">
+    <text class="section" x="0" y="-28">应用层上下文装配</text>
+
+    <rect class="stage" x="0" y="0" width="250" height="82" rx="16"/>
+    <text class="stageNum" x="22" y="32">01</text>
+    <text class="small" x="62" y="32">选择相关信息</text>
+    <text class="tiny" x="62" y="55">按任务、权限、时效性筛选</text>
+
+    <rect class="stage" x="0" y="112" width="250" height="82" rx="16"/>
+    <text class="stageNum" x="22" y="144">02</text>
+    <text class="small" x="62" y="144">压缩与去重</text>
+    <text class="tiny" x="62" y="167">摘要历史，去掉重复和噪声</text>
+
+    <rect class="stage" x="0" y="224" width="250" height="82" rx="16"/>
+    <text class="stageNum" x="22" y="256">03</text>
+    <text class="small" x="62" y="256">排序与分隔</text>
+    <text class="tiny" x="62" y="279">规则、证据、用户输入分层放置</text>
+
+    <rect class="stage" x="0" y="336" width="250" height="82" rx="16"/>
+    <text class="stageNum" x="22" y="368">04</text>
+    <text class="small" x="62" y="368">记录可回放快照</text>
+    <text class="tiny" x="62" y="391">保存 context_id、来源和工具结果</text>
+  </g>
+
+  <path class="softArrow" d="M330 189 C352 189, 356 197, 378 197"/>
+  <path class="softArrow" d="M330 271 C356 271, 352 268, 378 268"/>
+  <path class="softArrow" d="M330 353 C356 353, 352 316, 378 316"/>
+  <path class="softArrow" d="M330 435 C356 435, 352 374, 378 374"/>
+  <path class="softArrow" d="M330 517 C356 517, 352 528, 378 528"/>
+
+  <path class="arrow" d="M650 366 C694 366, 700 366, 742 366"/>
+
+  <g transform="translate(760 128)">
+    <text class="section" x="0" y="0">本轮 Context Package</text>
+    <rect class="context" x="0" y="28" width="300" height="410" rx="20"/>
+
+    <text class="mono" x="26" y="70">system_rules</text>
+    <line class="rule" x1="26" y1="86" x2="274" y2="86"/>
+    <text class="tiny" x="26" y="110">不可被用户输入或外部文档覆盖</text>
+
+    <text class="mono" x="26" y="150">retrieved_evidence</text>
+    <line class="rule" x1="26" y1="166" x2="274" y2="166"/>
+    <text class="tiny" x="26" y="190">chunk_id: policy_003, source, score</text>
+
+    <text class="mono" x="26" y="230">memory_slice</text>
+    <line class="rule" x1="26" y1="246" x2="274" y2="246"/>
+    <text class="tiny" x="26" y="270">只注入和当前任务相关的记忆</text>
+
+    <text class="mono" x="26" y="310">tool_observations</text>
+    <line class="rule" x1="26" y1="326" x2="274" y2="326"/>
+    <text class="tiny" x="26" y="350">结构化状态、错误类型、下一步建议</text>
+
+    <text class="mono" x="26" y="390">current_user_input</text>
+    <line class="rule" x1="26" y1="406" x2="274" y2="406"/>
+  </g>
+
+  <path class="arrow" d="M1074 366 C1108 366, 1112 366, 1138 366"/>
+
+  <g transform="translate(1084 300)">
+    <rect class="model" x="70" y="0" width="86" height="132" rx="24"/>
+    <circle cx="113" cy="42" r="21" fill="#fffaf0"/>
+    <path d="M105 36 L105 49 L122 42 Z" fill="#27363a"/>
+    <text class="modelText" x="92" y="86">LLM</text>
+    <text class="modelSmall" x="80" y="108">生成本轮输出</text>
+  </g>
+
+  <g transform="translate(52 610)">
+    <rect class="chip" x="0" y="0" width="214" height="40" rx="20"/>
+    <text class="chipText" x="20" y="25">不是模型天然记忆</text>
+    <rect class="chip" x="236" y="0" width="210" height="40" rx="20"/>
+    <text class="chipText" x="256" y="25">是应用层重组上下文</text>
+    <rect class="chip" x="468" y="0" width="218" height="40" rx="20"/>
+    <text class="chipText" x="488" y="25">历史太长需要压缩</text>
+    <rect class="chip" x="708" y="0" width="246" height="40" rx="20"/>
+    <text class="chipText" x="728" y="25">状态和工具结果要可回放</text>
+  </g>
+</svg>
