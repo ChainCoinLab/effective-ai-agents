@@ -1,0 +1,8 @@
+node_modules/
+doc/agent-best-practices/_book/
+doc/video-insights/
+.cache/
+output/
+.venv*/
+*.log
+.DS_Store

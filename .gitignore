@@ -21,3 +21,4 @@ doc/video-insights/**/raw/*.wav
 .DS_Store
 .idea/
 .vscode/
+.vercel
