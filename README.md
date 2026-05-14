@@ -1,6 +1,6 @@
-# AI Learn
+# Effective AI Agents
 
-AI 工程学习笔记与 Agent 最佳实践文档。
+Agent 工程最佳实践文档。
 
 ## 本地构建
 
