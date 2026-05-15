@@ -15,13 +15,13 @@ English: [Agent Engineering Best Practices Guide](guide.en.md)
 
 ## 开篇基础
 
-先读 [AI 大模型与 Agent 基础原理](00-llm-basics/README.md)，理解大模型、Transformer、上下文、提示词、Agent、MCP、Skill、RAG、记忆、状态和工具调用这些基础模块。再进入后面的实践章节，学习如何把这些模块工程化协作起来。
+先读 [AI 大模型与 Agent 基础原理](00-llm-basics/README.md)，理解大模型、Transformer、上下文、提示词、Agent、MCP/工具调用、Skill、RAG、记忆和状态这些基础模块。再进入后面的实践章节，学习如何把这些模块工程化协作起来。
 
 ## 功能模块
 
 | 模块 | 范围 | 重点 |
 | --- | --- | --- |
-| [AI 大模型与 Agent 基础原理](00-llm-basics/README.md) | 00 | 大模型、Transformer、上下文、提示词与指令、Agent、MCP、Skill、RAG、记忆、状态、工具调用 |
+| [AI 大模型与 Agent 基础原理](00-llm-basics/README.md) | 00 | 大模型、Transformer、上下文、提示词与指令、Agent、MCP/工具调用、Skill、RAG、记忆、状态 |
 | [提示词与指令实践](01-prompt-instruction/README.md) | 01-08 | 成功标准、Prompt 版本化、结构化输出、退出路径、工作记忆边界 |
 | [上下文工程与 RAG](02-context-rag/README.md) | 09-18 | 检索、chunk、引用、注入防护、上下文观测 |
 | [记忆与状态管理](03-memory-state/README.md) | 19-24 | 短期上下文、长期记忆、混合记忆架构、业务状态、隐私边界 |

@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">MCP 与工具调用泳道图</title>
+  <desc id="desc">展示用户、Agent、模型、MCP Client、MCP Server 和外部工具之间的分工与消息流。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#276b63"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#3d6d99"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#a67624"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #253437; letter-spacing: 0; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #60706f; }
+      .laneHeader { fill: #26383d; }
+      .laneHeaderText { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #fffaf0; letter-spacing: 0; }
+      .lane { fill: #ffffff; stroke: #d8e0dd; stroke-width: 1.5; }
+      .laneAlt { fill: #f7fbfa; stroke: #d8e0dd; stroke-width: 1.5; }
+      .step { fill: #ffffff; stroke: #b9ccc6; stroke-width: 2; }
+      .stepModel { fill: #edf6ff; stroke: #94b7d3; stroke-width: 2; }
+      .stepTool { fill: #fff7df; stroke: #dfc06f; stroke-width: 2; }
+      .stepTitle { font: 700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #26383d; letter-spacing: 0; }
+      .stepText { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5f6d6e; }
+      .mono { font: 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #3c4d50; }
+      .arrow { stroke: #276b63; stroke-width: 2.8; fill: none; marker-end: url(#arrow); }
+      .arrowBlue { stroke: #3d6d99; stroke-width: 2.8; fill: none; marker-end: url(#arrowBlue); }
+      .arrowGold { stroke: #a67624; stroke-width: 2.8; fill: none; marker-end: url(#arrowGold); }
+      .return { stroke-dasharray: 7 7; }
+      .seq { fill: #276b63; }
+      .seqText { font: 700 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+      .note { fill: #fff7df; stroke: #dfc06f; stroke-width: 1.5; }
+      .noteText { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5f522c; }
+      .noteStrong { font: 700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #59491f; }
+      .divider { stroke: #d8e0dd; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1280" height="760"/>
+  <text class="title" x="48" y="54">MCP 与工具调用泳道图</text>
+  <text class="subtitle" x="48" y="82">每一列是一个角色；模型只生成工具调用意图，外部工具执行后把结果返回给模型，模型再加工成最终回复。</text>
+
+  <g transform="translate(48 118)">
+    <rect class="laneHeader" x="0" y="0" width="176" height="42" rx="10"/>
+    <rect class="laneHeader" x="196" y="0" width="176" height="42" rx="10"/>
+    <rect class="laneHeader" x="392" y="0" width="176" height="42" rx="10"/>
+    <rect class="laneHeader" x="588" y="0" width="176" height="42" rx="10"/>
+    <rect class="laneHeader" x="784" y="0" width="176" height="42" rx="10"/>
+    <rect class="laneHeader" x="980" y="0" width="176" height="42" rx="10"/>
+
+    <text class="laneHeaderText" x="64" y="27">用户</text>
+    <text class="laneHeaderText" x="248" y="27">Agent / Host</text>
+    <text class="laneHeaderText" x="456" y="27">大模型</text>
+    <text class="laneHeaderText" x="626" y="27">MCP Client</text>
+    <text class="laneHeaderText" x="824" y="27">MCP Server</text>
+    <text class="laneHeaderText" x="1016" y="27">外部工具/API</text>
+
+    <rect class="lane" x="0" y="58" width="176" height="500" rx="14"/>
+    <rect class="laneAlt" x="196" y="58" width="176" height="500" rx="14"/>
+    <rect class="lane" x="392" y="58" width="176" height="500" rx="14"/>
+    <rect class="laneAlt" x="588" y="58" width="176" height="500" rx="14"/>
+    <rect class="lane" x="784" y="58" width="176" height="500" rx="14"/>
+    <rect class="laneAlt" x="980" y="58" width="176" height="500" rx="14"/>
+
+    <line class="divider" x1="0" y1="166" x2="1156" y2="166"/>
+    <line class="divider" x1="0" y1="282" x2="1156" y2="282"/>
+    <line class="divider" x1="0" y1="398" x2="1156" y2="398"/>
+
+    <g transform="translate(18 88)">
+      <rect class="step" width="140" height="72" rx="10"/>
+      <text class="stepTitle" x="14" y="24">提出问题</text>
+      <text class="stepText" x="14" y="46">北京今天</text>
+      <text class="stepText" x="14" y="62">会下雨吗？</text>
+    </g>
+
+    <g transform="translate(214 88)">
+      <rect class="step" width="140" height="72" rx="10"/>
+      <text class="stepTitle" x="14" y="24">接收目标</text>
+      <text class="stepText" x="14" y="46">准备上下文</text>
+      <text class="stepText" x="14" y="62">选择可用 MCP</text>
+    </g>
+
+    <g transform="translate(214 198)">
+      <rect class="step" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">注入工具定义</text>
+      <text class="stepText" x="14" y="46">告诉模型：</text>
+      <text class="stepText" x="14" y="62">有哪些工具</text>
+    </g>
+
+    <g transform="translate(410 198)">
+      <rect class="stepModel" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">判断要用工具</text>
+      <text class="stepText" x="14" y="46">生成 tool call</text>
+      <text class="mono" x="14" y="64">{name,args}</text>
+    </g>
+
+    <g transform="translate(606 198)">
+      <rect class="step" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">校验与转发</text>
+      <text class="stepText" x="14" y="46">权限 / 参数</text>
+      <text class="mono" x="14" y="64">tools/call</text>
+    </g>
+
+    <g transform="translate(802 198)">
+      <rect class="step" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">执行适配</text>
+      <text class="stepText" x="14" y="46">调用后端服务</text>
+      <text class="stepText" x="14" y="62">转换返回格式</text>
+    </g>
+
+    <g transform="translate(998 198)">
+      <rect class="stepTool" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">真实执行</text>
+      <text class="stepText" x="14" y="46">天气 API</text>
+      <text class="stepText" x="14" y="62">数据库 / 文件</text>
+    </g>
+
+    <g transform="translate(802 314)">
+      <rect class="step" width="140" height="70" rx="10"/>
+      <text class="stepTitle" x="14" y="24">返回工具结果</text>
+      <text class="stepText" x="14" y="46">observation</text>
+      <text class="mono" x="14" y="62">小雨, 18C</text>
+    </g>
+
+    <g transform="translate(606 314)">
+      <rect class="step" width="140" height="70" rx="10"/>
+      <text class="stepTitle" x="14" y="24">回填结果</text>
+      <text class="stepText" x="14" y="46">记录 trace</text>
+      <text class="stepText" x="14" y="62">交给模型</text>
+    </g>
+
+    <g transform="translate(410 314)">
+      <rect class="stepModel" width="140" height="70" rx="10"/>
+      <text class="stepTitle" x="14" y="24">加工结果</text>
+      <text class="stepText" x="14" y="46">基于 observation</text>
+      <text class="stepText" x="14" y="62">生成回答</text>
+    </g>
+
+    <g transform="translate(214 430)">
+      <rect class="step" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">交付回复</text>
+      <text class="stepText" x="14" y="46">可记录审计</text>
+      <text class="stepText" x="14" y="62">可继续下一步</text>
+    </g>
+
+    <g transform="translate(18 430)">
+      <rect class="step" width="140" height="76" rx="10"/>
+      <text class="stepTitle" x="14" y="24">收到回答</text>
+      <text class="stepText" x="14" y="46">今天小雨</text>
+      <text class="stepText" x="14" y="62">建议带伞</text>
+    </g>
+
+    <path class="arrow" d="M158 124 H214"/>
+    <path class="arrowBlue" d="M284 160 V198"/>
+    <path class="arrowBlue" d="M354 236 H410"/>
+    <path class="arrowBlue" d="M550 236 H606"/>
+    <path class="arrowBlue" d="M746 236 H802"/>
+    <path class="arrowGold" d="M942 236 H998"/>
+    <path class="arrowGold return" d="M998 352 H942"/>
+    <path class="arrowBlue return" d="M802 352 H746"/>
+    <path class="arrowBlue return" d="M606 352 H550"/>
+    <path class="arrow" d="M410 352 C382 352 382 468 354 468"/>
+    <path class="arrow" d="M214 468 H158"/>
+
+    <g transform="translate(176 116)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">1</text>
+    </g>
+    <g transform="translate(284 180)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">2</text>
+    </g>
+    <g transform="translate(382 236)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">3</text>
+    </g>
+    <g transform="translate(578 236)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">4</text>
+    </g>
+    <g transform="translate(774 236)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">5</text>
+    </g>
+    <g transform="translate(970 236)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">6</text>
+    </g>
+    <g transform="translate(774 352)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">7</text>
+    </g>
+    <g transform="translate(578 352)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">8</text>
+    </g>
+    <g transform="translate(382 410)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-3.5" y="4">9</text>
+    </g>
+    <g transform="translate(176 468)">
+      <circle class="seq" r="12"/>
+      <text class="seqText" x="-6.5" y="4">10</text>
+    </g>
+  </g>
+
+  <g transform="translate(48 704)">
+    <rect class="note" width="1156" height="42" rx="12"/>
+    <text class="noteStrong" x="20" y="26">本质：</text>
+    <text class="noteText" x="62" y="26">不是大模型运行工具并产出真实结果，而是大模型提出调用请求；外部工具执行后返回结果，大模型再基于结果加工成面向用户的回答。</text>
+  </g>
+</svg>

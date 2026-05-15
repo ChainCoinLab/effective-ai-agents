@@ -19,12 +19,11 @@
 | 上下文与上下文窗口 | 上下文是本轮模型实际看到的内容，窗口越大不等于效果越好。 | [00.3](00-llm-basics/context-window-basics.md) |
 | 提示词与指令基础 | Prompt 提供任务和上下文，Instruction 提供规则、边界和输出约束。 | [00.4](00-llm-basics/prompt-instruction-basics.md) |
 | Agent 概念与原理 | 解释 Agent 是什么、如何演进而来，以及为什么需要工具、记忆、状态和恢复机制。 | [00.5](00-llm-basics/agent-principles.md) |
-| MCP 概念与原理 | MCP 用标准协议暴露资源、工具和提示模板。 | [00.6](00-llm-basics/mcp-principles.md) |
+| MCP 与工具调用原理 | Function calling / tool use 不是模型执行代码，而是模型生成调用意图；MCP 用标准协议暴露资源、工具和提示模板。 | [00.6](00-llm-basics/mcp-principles.md) |
 | Skill 概念与原理 | Skill 把专项任务的流程、工具用法和质量标准沉淀成可复用能力包。 | [00.7](00-llm-basics/skill-principles.md) |
 | RAG 概念与原理 | RAG 先检索证据，再把证据放入上下文辅助生成。 | [00.8](00-llm-basics/rag-principles.md) |
 | 记忆基础 | 记忆是应用保存并重新注入的事实或偏好，不是模型天然拥有的能力。 | [00.9](00-llm-basics/memory-basics.md) |
 | 状态管理基础 | 状态应由确定性系统管理，而不是只放在自然语言历史里。 | [00.10](00-llm-basics/state-management-basics.md) |
-| 工具调用基础 | 工具调用让模型提出动作意图，由应用校验权限并执行真实动作。 | [00.11](00-llm-basics/tool-calling-basics.md) |
 
 ## 01. 提示词与指令实践
 

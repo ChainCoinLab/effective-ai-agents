@@ -12,12 +12,11 @@
   * [00.3 上下文与上下文窗口](00-llm-basics/context-window-basics.md)
   * [00.4 提示词与指令基础](00-llm-basics/prompt-instruction-basics.md)
   * [00.5 Agent 概念与原理](00-llm-basics/agent-principles.md)
-  * [00.6 MCP 概念与原理](00-llm-basics/mcp-principles.md)
+  * [00.6 MCP 与工具调用原理](00-llm-basics/mcp-principles.md)
   * [00.7 Skill 概念与原理](00-llm-basics/skill-principles.md)
   * [00.8 RAG 概念与原理](00-llm-basics/rag-principles.md)
   * [00.9 记忆基础](00-llm-basics/memory-basics.md)
   * [00.10 状态管理基础](00-llm-basics/state-management-basics.md)
-  * [00.11 工具调用基础](00-llm-basics/tool-calling-basics.md)
 
 ## 实践模块
 
