@@ -6,3 +6,5 @@
 | --- | --- | ---: | --- |
 | Anthropic 最新分享：Claude Code 提示词缓存的最佳实践 | 已下载、已转写、已提炼 | 183 | `claude-code-prompt-caching-best-practices/` |
 | Claude Code: 从零搭建你的 AI 工作团队（Skills + Agents） | 已提炼 | 569 | `claude-code-skills-agents-axton/` |
+| 面试官：大模型的 function calling 是怎么实现的？ | 已提炼 | 57 | `function-calling-implementation/` |
+| 面试官：Prompt Engineering能真正操控大模型的内在认知吗？ | 已提炼 | 99 | `prompt-engineering-inner-cognition/` |
