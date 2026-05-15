@@ -139,6 +139,9 @@ Context Window 通常由几类内容拼出来：
 - 敏感信息是否被默认排除在长期记忆之外。
 - 冲突记忆是否能根据来源、时间和置信度解释选择。
 
+## Summary
+长任务记忆管理的核心，不是让模型记住所有历史，而是用滑动窗口保持鲜活，用检索记忆精准找回，用递归摘要浓缩精华，并把有限的 Context Window 留给本轮真正需要的信息。
+
 ## References
 - [17. 长上下文要有摘要层、索引层和缓存友好布局](../02-context-rag/17-long-context-summary-and-index-layers.md)
 - [20. 记忆应有写入规则](20-memory-write-policy.md)
