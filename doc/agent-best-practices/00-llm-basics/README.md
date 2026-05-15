@@ -13,7 +13,7 @@
 | [00.1 大模型基础](llm-fundamentals.md) | 大模型本质上是什么，它如何演变而来？ | 模型负责生成候选，工程系统负责事实、权限、状态、执行、验证和恢复。 |
 | [00.2 Transformer 的工作原理](transformer-principles.md) | 现代大模型如何通过 token、向量、Q/K/V 和注意力预测输出？ | Transformer 让模型能高效建模上下文关系，并预测下一个 token。 |
 | [00.3 上下文与上下文窗口](context-window-basics.md) | 模型本轮到底能看到什么？ | 上下文是本轮输入，窗口越大不等于效果越好，关键是相关性、结构和优先级。 |
-| [00.4 提示词与指令基础](prompt-instruction-basics.md) | Prompt 和 Instruction 分别是什么？ | Prompt 提供任务和上下文，Instruction 提供规则、边界和输出约束。 |
+| [00.4 提示词与指令基础](prompt-instruction-basics.md) | Prompt、Instruction 和 System Prompt 的本质、边界和位置是什么？ | 系统提示词定义角色、边界和长期规则；用户输入、记忆、MCP、RAG 和 Skill 分层进入上下文。 |
 | [00.5 Agent 概念与原理](agent-principles.md) | Agent 为什么不只是聊天模型，它如何演进而来？ | Agent 围绕目标规划、调用工具、观察结果并继续执行。 |
 | [00.6 MCP 概念与原理](mcp-principles.md) | 模型如何标准化连接资源和工具？ | MCP 把资源、工具和提示模板统一暴露给 AI 应用或 Agent。 |
 | [00.7 Skill 概念与原理](skill-principles.md) | 经验和流程如何复用？ | Skill 是 Agent 可加载的专项能力包，沉淀流程、工具用法和质量标准。 |
