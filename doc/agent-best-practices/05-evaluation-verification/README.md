@@ -14,4 +14,4 @@
 - [40. 影响输出的变更都要跑回归](40-run-regression-on-changes.md)
 - [41. 验证要包含反例和攻击样例](41-counterexample-attack-samples.md)
 - [42. 把失败分类，而不是只记录失败率](42-failure-taxonomy.md)
-
+- [42A. 可观测性要区分测试驱动和目标驱动](42A-observability-test-goal-driven.md)

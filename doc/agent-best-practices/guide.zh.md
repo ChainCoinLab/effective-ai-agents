@@ -93,6 +93,7 @@
 | 40 | 影响输出的变更都要跑回归 | Prompt、模型、知识库、工具变更都要回归。 | [40](05-evaluation-verification/40-run-regression-on-changes.md) |
 | 41 | 验证要包含反例和攻击样例 | 应覆盖幻觉、注入、越权和泄露风险。 | [41](05-evaluation-verification/41-counterexample-attack-samples.md) |
 | 42 | 把失败分类，而不是只记录失败率 | 失败要按根因分类，才能形成改进路径。 | [42](05-evaluation-verification/42-failure-taxonomy.md) |
+| 42A | 可观测性要区分测试驱动和目标驱动 | 测试驱动看链路是否按设计运行，目标驱动看设计是否真正服务目标。 | [42A](05-evaluation-verification/42A-observability-test-goal-driven.md) |
 
 ## 06. 反馈闭环与迭代
 

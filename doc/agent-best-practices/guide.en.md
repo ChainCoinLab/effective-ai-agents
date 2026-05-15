@@ -87,6 +87,7 @@ This guide links 50 core agent engineering practices by functional module. Each 
 | 40 | Regress every output-affecting change | Prompt, model, knowledge base, and tool changes all need regression tests. | [40](05-evaluation-verification/40-run-regression-on-changes.md) |
 | 41 | Include negative and attack cases | Cover hallucination, injection, privilege escalation, and data leakage. | [41](05-evaluation-verification/41-counterexample-attack-samples.md) |
 | 42 | Classify failures, not just failure rates | Failure taxonomy turns incidents into actionable fixes. | [42](05-evaluation-verification/42-failure-taxonomy.md) |
+| 42A | Separate test-driven and goal-driven observability | Test-driven observation checks whether the chain follows design; goal-driven observation checks whether the design serves the goal. | [42A](05-evaluation-verification/42A-observability-test-goal-driven.md) |
 
 ## 06. Feedback And Iteration
 

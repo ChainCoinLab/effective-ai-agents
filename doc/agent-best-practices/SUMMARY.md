@@ -69,6 +69,7 @@
   * [40. 影响输出的变更都要跑回归](05-evaluation-verification/40-run-regression-on-changes.md)
   * [41. 验证要包含反例和攻击样例](05-evaluation-verification/41-counterexample-attack-samples.md)
   * [42. 把失败分类，而不是只记录失败率](05-evaluation-verification/42-failure-taxonomy.md)
+  * [42A. 可观测性要区分测试驱动和目标驱动](05-evaluation-verification/42A-observability-test-goal-driven.md)
 * [06. 反馈闭环与迭代](06-feedback-iteration/README.md)
   * [43. 生产反馈要进入工程闭环](06-feedback-iteration/43-production-feedback-engineering-loop.md)
   * [44. 建立从失败到改进的闭环流程](06-feedback-iteration/44-failure-to-improvement-loop.md)
