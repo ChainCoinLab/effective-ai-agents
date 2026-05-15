@@ -17,6 +17,13 @@ doc/video-insights/**/raw/*.m4s
 doc/video-insights/**/raw/*.mov
 doc/video-insights/**/raw/*.wav
 
+# Generated image assets from video analysis
+doc/video-insights/**/images/
+doc/video-insights/**/assets/frames/
+doc/video-insights/**/assets/contact_*.jpg
+doc/video-insights/**/assets/contact_*.jpeg
+doc/video-insights/**/assets/contact_*.png
+
 # OS/editor noise
 .DS_Store
 .idea/
