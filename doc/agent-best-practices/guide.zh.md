@@ -2,7 +2,7 @@
 
 语言：[中文](guide.zh.md) | [English](guide.en.md)
 
-这份指南先整理 AI 工程基础知识与原理，再串联 Agent 工程实践和专题扩展。基础页解释概念边界，实践页沉淀规则、原因、优化方向、验证方式和参考资料。
+这份指南先整理 AI 工程基础知识与原理，再串联 Agent 工程实践。基础页解释概念边界，实践页沉淀规则、原因、优化方向、验证方式和参考资料。
 
 ## 使用方式
 
@@ -72,13 +72,13 @@
 | 26 | 工具描述要写清何时不用 | 工具说明应包含使用条件和禁用条件。 | [26](04-tools-agents/26-tool-description-when-not-to-use.md) |
 | 27 | 模型只提出调用意图，应用负责权限 | 权限、执行和审计由确定性系统控制。 | [27](04-tools-agents/27-intent-vs-permission.md) |
 | 28 | 高风险动作应确认 | 发布、付款、删除等动作需要人工确认。 | [28](04-tools-agents/28-confirm-high-risk-actions.md) |
-| 29 | 工具失败是正常路径 | 超时、空结果、权限失败都要有恢复策略。 | [29](04-tools-agents/29-tool-failure-normal-path.md) |
-| 30 | 优先 workflow，再升级 Agent | 固定流程、长文本多轮任务和多模块协作应先工作流化，再让 Agent 处理动态判断。 | [30](04-tools-agents/30-workflow-before-agent.md) |
+| 29 | Agent 调用工具的可靠性解决方案 | 用分层工程链路处理工具定义、选择、校验、确认、失败修复和结果验收。 | [29](04-tools-agents/29-agent-tool-reliability-solution.md) |
+| 30 | 优先 workflow，再升级 Agent | 固定流程和长文本多轮任务应先工作流化，再让 Agent 处理动态判断。 | [30](04-tools-agents/30-workflow-before-agent.md) |
 | 31 | 多 Agent 要有明确职责边界 | 每个 Agent 都要有清晰输入、输出和责任范围。 | [31](04-tools-agents/31-multi-agent-boundaries.md) |
 | 32 | 多 Agent 的核心是测试和验证 | 多 Agent 不是角色越多越好，关键是验证。 | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Agent handoff 要传结构化上下文 | 交接应传目标、证据、约束和待验证问题。 | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Agent 轨迹要可回放 | 工具输入输出和关键决策要可追踪、可复现。 | [34](04-tools-agents/34-replayable-agent-traces.md) |
-| 专题 | 大规模 Skill 工程实现 | 用 Intent Gateway、小模型路由、Skill RAG、动态 Prompt 组装、分身 Agent、缓存和内化管理大量 Skill。 | [专题](04-tools-agents/large-scale-skill-engineering.md) |
+| 专题 | 大量 Skill 共存解决方案 | 用注册、路由、检索、冲突处理和动态组装管理大量 Skill。 | [专题](04-tools-agents/large-scale-skill-engineering.md) |
 
 ## 05. 测试、评测与验证
 

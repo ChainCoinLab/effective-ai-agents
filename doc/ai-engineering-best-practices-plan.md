@@ -607,7 +607,7 @@ Go 可借鉴点：
     优化点：超时、空结果、权限失败、部分成功都要设计响应。验证方式：注入工具错误，检查 Agent 是否能恢复或降级。
 
 30. **优先 workflow，再升级 Agent**  
-    优化点：固定流程、长文本多轮任务、RAG/MCP/Skill/Tool 多模块协作先设计成 workflow；模型只放在需要理解、生成或动态判断的节点。验证方式：比较 workflow 与 autonomous agent 的稳定性、成本和可解释性，检查分块、状态、observation、熔断、权限和结单是否可回放。
+    优化点：固定流程、长文本多轮任务、RAG/MCP/Skill/Tool 多模块协作先设计成 workflow；模型只放在需要理解、生成或动态判断的节点。大量 Skill 场景按“多 Skill 路由与按需装配”处理，解决多个 Skill 同时存在时的候选缩小、相似 Skill 冲突、组合顺序、上下文预算和版本回放问题；通过 Intent Gateway、小模型路由、Skill Registry / Skill RAG、深度检索、JSON manifest 降噪、动态 Prompt 组装、分身 Agent、结果缓存、工具结果缓存和高频 Skill 内化实现按需加载与降本提速。验证方式：比较 workflow 与 autonomous agent 的稳定性、成本和可解释性，检查分块、状态、observation、熔断、权限、结单、小模型路由质量、动态组装质量、缓存有效性和 trace 可回放。
 
 31. **多 Agent 要有明确职责边界**  
     优化点：planner、researcher、coder、reviewer、verifier 等职责不能重叠过多。验证方式：检查任务轨迹中是否出现循环、重复劳动、互相覆盖。
@@ -620,9 +620,6 @@ Go 可借鉴点：
 
 34. **Agent 轨迹要可回放**  
     优化点：记录每一步思路摘要、工具输入输出、决策依据和版本信息。验证方式：失败任务能定位到具体错误步骤。
-
-**专题：大规模 Skill 工程实现**
-    优化点：不要把上百个 Skill 全量塞进 System Prompt；按广度、深度、快慢拆解，通过 Intent Gateway、小模型路由、Skill Registry / Skill RAG、深度检索、JSON manifest 降噪、动态 Prompt 组装、分身 Agent、结果缓存、工具结果缓存和高频 Skill 内化实现按需加载与降本提速。验证方式：检查小模型路由质量、动态组装质量、Skill Top-K 命中率、误加载率、工具误调用率、缓存有效性、内化收益、token 成本、首字延迟和 trace 可回放。
 
 ### 6.5 测试、评测与验证
 

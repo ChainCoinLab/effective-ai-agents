@@ -9,7 +9,7 @@
 ## Why
 过多上下文会稀释关键信息，增加成本、延迟和错误引用概率。
 
-当系统有很多 Skill 时，全量注入 Skill 说明会出现和长文档一样的问题。大规模实现见 [大规模 Skill 工程实现](../04-tools-agents/large-scale-skill-engineering.md)。
+当系统有很多 Skill 时，全量注入 Skill 说明会出现和长文档一样的问题。大规模实现见 [大量 Skill 共存解决方案](../04-tools-agents/large-scale-skill-engineering.md)。
 
 ## Optimize
 - 按任务目标筛选上下文。

@@ -10,7 +10,7 @@
 - [26. 工具描述要写清何时不用](26-tool-description-when-not-to-use.md)
 - [27. 模型只提出调用意图，应用负责权限](27-intent-vs-permission.md)
 - [28. 高风险动作应确认](28-confirm-high-risk-actions.md)
-- [29. 工具失败是正常路径](29-tool-failure-normal-path.md)
+- [29. Agent 调用工具的可靠性解决方案](29-agent-tool-reliability-solution.md)
 - [30. 优先 workflow，再升级 Agent](30-workflow-before-agent.md)
 - [31. 多 Agent 要有明确职责边界](31-multi-agent-boundaries.md)
 - [32. 多 Agent 的核心是测试和验证](32-multi-agent-test-verification.md)
@@ -19,4 +19,4 @@
 
 ## 专题
 
-- [大规模 Skill 工程实现](large-scale-skill-engineering.md)
+- [大量 Skill 共存解决方案](large-scale-skill-engineering.md)

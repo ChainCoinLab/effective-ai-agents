@@ -11,7 +11,7 @@ Prompt 会直接改变系统行为。缺少版本和测试时，线上质量回�
 
 长期规则文件如果过长，模型更难抓住真正优先级，缓存和上下文成本也会变高。更大的问题是：把“怎么做每一步”写进全局规则，会让模型在不同任务中机械套用旧流程。全局规则应强调“不应做什么、必须守住什么边界、默认偏好是什么”；具体步骤应放到 SOP、Skill、工作流或本次任务提示里。
 
-当 Skill 数量很大时，System Prompt 不应内联全部 Skill 说明；具体实现见 [大规模 Skill 工程实现](../04-tools-agents/large-scale-skill-engineering.md)。
+当 Skill 数量很大时，System Prompt 不应内联全部 Skill 说明；具体实现见 [大量 Skill 共存解决方案](../04-tools-agents/large-scale-skill-engineering.md)。
 
 ## Optimize
 - 使用独立文件保存 Prompt，不散落在业务代码中。
@@ -54,7 +54,7 @@ Prompt 会直接改变系统行为。缺少版本和测试时，线上质量回�
 - 审查 `CLAUDE.md` 是否能在几分钟内读完，并能明确区分稳定规则和临时任务。
 - 抽查规则是否以边界和禁区为主，而不是把具体操作步骤写成长篇教程。
 - 检查详细流程是否能在对应 Skill、SOP 或 workflow 中找到，而不是散落在全局规则里。
-- 检查 System Prompt 中是否内联了大量 Skill 全文；如果有，迁移到大规模 Skill 工程方案。
+- 检查 System Prompt 中是否内联了大量 Skill 全文；如果有，迁移到大量 Skill 共存解决方案。
 
 ## References
 - 代码评审流程

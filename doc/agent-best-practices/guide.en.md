@@ -67,13 +67,13 @@ This guide links core agent engineering practices by functional module. Each pra
 | 26 | Describe when not to use a tool | Tool docs must include both use cases and non-use cases. | [26](04-tools-agents/26-tool-description-when-not-to-use.md) |
 | 27 | Let the application enforce permissions | The model proposes intent; deterministic code enforces permissions and audit. | [27](04-tools-agents/27-intent-vs-permission.md) |
 | 28 | Confirm high-risk actions | Publishing, payment, deletion, and configuration changes need confirmation. | [28](04-tools-agents/28-confirm-high-risk-actions.md) |
-| 29 | Treat tool failure as a normal path | Timeouts, empty results, and permission failures need recovery behavior. | [29](04-tools-agents/29-tool-failure-normal-path.md) |
-| 30 | Prefer workflows before autonomous agents | Fixed flows, long-text loops, and multi-module collaboration should be workflowed before agents handle dynamic judgment. | [30](04-tools-agents/30-workflow-before-agent.md) |
+| 29 | Agent tool-call reliability solution | Use a layered engineering chain for tool definition, selection, validation, confirmation, recovery, and result checks. | [29](04-tools-agents/29-agent-tool-reliability-solution.md) |
+| 30 | Prefer workflows before autonomous agents | Fixed flows and long-text loops should be workflowed before agents handle dynamic judgment. | [30](04-tools-agents/30-workflow-before-agent.md) |
 | 31 | Define multi-agent ownership boundaries | Each agent needs clear input, output, and responsibility. | [31](04-tools-agents/31-multi-agent-boundaries.md) |
 | 32 | Multi-agent systems need verification | More roles are not the goal; independent verification is. | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Pass structured handoff context | Handoffs should include goal, evidence, constraints, and open checks. | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Make agent traces replayable | Tool inputs, outputs, and key decisions must be traceable and reproducible. | [34](04-tools-agents/34-replayable-agent-traces.md) |
-| Topic | Large-scale Skill engineering | Use an intent gateway, small-model routing, Skill RAG, dynamic prompt assembly, domain agents, caching, and internalization to manage many Skills. | [Topic](04-tools-agents/large-scale-skill-engineering.md) |
+| Topic | Large-scale Skill coexistence solution | Use registries, routing, retrieval, conflict handling, and dynamic assembly to manage many Skills. | [Topic](04-tools-agents/large-scale-skill-engineering.md) |
 
 ## 05. Testing, Evaluation, And Verification
 

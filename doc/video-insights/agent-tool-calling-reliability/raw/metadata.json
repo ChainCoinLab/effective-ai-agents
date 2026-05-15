@@ -1,0 +1,11 @@
+{
+  "title": "面试官：如何保证 Agent 调用工具 (Function Calling) 的可靠性？",
+  "slug": "agent-tool-calling-reliability",
+  "source": "https://www.bilibili.com/video/BV12rDYBcErz?vd_source=c85d4e6e0005b8d780998fba348f7bdf",
+  "url": "https://www.bilibili.com/video/BV12rDYBcErz",
+  "author": "图灵AI大模型",
+  "published_at": "2026-05-15",
+  "processed_at": "2026-05-15T08:51:25.569436+00:00",
+  "status": "已提炼",
+  "segment_count": 70
+}

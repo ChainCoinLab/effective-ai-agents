@@ -4,6 +4,7 @@
 
 | 视频 | 状态 | 片段数 | 目录 |
 | --- | --- | ---: | --- |
+| 面试官：如何保证 Agent 调用工具 (Function Calling) 的可靠性？ | 已提炼 | 70 | `agent-tool-calling-reliability/` |
 | Anthropic 最新分享：Claude Code 提示词缓存的最佳实践 | 已下载、已转写、已提炼 | 183 | `claude-code-prompt-caching-best-practices/` |
 | Claude Code: 从零搭建你的 AI 工作团队（Skills + Agents） | 已提炼 | 569 | `claude-code-skills-agents-axton/` |
 | 面试官：大模型的 function calling 是怎么实现的？ | 已提炼 | 57 | `function-calling-implementation/` |
