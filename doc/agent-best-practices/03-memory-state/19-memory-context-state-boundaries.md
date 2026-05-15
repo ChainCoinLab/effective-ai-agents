@@ -144,7 +144,6 @@ Context Window 通常由几类内容拼出来：
 - [20. 记忆应有写入规则](20-memory-write-policy.md)
 - [22. 记忆要带来源和时间戳](22-memory-source-timestamp.md)
 - [24. 任务状态用确定性系统管理](24-deterministic-task-state.md)
-- 视频提炼：面试官：Agent 运行久了记忆撑爆了怎么办？ https://www.bilibili.com/video/BV14JAgzcEHd
 
 ---
 

@@ -70,7 +70,6 @@
 - 摘要生成规范
 - 原文引用映射
 - Anthropic: [Lessons from building Claude Code: Prompt caching is everything](https://claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything)
-- Claude Code Prompt Caching 视频提炼：`doc/video-insights/claude-code-prompt-caching-best-practices/notes/mindmap-summary.md`
 
 ---
 
