@@ -622,7 +622,7 @@ Go 可借鉴点：
     优化点：记录每一步思路摘要、工具输入输出、决策依据和版本信息。验证方式：失败任务能定位到具体错误步骤。
 
 **专题：大规模 Skill 工程实现**
-    优化点：不要把上百个 Skill 全量塞进 System Prompt；通过 Intent Gateway、Skill Registry / Skill RAG、动态 Prompt 组装、分身 Agent、缓存和高频模式内化实现按需加载。验证方式：检查 Skill Top-K 命中率、误加载率、工具误调用率、token 成本、首字延迟和 trace 可回放。
+    优化点：不要把上百个 Skill 全量塞进 System Prompt；按广度、深度、快慢拆解，通过 Intent Gateway、小模型路由、Skill Registry / Skill RAG、深度检索、JSON manifest 降噪、动态 Prompt 组装、分身 Agent、结果缓存、工具结果缓存和高频 Skill 内化实现按需加载与降本提速。验证方式：检查小模型路由质量、动态组装质量、Skill Top-K 命中率、误加载率、工具误调用率、缓存有效性、内化收益、token 成本、首字延迟和 trace 可回放。
 
 ### 6.5 测试、评测与验证
 
