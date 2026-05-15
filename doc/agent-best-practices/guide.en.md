@@ -73,6 +73,7 @@ This guide links 50 core agent engineering practices by functional module. Each 
 | 32 | Multi-agent systems need verification | More roles are not the goal; independent verification is. | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Pass structured handoff context | Handoffs should include goal, evidence, constraints, and open checks. | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Make agent traces replayable | Tool inputs, outputs, and key decisions must be traceable and reproducible. | [34](04-tools-agents/34-replayable-agent-traces.md) |
+| Topic | Large-scale Skill engineering | Use an intent gateway, Skill Registry / Skill RAG, dynamic prompt assembly, and domain agents to manage many Skills. | [Topic](04-tools-agents/large-scale-skill-engineering.md) |
 
 ## 05. Testing, Evaluation, And Verification
 

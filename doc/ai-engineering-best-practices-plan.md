@@ -621,6 +621,9 @@ Go 可借鉴点：
 34. **Agent 轨迹要可回放**  
     优化点：记录每一步思路摘要、工具输入输出、决策依据和版本信息。验证方式：失败任务能定位到具体错误步骤。
 
+**专题：大规模 Skill 工程实现**
+    优化点：不要把上百个 Skill 全量塞进 System Prompt；通过 Intent Gateway、Skill Registry / Skill RAG、动态 Prompt 组装、分身 Agent、缓存和高频模式内化实现按需加载。验证方式：检查 Skill Top-K 命中率、误加载率、工具误调用率、token 成本、首字延迟和 trace 可回放。
+
 ### 6.5 测试、评测与验证
 
 35. **AI 系统需要测试金字塔的扩展版**  

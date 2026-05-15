@@ -25,7 +25,7 @@ English: [Agent Engineering Best Practices Guide](guide.en.md)
 | [提示词与指令实践](01-prompt-instruction/README.md) | 01-08 | 成功标准、Prompt 版本化、结构化输出、退出路径、工作记忆边界 |
 | [上下文工程与 RAG](02-context-rag/README.md) | 09-18 | 检索、chunk、引用、注入防护、上下文观测 |
 | [记忆与状态管理](03-memory-state/README.md) | 19-24 | 短期上下文、长期记忆、混合记忆架构、业务状态、隐私边界 |
-| [MCP、工具调用与多 Agent](04-tools-agents/README.md) | 25-34 | 工具接口、权限、高风险确认、workflow 编排、handoff、轨迹回放 |
+| [MCP、工具调用与多 Agent](04-tools-agents/README.md) | 25-34 | 工具接口、权限、高风险确认、workflow 编排、大规模 Skill 管理、handoff、轨迹回放 |
 | [测试、评测与验证](05-evaluation-verification/README.md) | 35-42 | eval 数据、过程测试、LLM-as-judge、攻击样例 |
 | [反馈闭环与迭代](06-feedback-iteration/README.md) | 43-50 | 生产反馈、失败归因、灰度发布、团队规范 |
 

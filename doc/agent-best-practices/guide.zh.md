@@ -79,6 +79,7 @@
 | 32 | 多 Agent 的核心是测试和验证 | 多 Agent 不是角色越多越好，关键是验证。 | [32](04-tools-agents/32-multi-agent-test-verification.md) |
 | 33 | Agent handoff 要传结构化上下文 | 交接应传目标、证据、约束和待验证问题。 | [33](04-tools-agents/33-structured-handoff-context.md) |
 | 34 | Agent 轨迹要可回放 | 工具输入输出和关键决策要可追踪、可复现。 | [34](04-tools-agents/34-replayable-agent-traces.md) |
+| 专题 | 大规模 Skill 工程实现 | 用 Intent Gateway、Skill Registry / Skill RAG、动态 Prompt 组装和分身 Agent 管理大量 Skill。 | [专题](04-tools-agents/large-scale-skill-engineering.md) |
 
 ## 05. 测试、评测与验证
 

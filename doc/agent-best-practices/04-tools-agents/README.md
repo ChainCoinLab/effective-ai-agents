@@ -16,3 +16,7 @@
 - [32. 多 Agent 的核心是测试和验证](32-multi-agent-test-verification.md)
 - [33. Agent handoff 要传结构化上下文](33-structured-handoff-context.md)
 - [34. Agent 轨迹要可回放](34-replayable-agent-traces.md)
+
+## 专题
+
+- [大规模 Skill 工程实现](large-scale-skill-engineering.md)
