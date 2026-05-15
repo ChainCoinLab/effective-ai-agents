@@ -6,7 +6,7 @@
 
 ## 实践点
 
-- [19. 区分短期上下文、长期记忆和业务状态](19-memory-context-state-boundaries.md)
+- [19. 长任务的记忆管理方式](19-memory-context-state-boundaries.md)
 - [20. 记忆应有写入规则](20-memory-write-policy.md)
 - [21. 记忆应可更新和删除](21-memory-update-delete.md)
 - [22. 记忆要带来源和时间戳](22-memory-source-timestamp.md)

@@ -57,7 +57,7 @@
 
 | 编号 | 实践点 | 核心规则 | 文件 |
 | --- | --- | --- | --- |
-| 19 | 区分短期上下文、长期记忆和业务状态 | 会话、摘要、检索记忆、结构化记忆和任务状态应分层管理。 | [19](03-memory-state/19-memory-context-state-boundaries.md) |
+| 19 | 长任务的记忆管理方式 | 长任务记忆要保持上下文鲜活、旧记忆可精准检索、细节可追溯、状态可恢复。 | [19](03-memory-state/19-memory-context-state-boundaries.md) |
 | 20 | 记忆应有写入规则 | 只写稳定、明确、授权的事实或偏好。 | [20](03-memory-state/20-memory-write-policy.md) |
 | 21 | 记忆应可更新和删除 | 用户纠正、撤销和隐私删除应生效。 | [21](03-memory-state/21-memory-update-delete.md) |
 | 22 | 记忆要带来源和时间戳 | 记忆需要来源、时间、置信度和适用范围。 | [22](03-memory-state/22-memory-source-timestamp.md) |

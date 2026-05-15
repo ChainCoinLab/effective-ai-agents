@@ -2,7 +2,7 @@
 
 Language: [中文](guide.zh.md) | [English](guide.en.md)
 
-This guide links 50 core agent engineering practices by functional module. Each practice has a dedicated page with the rule, rationale, optimization points, verification method, and references.
+This guide links core agent engineering practices by functional module. Each practice has a dedicated page with the rule, rationale, optimization points, verification method, and references.
 
 ## How To Use
 
@@ -52,7 +52,7 @@ This guide links 50 core agent engineering practices by functional module. Each 
 
 | No. | Practice | Core Rule | File |
 | --- | --- | --- | --- |
-| 19 | Separate short-term context, long-term memory, and business state | Conversation windows, summaries, retrieval memory, structured memory, and task state need different stores. | [19](03-memory-state/19-memory-context-state-boundaries.md) |
+| 19 | Manage memory for long-running tasks | Long-task memory should keep context fresh, make old memories searchable, preserve evidence, and support recovery. | [19](03-memory-state/19-memory-context-state-boundaries.md) |
 | 20 | Define a memory write policy | Store only stable, explicit, authorized facts or preferences. | [20](03-memory-state/20-memory-write-policy.md) |
 | 21 | Make memory updateable and deletable | Corrections, revocation, and privacy deletion must work. | [21](03-memory-state/21-memory-update-delete.md) |
 | 22 | Store source and timestamp with memory | Memory needs source, time, confidence, and scope. | [22](03-memory-state/22-memory-source-timestamp.md) |

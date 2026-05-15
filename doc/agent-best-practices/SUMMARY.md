@@ -41,7 +41,7 @@
   * [17. 长上下文要有摘要层、索引层和缓存友好布局](02-context-rag/17-long-context-summary-and-index-layers.md)
   * [18. 上下文构造过程应可观测](02-context-rag/18-observable-context-construction.md)
 * [03. 记忆与状态管理](03-memory-state/README.md)
-  * [19. 区分短期上下文、长期记忆和业务状态](03-memory-state/19-memory-context-state-boundaries.md)
+  * [19. 长任务的记忆管理方式](03-memory-state/19-memory-context-state-boundaries.md)
   * [20. 记忆应有写入规则](03-memory-state/20-memory-write-policy.md)
   * [21. 记忆应可更新和删除](03-memory-state/21-memory-update-delete.md)
   * [22. 记忆要带来源和时间戳](03-memory-state/22-memory-source-timestamp.md)
