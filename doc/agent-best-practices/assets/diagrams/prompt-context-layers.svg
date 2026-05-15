@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">提示词、记忆、Skill、MCP 和用户输入在上下文中的位置</title>
+  <desc id="desc">展示 Agent 应用如何把动态用户输入放在上层，把稳定系统提示词放在底层，并组装为模型上下文。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+      .stable { fill: #e0f2fe; stroke: #0284c7; }
+      .tool { fill: #ecfdf5; stroke: #059669; }
+      .memory { fill: #fef3c7; stroke: #d97706; }
+      .dynamic { fill: #f1f5f9; stroke: #64748b; }
+      .task { fill: #fce7f3; stroke: #db2777; }
+      .model { fill: #ede9fe; stroke: #7c3aed; }
+      .title { font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .head { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .body { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .small { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .label { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="960" height="620" />
+  <text class="title" x="48" y="44">一次 Agent 调用中的上下文分层</text>
+  <text class="body" x="48" y="72">越下面越稳定，越上面越动态；稳定底座通常对应请求前缀，更容易复用缓存。</text>
+
+  <rect class="panel" x="44" y="104" width="560" height="432" rx="14" />
+  <text class="head" x="72" y="136">模型输入上下文</text>
+  <text class="small" x="72" y="158">概念图按“地基”画：系统提示词在底部，用户输入在顶部。</text>
+
+  <rect class="task" x="72" y="178" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="202">当前任务 / 用户输入</text>
+  <text class="small" x="282" y="202">本轮目标、材料、临时约束</text>
+
+  <rect class="task" x="72" y="234" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="258">历史消息 / 工具结果</text>
+  <text class="small" x="282" y="258">近期对话、观察结果、临时状态</text>
+
+  <rect class="dynamic" x="72" y="290" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="314">按需 Skill / RAG</text>
+  <text class="small" x="282" y="314">任务方法、检查清单、检索证据</text>
+
+  <rect class="memory" x="72" y="346" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="370">记忆 / 状态</text>
+  <text class="small" x="282" y="370">用户偏好、项目事实、任务进度</text>
+
+  <rect class="tool" x="72" y="402" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="426">MCP / 工具定义</text>
+  <text class="small" x="282" y="426">可读资源、可调用工具、参数和风险等级</text>
+
+  <rect class="stable" x="72" y="458" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="482">开发者 / 项目规则</text>
+  <text class="small" x="282" y="482">仓库约定、长期工程规则、禁区</text>
+
+  <rect class="stable" x="72" y="514" width="504" height="46" rx="8" />
+  <text class="head" x="92" y="538">系统提示词</text>
+  <text class="small" x="282" y="538">身份、边界、权限、输出契约</text>
+
+  <text class="label" x="584" y="202">动态变化</text>
+  <text class="label" x="584" y="538">稳定底座</text>
+  <text class="small" x="584" y="556">适合作为缓存前缀</text>
+
+  <path class="arrow" d="M604 320 C650 320, 650 320, 694 320" />
+  <rect class="model" x="704" y="244" width="204" height="152" rx="18" />
+  <text class="head" x="764" y="288">大模型</text>
+  <text class="body" x="742" y="322">基于上下文</text>
+  <text class="body" x="732" y="348">预测并生成输出</text>
+
+  <path class="arrow" d="M806 396 C806 444, 806 474, 806 520" />
+  <rect class="panel" x="676" y="520" width="260" height="54" rx="12" />
+  <text class="head" x="748" y="544">输出 / 工具意图</text>
+  <text class="small" x="704" y="564">由应用继续校验、执行、记录和回放</text>
+
+  <text class="label" x="48" y="588">关键原则：提示词负责表达规则和意图；权限、状态、工具执行和审计应由应用层保证。</text>
+</svg>
