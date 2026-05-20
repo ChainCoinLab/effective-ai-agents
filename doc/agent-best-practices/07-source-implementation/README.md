@@ -10,11 +10,13 @@
 | --- | --- | --- |
 | [从零使用 Go 语言开发一个 Agent](go-agent-from-zero/README.md) | 从一次 API 调用开始，逐步做出能用工具、能读文件、能做简单任务的单 Agent | 入门源码实现 |
 | [多 Agent 交互与调度](multi-agent-interaction/README.md) | 学主 Agent、子 Agent、消息分发、任务分发、顺序调度和协同汇总 | 多 Agent 工作流 |
+| [从零实现 MCP](mcp-from-zero/README.md) | 分别实现本地 stdio MCP 和 HTTP MCP，并用数据库工具逐步增加能力 | 工具协议与外部系统 |
 
 ## 学习顺序
 
 1. 先学 [从零使用 Go 语言开发一个 Agent](go-agent-from-zero/README.md)，把 API、上下文、tool use、权限校验、文件读取跑通。
 2. 再学 [多 Agent 交互与调度](multi-agent-interaction/README.md)，把 Code Review、Planning、Verification 拆成不同 Agent，并学习主 Agent 如何分发任务。
+3. 最后学 [从零实现 MCP](mcp-from-zero/README.md)，把工具从进程内函数拆成可复用的本地 MCP / HTTP MCP 服务。
 
 ## 本模块的约束
 
