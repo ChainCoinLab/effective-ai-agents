@@ -28,6 +28,7 @@ English: [Agent Engineering Best Practices Guide](guide.en.md)
 | [MCP、工具调用与多 Agent](04-tools-agents/README.md) | 25-34 + 专题 | 工具接口、权限、高风险确认、workflow 编排、Agent 调用工具的可靠性、大量 Skill 共存、handoff、轨迹回放 |
 | [测试、评测与验证](05-evaluation-verification/README.md) | 35-42 | eval 数据、过程测试、LLM-as-judge、攻击样例 |
 | [反馈闭环与迭代](06-feedback-iteration/README.md) | 43-50 | 生产反馈、失败归因、灰度发布、团队规范 |
+| [源码实现](07-source-implementation/README.md) | 07 | Go Agent 源码实现、工具调用、权限校验和文件读取 |
 
 ## 阅读路径
 
