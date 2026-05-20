@@ -102,6 +102,7 @@
     * [06. 顺序调度多个 Agent](07-source-implementation/multi-agent-interaction/06-sequential-dispatch.md)
     * [07. 多 Agent 协同完成 Code Review](07-source-implementation/multi-agent-interaction/07-collaborative-code-review.md)
     * [08. 并行分发和结果合并](07-source-implementation/multi-agent-interaction/08-parallel-merge.md)
+    * [09. 写文章多 Agent 工作流](07-source-implementation/multi-agent-interaction/09-writing-multi-agent-workflow.md)
   * [从零实现 MCP](07-source-implementation/mcp-from-zero/README.md)
     * [01. 本地 stdio MCP Server](07-source-implementation/mcp-from-zero/01-local-stdio-server.md)
     * [02. 本地 MCP：列出数据库表](07-source-implementation/mcp-from-zero/02-local-list-tables.md)

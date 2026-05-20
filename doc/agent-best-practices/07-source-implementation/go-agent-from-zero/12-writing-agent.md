@@ -53,5 +53,6 @@ final := agent.Ask("检查草稿并输出最终稿：" + draft)
 - 接入数据库保存文章。
 - 接入人工审核。
 
-[上一节：11. 连接数据库](11-database-agent.md) · [下一节：13. Coding Agent](13-coding-agent.md)
+如果要把写作升级成多个 Agent 协同，并且让验证结果驱动下一轮修改，继续看 [写文章多 Agent 工作流](../multi-agent-interaction/09-writing-multi-agent-workflow.md)。
 
+[上一节：11. 连接数据库](11-database-agent.md) · [下一节：13. Coding Agent](13-coding-agent.md)

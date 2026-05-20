@@ -18,6 +18,7 @@
 | 06 | [顺序调度多个 Agent](06-sequential-dispatch.md) | 一个任务先交给 A，再交给 B，再汇总 |
 | 07 | [多 Agent 协同完成 Code Review](07-collaborative-code-review.md) | Planner、Reader、Reviewer、Verifier 协同输出最终报告 |
 | 08 | [并行分发和结果合并](08-parallel-merge.md) | 多个子 Agent 同时处理不同文件，再由主 Agent 合并 |
+| 09 | [写文章多 Agent 工作流](09-writing-multi-agent-workflow.md) | Planner、Writer、Verifier、Editor 多轮循环生成文章 |
 
 ## 最终工作场景
 
@@ -37,3 +38,20 @@ Verify Agent 复查结论和证据
 Reporter Agent 汇总最终报告
 ```
 
+## 第二个工作场景：写文章
+
+```text
+用户提交写作任务
+  ↓
+Coordinator Agent 接收任务
+  ↓
+Planner Agent 生成写作计划
+  ↓
+Writer Agent 写草稿
+  ↓
+Verifier Agent 验证质量
+  ↓
+如果有问题，Editor 或 Planner 进入下一轮
+  ↓
+Reporter Agent 输出最终文章
+```
