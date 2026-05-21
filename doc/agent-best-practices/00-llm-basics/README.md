@@ -1,57 +1,54 @@
-# AI 大模型与 Agent 基础原理
+# 大模型本体：由浅入深
 
 [返回全局摘要](../README.md)
 
-这一章是进入工程实践前的基础原理层。目标不是罗列名词，而是解释大模型是什么、它的结构和演变过程是什么、Agent 是什么、Agent 为什么会发展出 MCP/工具调用、记忆、状态、Skill 和 RAG 这些工程模块。
+这一章只讲大模型本体，暂时不展开 Agent、RAG、工具调用和上层应用。写法采用“从一个最小问题出发，然后一层一层推导”的方式：每一节都解释前一个问题为什么不够、下一个概念为什么会被引入，以及它又会带来什么新问题。
 
-后面的实践章节会讲怎么做工程落地；本章先回答“它是什么、解决什么问题、和其他模块的边界在哪里”。
-
-## 推荐阅读顺序
-
-| 页面 | 解决的问题 | 关键结论 |
-| --- | --- | --- |
-| [00.1 大模型基础](llm-fundamentals.md) | 大模型本质上是什么，它如何演变而来？ | 模型负责生成候选，工程系统负责事实、权限、状态、执行、验证和恢复。 |
-| [00.2 Transformer 的工作原理](transformer-principles.md) | 现代大模型如何通过 token、向量、Q/K/V 和注意力预测输出？ | Transformer 让模型能高效建模上下文关系，并预测下一个 token。 |
-| [00.3 上下文与上下文窗口](context-window-basics.md) | 模型本轮到底能看到什么？ | 上下文是本轮输入，窗口越大不等于效果越好，关键是相关性、结构和优先级。 |
-| [00.4 提示词与指令基础](prompt-instruction-basics.md) | Prompt、Instruction 和 System Prompt 的本质、边界和位置是什么？ | 系统提示词定义角色、边界和长期规则；用户输入、记忆、MCP、RAG 和 Skill 分层进入上下文。 |
-| [00.5 Agent 概念与原理](agent-principles.md) | Agent 为什么不只是聊天模型，它如何演进而来？ | Agent 围绕目标规划、调用工具、观察结果并继续执行。 |
-| [00.6 MCP 与工具调用原理](mcp-principles.md) | 模型如何使用外部工具，MCP 如何标准化连接？ | 工具调用不是模型执行代码，而是模型生成调用意图；MCP 把资源、工具和提示模板统一暴露给 AI 应用或 Agent。 |
-| [00.7 Skill 概念与原理](skill-principles.md) | 经验和流程如何复用？ | Skill 是 Agent 可加载的专项能力包，沉淀流程、工具用法和质量标准。 |
-| [00.8 RAG 概念与原理](rag-principles.md) | 模型不知道或容易幻觉怎么办？ | RAG 先检索证据，再把证据放入上下文辅助生成。 |
-| [00.9 记忆基础](memory-basics.md) | 模型如何跨轮次保持连续性？ | 记忆是应用保存并重新注入的事实或偏好，不是模型天然拥有的能力。 |
-| [00.10 状态管理基础](state-management-basics.md) | 长任务流程如何可靠记录？ | 状态应由确定性系统管理，而不是只放在自然语言历史里。 |
-
-## 基础模块之间的关系
+## 总主线
 
 ```text
-用户目标
-  -> Prompt / 指令定义任务边界
-  -> Agent 理解目标并规划路径
-  -> Skill 提供任务方法和质量标准
-  -> MCP 暴露资源、工具和提示模板
-  -> RAG 提供知识证据
-  -> Tool call 表达调用意图，应用执行具体动作
-  -> 记忆和状态维持连续性
-  -> 权限、审计、评测和人审控制风险
+我们想让机器学会一个函数
+→ 简单函数不够
+→ 现实对象要变成向量
+→ 文字要变成 token 和 embedding
+→ 语言模型变成预测下一个 token
+→ 为了理解上下文，引出 Attention
+→ 为了大规模训练，引出 Transformer
+→ 为了让模型有能力，引出预训练
+→ 为了让模型会按指令做事，引出 SFT / RLHF / DPO
+→ 为了让模型跑起来，引出推理机制和 KV Cache
+→ 为了控制输出，引出 temperature / top_p 等参数
+→ 为了判断是否变好，引出评估体系
 ```
 
-MCP、工具调用和 Agent 的分工：
+## 章节框架
 
-- 在模型视角里，function calling / tool use 是结构化调用意图。
-- 在 MCP 视角里，工具是被标准化发现、描述和调用的外部能力。
-- 在 Agent 视角里，工具调用是执行计划时采取的动作，但真正执行由应用或 MCP Server 完成。
+| 章节 | 核心问题 | 推导重点 |
+| --- | --- | --- |
+| [01. 从函数到机器学习](01-function-to-machine-learning.md) | 机器学习最开始到底在学什么？ | 从 `f(x)=y` 推到参数、损失函数、梯度下降和训练。 |
+| [02. 从现实对象到特征向量](02-real-world-to-vectors.md) | 机器怎么处理图片、声音、文字这些现实对象？ | 从“机器只能算数字”推到特征、向量和表示学习。 |
+| [03. 从文字到 token 和 embedding](03-token-and-embedding.md) | 文字怎么变成模型能计算的东西？ | 从编号、one-hot 的不足推到 token、tokenizer 和 embedding。 |
+| [04. 语言模型为什么预测下一个 token](04-next-token-prediction.md) | 为什么大模型的核心任务是 next-token prediction？ | 从语言序列推到条件概率、logits、概率分布和自回归生成。 |
+| [05. 为什么预测下一个 token 会产生能力](05-capability-from-prediction.md) | 只是续写文本，为什么会出现理解、知识和推理？ | 从预测压力推到语法、事实、任务格式和 in-context learning。 |
+| [06. 从上下文问题到 Attention](06-attention-from-context.md) | 模型怎么在长文本里找到相关信息？ | 从 RNN 长距离依赖问题推到 self-attention。 |
+| [07. Transformer 如何一步步形成](07-transformer-architecture.md) | 为什么现代大模型基本建立在 Transformer 上？ | 从 attention 推到多头、位置编码、FFN、残差、归一化和 decoder-only。 |
+| [08. 预训练：模型能力从哪里来](08-pretraining.md) | 大模型为什么能从海量文本里学到能力？ | 从随机参数推到 cross entropy、反向传播、optimizer、数据质量和 scaling law。 |
+| [09. 从续写模型到指令模型](09-instruction-tuning-alignment.md) | 模型怎么从“会续写”变成“会听话”？ | 从预训练不足推到 SFT、RLHF、DPO 和对齐。 |
+| [10. 推理机制：模型如何生成答案](10-inference-mechanism.md) | 模型服务用户时到底怎么生成输出？ | 从 prompt 推到 prefill、decode、KV cache、streaming、长上下文成本。 |
+| [11. 调参：如何控制模型输出](11-decoding-parameters.md) | 为什么同一个 prompt 每次输出可能不同？ | 从概率采样推到 temperature、top_p、top_k、stop、penalty 和 logprobs。 |
+| [12. 校验评估：怎么判断模型真的更好](12-evaluation.md) | 怎么判断模型、prompt 或参数配置是真的提升？ | 从主观体感不足推到 golden dataset、指标、回归测试和线上监控。 |
 
-实践章节会继续展开工具接口、权限、安全确认、失败恢复和轨迹回放。
+## 每节写法
 
-## 进入实践前需要建立的心智模型
+每一节固定按这条链路展开：
 
-AI 工程的核心不是让模型“自由发挥得更聪明”，而是把概率生成能力放进一个可控、可测、可恢复的软件系统里：
+```text
+这一节从什么问题开始
+→ 最朴素的办法是什么
+→ 它为什么不够
+→ 新概念为什么被引入
+→ 这个概念解决了什么
+→ 它又引出下一个什么问题
+```
 
-- 用提示词和指令定义边界。
-- 用上下文和 RAG 提供依据。
-- 用 Skill 沉淀稳定流程。
-- 用 MCP 标准化连接能力和工具调用。
-- 用 Agent 编排任务。
-- 用工具调用表达动作意图，并让确定性系统执行动作。
-- 用记忆和状态维持长期连续。
-- 用权限、评测、trace 和人审控制风险。
+这样读者不会只看到一个个孤立名词，而是能看到知识点之间的前后因果。
