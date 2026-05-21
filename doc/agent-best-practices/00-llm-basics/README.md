@@ -7,17 +7,16 @@
 ## 总主线
 
 ```text
-我们想让机器学会一个函数
+大模型为什么会发展到今天这条路线
+→ 我们想让机器学会一个函数
 → 简单函数不够
 → 现实对象要变成向量
 → 文字要变成 token 和 embedding
 → 语言模型变成预测下一个 token
 → 为了理解上下文，引出 Attention
 → 为了大规模训练，引出 Transformer
-→ 为了让模型有能力，引出预训练
-→ 为了让模型会按指令做事，引出 SFT / RLHF / DPO
-→ 为了让模型跑起来，引出推理机制和 KV Cache
-→ 为了控制输出，引出 temperature / top_p 等参数
+→ 为了让模型有能力并会听指令，引出预训练、SFT、RLHF / DPO
+→ 为了让模型跑起来并可控，引出推理机制、KV Cache 和采样参数
 → 为了判断是否变好，引出评估体系
 ```
 
@@ -25,18 +24,17 @@
 
 | 章节 | 核心问题 | 推导重点 |
 | --- | --- | --- |
-| [01. 从函数到机器学习](01-function-to-machine-learning.md) | 机器学习最开始到底在学什么？ | 从 `f(x)=y` 推到参数、损失函数、梯度下降和训练。 |
-| [02. 从现实对象到特征向量](02-real-world-to-vectors.md) | 机器怎么处理图片、声音、文字这些现实对象？ | 从“机器只能算数字”推到特征、向量和表示学习。 |
-| [03. 从文字到 token 和 embedding](03-token-and-embedding.md) | 文字怎么变成模型能计算的东西？ | 从编号、one-hot 的不足推到 token、tokenizer 和 embedding。 |
-| [04. 语言模型为什么预测下一个 token](04-next-token-prediction.md) | 为什么大模型的核心任务是 next-token prediction？ | 从语言序列推到条件概率、logits、概率分布和自回归生成。 |
-| [05. 为什么预测下一个 token 会产生能力](05-capability-from-prediction.md) | 只是续写文本，为什么会出现理解、知识和推理？ | 从预测压力推到语法、事实、任务格式和 in-context learning。 |
-| [06. 从上下文问题到 Attention](06-attention-from-context.md) | 模型怎么在长文本里找到相关信息？ | 从 RNN 长距离依赖问题推到 self-attention。 |
-| [07. Transformer 如何一步步形成](07-transformer-architecture.md) | 为什么现代大模型基本建立在 Transformer 上？ | 从 attention 推到多头、位置编码、FFN、残差、归一化和 decoder-only。 |
-| [08. 预训练：模型能力从哪里来](08-pretraining.md) | 大模型为什么能从海量文本里学到能力？ | 从随机参数推到 cross entropy、反向传播、optimizer、数据质量和 scaling law。 |
-| [09. 从续写模型到指令模型](09-instruction-tuning-alignment.md) | 模型怎么从“会续写”变成“会听话”？ | 从预训练不足推到 SFT、RLHF、DPO 和对齐。 |
-| [10. 推理机制：模型如何生成答案](10-inference-mechanism.md) | 模型服务用户时到底怎么生成输出？ | 从 prompt 推到 prefill、decode、KV cache、streaming、长上下文成本。 |
-| [11. 调参：如何控制模型输出](11-decoding-parameters.md) | 为什么同一个 prompt 每次输出可能不同？ | 从概率采样推到 temperature、top_p、top_k、stop、penalty 和 logprobs。 |
-| [12. 校验评估：怎么判断模型真的更好](12-evaluation.md) | 怎么判断模型、prompt 或参数配置是真的提升？ | 从主观体感不足推到 golden dataset、指标、回归测试和线上监控。 |
+| [01. 大模型发展历史](01-llm-history.md) | 大模型为什么会走到 Transformer 和 GPT 这条路线？ | 从统计语言模型、RNN、Attention 推到 Transformer、GPT、指令微调和对齐。 |
+| [02. 从函数到机器学习](01-function-to-machine-learning.md) | 机器学习最开始到底在学什么？ | 从 `f(x)=y` 推到参数、损失函数、梯度下降和训练。 |
+| [03. 从现实对象到特征向量](02-real-world-to-vectors.md) | 机器怎么处理图片、声音、文字这些现实对象？ | 从“机器只能算数字”推到特征、向量和表示学习。 |
+| [04. 从文字到 token 和 embedding](03-token-and-embedding.md) | 文字怎么变成模型能计算的东西？ | 从编号、one-hot 的不足推到 token、tokenizer 和 embedding。 |
+| [05. 语言模型为什么预测下一个 token](04-next-token-prediction.md) | 为什么大模型的核心任务是 next-token prediction？ | 从语言序列推到条件概率、logits、概率分布和自回归生成。 |
+| [06. 为什么预测下一个 token 会产生能力](05-capability-from-prediction.md) | 只是续写文本，为什么会出现理解、知识和推理？ | 从预测压力推到语法、事实、任务格式和 in-context learning。 |
+| [07. 从上下文问题到 Attention](06-attention-from-context.md) | 模型怎么在长文本里找到相关信息？ | 从 RNN 长距离依赖问题推到 self-attention。 |
+| [08. Transformer 如何一步步形成](07-transformer-architecture.md) | 为什么现代大模型基本建立在 Transformer 上？ | 从 attention 推到多头、位置编码、FFN、残差、归一化和 decoder-only。 |
+| [09. 训练与对齐：模型能力从哪里来](09-training-and-alignment.md) | 模型怎么获得能力，又怎么从“会续写”变成“会听话”？ | 从预训练推到 SFT、RLHF、DPO、数据质量和 scaling law。 |
+| [10. 推理机制与调参](10-inference-and-parameters.md) | 模型怎么生成答案，又如何控制输出？ | 从 prefill、decode、KV cache 推到 temperature、top_p、stop、logprobs。 |
+| [11. 校验评估：怎么判断模型真的更好](12-evaluation.md) | 怎么判断模型、prompt 或参数配置是真的提升？ | 从主观体感不足推到 golden dataset、指标、回归测试和线上监控。 |
 
 ## 每节写法
 
