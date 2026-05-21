@@ -22,8 +22,18 @@
 
 ## Agent 开发
 
-* [Agent 概念与原理](00-llm-basics/agent-principles.md)
+* [Agent 原理与发展历史](00-llm-basics/agent-principles.md)
 * [Prompt 与指令工程](01-prompt-instruction/README.md)
+* [上下文工程与 RAG](02-context-rag/README.md)
+* [记忆与状态管理](03-memory-state/README.md)
+* [工具调用、MCP 与能力连接](04-tools-agents/README.md)
+* [Agent 工程化与工作流](04-tools-agents/30-workflow-before-agent.md)
+* [安全、调优与测评](05-evaluation-verification/README.md)
+* [反馈闭环与迭代](06-feedback-iteration/README.md)
+
+## Agent 实践点索引
+
+* Prompt 与指令细节
   * [01. 先定义成功标准，再写 Prompt](01-prompt-instruction/01-define-success-before-prompt.md)
   * [02. 把 Prompt 当作代码管理](01-prompt-instruction/02-manage-prompts-as-code.md)
   * [03. 把业务 SOP 转成可执行步骤](01-prompt-instruction/03-convert-sop-to-executable-steps.md)
@@ -32,7 +42,7 @@
   * [06. 分隔指令、上下文和用户输入](01-prompt-instruction/06-separate-instructions-context-input.md)
   * [07. 少量高质量示例优于大量松散示例](01-prompt-instruction/07-use-few-high-quality-examples.md)
   * [08. 为不同任务拆分 Prompt](01-prompt-instruction/08-split-prompts.md)
-* [上下文工程与 RAG](02-context-rag/README.md)
+* 上下文与 RAG 细节
   * [RAG 概念与原理](00-llm-basics/rag-principles.md)
   * [09. 上下文不是越多越好](02-context-rag/09-context-is-not-more-is-better.md)
   * [10. 检索质量和生成质量分开优化](02-context-rag/10-separate-retrieval-and-generation-quality.md)
@@ -44,7 +54,7 @@
   * [16. 对上下文做去重和压缩](02-context-rag/16-deduplicate-and-compress-context.md)
   * [17. 长上下文要有摘要层、索引层和缓存友好布局](02-context-rag/17-long-context-summary-and-index-layers.md)
   * [18. 上下文构造过程应可观测](02-context-rag/18-observable-context-construction.md)
-* [记忆与状态管理](03-memory-state/README.md)
+* 记忆与状态细节
   * [记忆基础](00-llm-basics/memory-basics.md)
   * [状态管理基础](00-llm-basics/state-management-basics.md)
   * [19. 长任务的记忆管理方式](03-memory-state/19-memory-context-state-boundaries.md)
@@ -53,7 +63,7 @@
   * [22. 记忆要带来源和时间戳](03-memory-state/22-memory-source-timestamp.md)
   * [23. 敏感信息不应默认进入长期记忆](03-memory-state/23-sensitive-info-memory.md)
   * [24. 任务状态用确定性系统管理](03-memory-state/24-deterministic-task-state.md)
-* [工具调用、MCP 与多 Agent](04-tools-agents/README.md)
+* 工具、MCP 与多 Agent 细节
   * [MCP 与工具调用原理](00-llm-basics/mcp-principles.md)
   * [Skill 概念与原理](00-llm-basics/skill-principles.md)
   * [25. 工具接口要小而清晰](04-tools-agents/25-small-clear-tool-interfaces.md)
@@ -61,13 +71,12 @@
   * [27. 模型只提出调用意图，应用负责权限](04-tools-agents/27-intent-vs-permission.md)
   * [28. 高风险动作应确认](04-tools-agents/28-confirm-high-risk-actions.md)
   * [29. Agent 调用工具的可靠性解决方案](04-tools-agents/29-agent-tool-reliability-solution.md)
-  * [30. 优先 workflow，再升级 Agent](04-tools-agents/30-workflow-before-agent.md)
   * [31. 多 Agent 要有明确职责边界](04-tools-agents/31-multi-agent-boundaries.md)
   * [32. 多 Agent 的核心是测试和验证](04-tools-agents/32-multi-agent-test-verification.md)
   * [33. Agent handoff 要传结构化上下文](04-tools-agents/33-structured-handoff-context.md)
   * [34. Agent 轨迹要可回放](04-tools-agents/34-replayable-agent-traces.md)
   * [专题：大量 Skill 共存解决方案](04-tools-agents/large-scale-skill-engineering.md)
-* [安全、调优与测评](05-evaluation-verification/README.md)
+* 测试、评测与反馈细节
   * [35. AI 系统需要扩展测试金字塔](05-evaluation-verification/35-extended-test-pyramid.md)
   * [36. Eval 数据集覆盖真实分布和边界](05-evaluation-verification/36-eval-data-real-boundary.md)
   * [37. 不只测最终答案，也测中间过程](05-evaluation-verification/37-test-intermediate-process.md)
@@ -77,7 +86,6 @@
   * [41. 验证要包含反例和攻击样例](05-evaluation-verification/41-counterexample-attack-samples.md)
   * [42. 把失败分类，而不是只记录失败率](05-evaluation-verification/42-failure-taxonomy.md)
   * [42A. 可观测性要区分测试驱动和目标驱动](05-evaluation-verification/42A-observability-test-goal-driven.md)
-* [反馈闭环与迭代](06-feedback-iteration/README.md)
   * [43. 生产反馈要进入工程闭环](06-feedback-iteration/43-production-feedback-engineering-loop.md)
   * [44. 建立从失败到改进的闭环流程](06-feedback-iteration/44-failure-to-improvement-loop.md)
   * [45. 反馈不等于直接训练模型](06-feedback-iteration/45-feedback-not-direct-training.md)
