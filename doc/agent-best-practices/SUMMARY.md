@@ -1,12 +1,12 @@
 # Summary
 
-* [总览：AI 工程知识结构](README.md)
-* [中文速览](guide.zh.md)
-* [English Guide](guide.en.md)
+* [00. 总览：AI 工程知识结构](README.md)
+* [00.1 中文速览](guide.zh.md)
+* [00.2 English Guide](guide.en.md)
 
-## 大模型开发
+## 01. 大模型开发
 
-* [大模型本体：由浅入深](00-llm-basics/README.md)
+* [01. 大模型本体：由浅入深](00-llm-basics/README.md)
   * [01. 从函数到机器学习](00-llm-basics/01-function-to-machine-learning.md)
   * [02. 从现实对象到特征向量](00-llm-basics/02-real-world-to-vectors.md)
   * [03. 从文字到 token 和 embedding](00-llm-basics/03-token-and-embedding.md)
@@ -19,21 +19,23 @@
   * [10. 推理机制：模型如何生成答案](00-llm-basics/10-inference-mechanism.md)
   * [11. 调参：如何控制模型输出](00-llm-basics/11-decoding-parameters.md)
   * [12. 校验评估：怎么判断模型真的更好](00-llm-basics/12-evaluation.md)
+* [13. 大模型基础（旧版汇总）](00-llm-basics/llm-fundamentals.md)
+* [14. Transformer 的工作原理（旧版汇总）](00-llm-basics/transformer-principles.md)
 
-## Agent 开发
+## 02. Agent 开发
 
-* [Agent 原理与发展历史](00-llm-basics/agent-principles.md)
-* [Prompt 与指令工程](01-prompt-instruction/README.md)
-* [上下文工程与 RAG](02-context-rag/README.md)
-* [记忆与状态管理](03-memory-state/README.md)
-* [工具调用、MCP 与能力连接](04-tools-agents/README.md)
-* [Agent 工程化与工作流](04-tools-agents/30-workflow-before-agent.md)
-* [安全、调优与测评](05-evaluation-verification/README.md)
-* [反馈闭环与迭代](06-feedback-iteration/README.md)
+* [01. Agent 原理与发展历史](00-llm-basics/agent-principles.md)
+* [02. Prompt 与指令工程](01-prompt-instruction/README.md)
+* [03. 上下文工程与 RAG](02-context-rag/README.md)
+* [04. 记忆与状态管理](03-memory-state/README.md)
+* [05. 工具调用、MCP 与能力连接](04-tools-agents/README.md)
+* [06. Agent 工程化与工作流](04-tools-agents/30-workflow-before-agent.md)
+* [07. 安全、调优与测评](05-evaluation-verification/README.md)
+* [08. 反馈闭环与迭代](06-feedback-iteration/README.md)
 
-## Agent 实践点索引
+## 99. Agent 实践点索引
 
-* Prompt 与指令细节
+* [01. Prompt 与指令细节](01-prompt-instruction/README.md)
   * [01. 先定义成功标准，再写 Prompt](01-prompt-instruction/01-define-success-before-prompt.md)
   * [02. 把 Prompt 当作代码管理](01-prompt-instruction/02-manage-prompts-as-code.md)
   * [03. 把业务 SOP 转成可执行步骤](01-prompt-instruction/03-convert-sop-to-executable-steps.md)
@@ -42,7 +44,7 @@
   * [06. 分隔指令、上下文和用户输入](01-prompt-instruction/06-separate-instructions-context-input.md)
   * [07. 少量高质量示例优于大量松散示例](01-prompt-instruction/07-use-few-high-quality-examples.md)
   * [08. 为不同任务拆分 Prompt](01-prompt-instruction/08-split-prompts.md)
-* 上下文与 RAG 细节
+* [02. 上下文与 RAG 细节](02-context-rag/README.md)
   * [RAG 概念与原理](00-llm-basics/rag-principles.md)
   * [09. 上下文不是越多越好](02-context-rag/09-context-is-not-more-is-better.md)
   * [10. 检索质量和生成质量分开优化](02-context-rag/10-separate-retrieval-and-generation-quality.md)
@@ -54,7 +56,7 @@
   * [16. 对上下文做去重和压缩](02-context-rag/16-deduplicate-and-compress-context.md)
   * [17. 长上下文要有摘要层、索引层和缓存友好布局](02-context-rag/17-long-context-summary-and-index-layers.md)
   * [18. 上下文构造过程应可观测](02-context-rag/18-observable-context-construction.md)
-* 记忆与状态细节
+* [03. 记忆与状态细节](03-memory-state/README.md)
   * [记忆基础](00-llm-basics/memory-basics.md)
   * [状态管理基础](00-llm-basics/state-management-basics.md)
   * [19. 长任务的记忆管理方式](03-memory-state/19-memory-context-state-boundaries.md)
@@ -63,7 +65,7 @@
   * [22. 记忆要带来源和时间戳](03-memory-state/22-memory-source-timestamp.md)
   * [23. 敏感信息不应默认进入长期记忆](03-memory-state/23-sensitive-info-memory.md)
   * [24. 任务状态用确定性系统管理](03-memory-state/24-deterministic-task-state.md)
-* 工具、MCP 与多 Agent 细节
+* [04. 工具、MCP 与多 Agent 细节](04-tools-agents/README.md)
   * [MCP 与工具调用原理](00-llm-basics/mcp-principles.md)
   * [Skill 概念与原理](00-llm-basics/skill-principles.md)
   * [25. 工具接口要小而清晰](04-tools-agents/25-small-clear-tool-interfaces.md)
@@ -76,7 +78,7 @@
   * [33. Agent handoff 要传结构化上下文](04-tools-agents/33-structured-handoff-context.md)
   * [34. Agent 轨迹要可回放](04-tools-agents/34-replayable-agent-traces.md)
   * [专题：大量 Skill 共存解决方案](04-tools-agents/large-scale-skill-engineering.md)
-* 测试、评测与反馈细节
+* [05. 测试、评测与反馈细节](05-evaluation-verification/README.md)
   * [35. AI 系统需要扩展测试金字塔](05-evaluation-verification/35-extended-test-pyramid.md)
   * [36. Eval 数据集覆盖真实分布和边界](05-evaluation-verification/36-eval-data-real-boundary.md)
   * [37. 不只测最终答案，也测中间过程](05-evaluation-verification/37-test-intermediate-process.md)
@@ -95,10 +97,10 @@
   * [49. 可解释的失败比偶然成功更有价值](06-feedback-iteration/49-explainable-failure-over-lucky-success.md)
   * [50. 最佳实践最终要固化成团队规范](06-feedback-iteration/50-team-standards.md)
 
-## 源码实现
+## 04. 源码实现
 
-* [源码实现](07-source-implementation/README.md)
-* [从零使用 Go 语言开发一个 Agent](07-source-implementation/go-agent-from-zero/README.md)
+* [01. 源码实现](07-source-implementation/README.md)
+* [02. 从零使用 Go 语言开发一个 Agent](07-source-implementation/go-agent-from-zero/README.md)
   * [01. 调用 API 实现最小 Agent](07-source-implementation/go-agent-from-zero/01-api-call.md)
   * [02. 扩展成命令行循环](07-source-implementation/go-agent-from-zero/02-cli-loop.md)
   * [03. 保存多轮对话上下文](07-source-implementation/go-agent-from-zero/03-multi-turn-context.md)
@@ -112,7 +114,7 @@
   * [11. 连接数据库](07-source-implementation/go-agent-from-zero/11-database-agent.md)
   * [12. 写文章 Agent](07-source-implementation/go-agent-from-zero/12-writing-agent.md)
   * [13. 文件读取 Coding Agent](07-source-implementation/go-agent-from-zero/13-coding-agent.md)
-* [从零实现 MCP](07-source-implementation/mcp-from-zero/README.md)
+* [03. 从零实现 MCP](07-source-implementation/mcp-from-zero/README.md)
   * [01. 本地 stdio MCP Server](07-source-implementation/mcp-from-zero/01-local-stdio-server.md)
   * [02. 本地 MCP：列出数据库表](07-source-implementation/mcp-from-zero/02-local-list-tables.md)
   * [03. 本地 MCP：查看表结构](07-source-implementation/mcp-from-zero/03-local-describe-table.md)
@@ -122,8 +124,8 @@
   * [07. HTTP MCP：列出数据库表](07-source-implementation/mcp-from-zero/07-http-list-tables.md)
   * [08. HTTP MCP：查看结构和统计](07-source-implementation/mcp-from-zero/08-http-describe-stats.md)
   * [09. HTTP MCP：删除清理权限校验](07-source-implementation/mcp-from-zero/09-http-delete-confirm.md)
-* [从零实现 Skill](07-source-implementation/skill-from-zero/README.md)
-* [多 Agent 交互与调度](07-source-implementation/multi-agent-interaction/README.md)
+* [04. 从零实现 Skill](07-source-implementation/skill-from-zero/README.md)
+* [05. 多 Agent 交互与调度](07-source-implementation/multi-agent-interaction/README.md)
   * [01. Code Review Agent](07-source-implementation/multi-agent-interaction/01-code-review-agent.md)
   * [02. Planning Agent](07-source-implementation/multi-agent-interaction/02-planning-agent.md)
   * [03. Verification Agent](07-source-implementation/multi-agent-interaction/03-verification-agent.md)
@@ -134,7 +136,7 @@
   * [08. 并行分发和结果合并](07-source-implementation/multi-agent-interaction/08-parallel-merge.md)
   * [09. 写文章多 Agent 工作流](07-source-implementation/multi-agent-interaction/09-writing-multi-agent-workflow.md)
 
-## 行业理解
+## 05. 行业理解
 
-* [金融行业理解](08-industry-finance/README.md)
-* [Web3 行业理解](09-industry-web3/README.md)
+* [01. 金融行业理解](08-industry-finance/README.md)
+* [02. Web3 行业理解](09-industry-web3/README.md)
