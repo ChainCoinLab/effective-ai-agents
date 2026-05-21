@@ -2,9 +2,8 @@
 
 * [00. 总览：AI 工程知识结构](README.md)
 * [00.1 中文速览](guide.zh.md)
-* [00.2 English Guide](guide.en.md)
 
-## 01. 大模型开发
+## 一、大模型开发
 
 * [01. 大模型本体：由浅入深](00-llm-basics/README.md)
   * [01. 大模型发展历史](00-llm-basics/01-llm-history.md)
@@ -19,7 +18,7 @@
   * [10. 推理机制与调参](00-llm-basics/10-inference-and-parameters.md)
   * [11. 校验评估：怎么判断模型真的更好](00-llm-basics/12-evaluation.md)
 
-## 02. Agent 开发
+## 二、Agent 开发
 
 * [01. Agent 原理](00-llm-basics/agent-principles.md)
 * [02. Agent 发展历史](00-llm-basics/agent-history.md)
@@ -30,7 +29,7 @@
 * [07. Agent 工程化](04-tools-agents/agent-engineering.md)
 * [08. 测评与反馈闭环](05-evaluation-verification/README.md)
 
-## 03. 源码实现
+## 三、源码实现
 
 * [01. 源码实现](07-source-implementation/README.md)
 * [02. 从零使用 Go 语言开发一个 Agent](07-source-implementation/go-agent-from-zero/README.md)
@@ -69,7 +68,7 @@
   * [08. 并行分发和结果合并](07-source-implementation/multi-agent-interaction/08-parallel-merge.md)
   * [09. 写文章多 Agent 工作流](07-source-implementation/multi-agent-interaction/09-writing-multi-agent-workflow.md)
 
-## 04. 行业理解
+## 四、行业理解
 
 * [01. 金融行业理解](08-industry-finance/README.md)
 * [02. Web3 行业理解](09-industry-web3/README.md)
