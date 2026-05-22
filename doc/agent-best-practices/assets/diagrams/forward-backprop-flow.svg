@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">前向传播、损失函数与反向传播流程</title>
+  <desc id="desc">输入经过多层网络前向传播得到预测，损失函数比较预测与真实答案，反向传播把梯度传回每一层参数。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <marker id="backArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#b85c48"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f4ed; }
+      .panel { fill: #ffffff; stroke: #d8d1c3; stroke-width: 2; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .head { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #425466; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b6873; }
+      .box { fill: #ffffff; stroke: #cfc7b8; stroke-width: 2; }
+      .boxBlue { fill: #eef5f2; stroke: #8fb5aa; stroke-width: 2; }
+      .boxOrange { fill: #fff8e8; stroke: #f4c978; stroke-width: 2; }
+      .boxRed { fill: #fff1ee; stroke: #d49384; stroke-width: 2; }
+      .forward { stroke: #2f5d62; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #b85c48; stroke-width: 4; fill: none; stroke-dasharray: 9 7; marker-end: url(#backArrow); }
+      .thin { stroke: #aab5b9; stroke-width: 2; fill: none; }
+      .label { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #2f5d62; }
+      .labelRed { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #b85c48; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="48" y="52">一次训练步：先算预测，再算错误，再把错误传回参数</text>
+  <g transform="translate(50 92)">
+    <rect class="panel" width="1100" height="374" rx="14"/>
+    <g transform="translate(42 80)">
+      <rect class="boxBlue" x="0" y="26" width="128" height="82" rx="12"/>
+      <text class="head" x="34" y="59">输入 x</text>
+      <text class="small" x="20" y="86">特征或向量</text>
+      <path class="forward" d="M142 67 H210"/>
+      <rect class="box" x="224" y="12" width="142" height="110" rx="12"/>
+      <text class="head" x="258" y="48">第 1 层</text>
+      <text class="small" x="250" y="76">W1*x + b1</text>
+      <text class="small" x="258" y="98">activation</text>
+      <path class="forward" d="M380 67 H448"/>
+      <rect class="box" x="462" y="12" width="142" height="110" rx="12"/>
+      <text class="head" x="496" y="48">第 2 层</text>
+      <text class="small" x="488" y="76">W2*a1 + b2</text>
+      <text class="small" x="496" y="98">activation</text>
+      <path class="forward" d="M618 67 H686"/>
+      <rect class="boxBlue" x="700" y="26" width="136" height="82" rx="12"/>
+      <text class="head" x="742" y="59">预测</text>
+      <text class="small" x="733" y="86">y_hat</text>
+      <path class="forward" d="M850 67 H918"/>
+      <rect class="boxRed" x="932" y="12" width="128" height="110" rx="12"/>
+      <text class="head" x="968" y="48">损失</text>
+      <text class="small" x="956" y="76">L(y_hat, y)</text>
+      <text class="small" x="964" y="98">错得多远</text>
+      <rect class="boxOrange" x="830" y="162" width="136" height="72" rx="12"/>
+      <text class="head" x="866" y="194">真实答案</text>
+      <text class="small" x="880" y="216">label y</text>
+      <path class="thin" d="M900 162 V122"/>
+      <path class="back" d="M996 136 C948 286 654 294 538 146"/>
+      <path class="back" d="M990 142 C882 344 380 342 300 136"/>
+      <text class="label" x="390" y="38">前向传播</text>
+      <text class="labelRed" x="520" y="316">反向传播：用链式法则计算每层参数的梯度</text>
+    </g>
+  </g>
+  <g transform="translate(84 492)">
+    <text class="body" x="0" y="0">反向传播只计算梯度；参数是否更新、更新多大，由下一步的优化器和学习率决定。</text>
+  </g>
+</svg>

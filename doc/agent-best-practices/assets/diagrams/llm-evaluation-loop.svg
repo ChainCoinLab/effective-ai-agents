@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">大模型评测与工程验证闭环</title>
+  <desc id="desc">展示从真实任务抽样、构造 golden dataset、运行模型配置、使用人工评估和自动指标判断结果，再进入回归测试、A/B 测试和上线监控的闭环。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <style>
+      .bg { fill: #f8faf7; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .subtitle { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52616b; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #465867; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #65727b; }
+      .box { fill: #ffffff; stroke: #d2dde3; stroke-width: 2; }
+      .boxA { fill: #e9f3f0; stroke: #8eb7ad; stroke-width: 2; }
+      .boxB { fill: #fff1d7; stroke: #d3a753; stroke-width: 2; }
+      .boxC { fill: #efeafb; stroke: #aa9cd4; stroke-width: 2; }
+      .boxD { fill: #f9e0da; stroke: #ca8273; stroke-width: 2; }
+      .arrow { stroke: #2f5d62; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #7a6a2f; stroke-width: 3; fill: none; stroke-dasharray: 8 8; marker-end: url(#arrow); }
+      .metric { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #6b4e16; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="48" y="56">模型评测：不是证明完美，而是持续发现边界和回归</text>
+  <text class="subtitle" x="48" y="84">一次演示只能说明“这次看起来能用”；工程评测要让同一批任务、同一套指标、同一条上线链路可重复比较。</text>
+
+  <g transform="translate(58 150)">
+    <rect class="boxA" width="190" height="118" rx="14"/>
+    <text class="head" x="20" y="35">真实任务抽样</text>
+    <text class="body" x="20" y="65">用户问题、失败案例</text>
+    <text class="body" x="20" y="90">业务高风险场景</text>
+  </g>
+
+  <path class="arrow" d="M260 209 H322"/>
+
+  <g transform="translate(336 150)">
+    <rect class="boxB" width="204" height="118" rx="14"/>
+    <text class="head" x="20" y="35">Golden dataset</text>
+    <text class="body" x="20" y="65">固定输入和期望行为</text>
+    <text class="body" x="20" y="90">覆盖常见和边界样本</text>
+  </g>
+
+  <path class="arrow" d="M552 209 H614"/>
+
+  <g transform="translate(628 150)">
+    <rect class="boxC" width="208" height="118" rx="14"/>
+    <text class="head" x="20" y="35">运行配置</text>
+    <text class="body" x="20" y="65">模型、prompt、RAG</text>
+    <text class="body" x="20" y="90">参数、工具和版本</text>
+  </g>
+
+  <path class="arrow" d="M848 209 H910"/>
+
+  <g transform="translate(924 150)">
+    <rect class="boxD" width="218" height="118" rx="14"/>
+    <text class="head" x="20" y="35">评估结果</text>
+    <text class="body" x="20" y="65">人工评估 + 自动指标</text>
+    <text class="body" x="20" y="90">LLM-as-judge 辅助判断</text>
+  </g>
+
+  <path class="arrow" d="M1034 278 V332"/>
+
+  <g transform="translate(814 346)">
+    <rect class="box" width="328" height="126" rx="14"/>
+    <text class="head" x="20" y="35">工程指标</text>
+    <text class="metric" x="20" y="65">factuality</text>
+    <text class="body" x="105" y="65">事实是否被证据支持</text>
+    <text class="metric" x="20" y="92">format success</text>
+    <text class="body" x="138" y="92">格式是否可被系统消费</text>
+    <text class="metric" x="20" y="119">latency / cost</text>
+    <text class="body" x="130" y="119">延迟和成本是否可接受</text>
+  </g>
+
+  <path class="arrow" d="M800 410 H690"/>
+
+  <g transform="translate(438 346)">
+    <rect class="boxA" width="238" height="126" rx="14"/>
+    <text class="head" x="20" y="35">回归测试</text>
+    <text class="body" x="20" y="65">每次改动跑同一批样本</text>
+    <text class="body" x="20" y="92">发现能力下降和格式破坏</text>
+    <text class="small" x="20" y="116">进入 CI 或发布门禁</text>
+  </g>
+
+  <path class="arrow" d="M424 410 H300"/>
+
+  <g transform="translate(58 346)">
+    <rect class="box" width="228" height="126" rx="14"/>
+    <text class="head" x="20" y="35">线上验证</text>
+    <text class="body" x="20" y="65">A/B test、灰度发布</text>
+    <text class="body" x="20" y="92">监控幻觉、失败和投诉</text>
+    <text class="small" x="20" y="116">新失败样本回流数据集</text>
+  </g>
+
+  <path class="loop" d="M172 346 C156 308, 150 288, 150 270"/>
+
+  <text class="subtitle" x="48" y="520">工程启发：评测闭环的价值在于让“我觉得更好”变成“在哪些任务更好、在哪些任务变差、是否值得上线”。</text>
+</svg>

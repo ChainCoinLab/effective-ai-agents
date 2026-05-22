@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Transformer block 的组成</title>
+  <desc id="desc">展示 token embedding、位置编码、self-attention、FFN、残差连接、归一化和多层堆叠如何组成 decoder-only Transformer。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#526c78"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f9f6; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #53626b; }
+      .box { fill: #ffffff; stroke: #d2d9d1; stroke-width: 2; }
+      .attn { fill: #edf5fb; stroke: #84a6c6; stroke-width: 2; }
+      .ffn { fill: #fff2de; stroke: #d2a057; stroke-width: 2; }
+      .norm { fill: #eef6f1; stroke: #83ad95; stroke-width: 2; }
+      .mask { fill: #f4eef8; stroke: #aa91c7; stroke-width: 2; }
+      .head { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #435462; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #63727a; }
+      .arrow { stroke: #526c78; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .res { stroke: #8a6d3b; stroke-width: 2.5; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text class="title" x="48" y="52">Transformer：把上下文交换、非线性加工和稳定训练组合起来</text>
+  <text class="sub" x="48" y="80">现代 decoder-only LLM 不是单个 Attention，而是很多 block 堆叠出来的深层网络。</text>
+
+  <g transform="translate(70 130)">
+    <rect class="box" width="200" height="84" rx="14"/>
+    <text class="head" x="24" y="36">Token + Position</text>
+    <text class="small" x="24" y="62">词义向量 + 顺序信息</text>
+  </g>
+  <path class="arrow" d="M286 172 H350"/>
+
+  <g transform="translate(365 102)">
+    <rect class="box" width="330" height="280" rx="18"/>
+    <text class="head" x="28" y="40">一个 Transformer Block</text>
+    <rect class="norm" x="34" y="66" width="120" height="48" rx="11"/>
+    <text class="small" x="62" y="96">Norm</text>
+    <rect class="attn" x="176" y="66" width="120" height="48" rx="11"/>
+    <text class="small" x="198" y="96">Self-Attn</text>
+    <path class="arrow" d="M154 90 H172"/>
+    <path class="res" d="M36 54 C36 24, 292 24, 292 62"/>
+    <text class="small" x="80" y="28">残差连接保留原信息</text>
+
+    <rect class="norm" x="34" y="154" width="120" height="48" rx="11"/>
+    <text class="small" x="62" y="184">Norm</text>
+    <rect class="ffn" x="176" y="154" width="120" height="48" rx="11"/>
+    <text class="small" x="218" y="184">FFN</text>
+    <path class="arrow" d="M154 178 H172"/>
+    <path class="res" d="M36 142 C36 118, 292 118, 292 150"/>
+    <text class="body" x="34" y="246">Attention 负责跨 token 交换信息。</text>
+    <text class="body" x="34" y="270">FFN 负责逐位置非线性加工。</text>
+  </g>
+
+  <path class="arrow" d="M710 242 H775"/>
+  <g transform="translate(790 132)">
+    <rect class="mask" width="178" height="84" rx="14"/>
+    <text class="head" x="28" y="36">Causal Mask</text>
+    <text class="small" x="28" y="62">生成时不能偷看未来</text>
+  </g>
+  <path class="arrow" d="M984 172 H1036"/>
+  <g transform="translate(1048 130)">
+    <rect class="box" width="92" height="84" rx="14"/>
+    <text class="head" x="28" y="36">x N</text>
+    <text class="small" x="20" y="62">多层堆叠</text>
+  </g>
+
+  <g transform="translate(102 450)">
+    <rect class="box" width="996" height="92" rx="18"/>
+    <text class="head" x="28" y="38">为什么它适合大模型</text>
+    <text class="body" x="28" y="66">矩阵计算便于并行，Self-Attention 建模上下文，残差和归一化让深层网络可训练；代价是上下文越长成本越高。</text>
+  </g>
+</svg>

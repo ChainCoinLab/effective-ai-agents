@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 任务闭环</title>
+  <desc id="desc">展示 Agent 从用户目标、成功标准、上下文、模型决策、动作、观察、状态更新到验证的闭环。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #1f2937; stroke-width: 1.6; rx: 14; }
+      .accent { fill: #e0f2fe; stroke: #0369a1; }
+      .state { fill: #fef3c7; stroke: #92400e; }
+      .risk { fill: #fee2e2; stroke: #991b1b; }
+      .ok { fill: #dcfce7; stroke: #166534; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .label { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #374151; }
+      .tiny { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #4b5563; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #0f766e; stroke-width: 2.4; stroke-dasharray: 7 6; fill: none; marker-end: url(#arrowGreen); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1120" height="620"/>
+  <text class="title" x="48" y="58">Agent 不是一次回答，而是可执行、可检查、可恢复的任务闭环</text>
+  <text class="small" x="50" y="88">模型只负责在上下文中做候选判断；工程系统负责事实、状态、权限、执行、验证和恢复。</text>
+
+  <rect class="card accent" x="70" y="145" width="180" height="92"/>
+  <text class="label" x="100" y="180">1. 用户目标</text>
+  <text class="small" x="100" y="208">要完成什么</text>
+
+  <rect class="card accent" x="315" y="145" width="180" height="92"/>
+  <text class="label" x="345" y="180">2. 成功标准</text>
+  <text class="small" x="345" y="208">什么叫完成</text>
+
+  <rect class="card" x="560" y="145" width="180" height="92"/>
+  <text class="label" x="590" y="180">3. 上下文</text>
+  <text class="small" x="590" y="208">本轮给模型看什么</text>
+
+  <rect class="card" x="805" y="145" width="210" height="92"/>
+  <text class="label" x="835" y="180">4. 模型决策</text>
+  <text class="small" x="835" y="208">回答、工具、澄清或停止</text>
+
+  <rect class="card risk" x="805" y="330" width="210" height="92"/>
+  <text class="label" x="835" y="365">5. 动作执行</text>
+  <text class="small" x="835" y="393">工具 / Workflow / 人工确认</text>
+
+  <rect class="card" x="560" y="330" width="180" height="92"/>
+  <text class="label" x="590" y="365">6. 观察结果</text>
+  <text class="small" x="590" y="393">结构化 tool result</text>
+
+  <rect class="card state" x="315" y="330" width="180" height="92"/>
+  <text class="label" x="345" y="365">7. 状态更新</text>
+  <text class="small" x="345" y="393">checkpoint / trace</text>
+
+  <rect class="card ok" x="70" y="330" width="180" height="92"/>
+  <text class="label" x="100" y="365">8. 验证</text>
+  <text class="small" x="100" y="393">完成则输出，否则继续</text>
+
+  <path class="arrow" d="M250 191 H315"/>
+  <path class="arrow" d="M495 191 H560"/>
+  <path class="arrow" d="M740 191 H805"/>
+  <path class="arrow" d="M910 237 V330"/>
+  <path class="arrow" d="M805 376 H740"/>
+  <path class="arrow" d="M560 376 H495"/>
+  <path class="arrow" d="M315 376 H250"/>
+  <path class="loop" d="M160 330 C125 285 112 250 140 237"/>
+  <path class="loop" d="M160 422 C160 500 910 500 910 422"/>
+
+  <rect class="card" x="70" y="505" width="945" height="58"/>
+  <text class="small" x="95" y="536">工程检查点：每一步都要能记录输入、输出、工具参数、错误、状态变化和验证结果；否则失败后无法定位，也无法回归。</text>
+</svg>

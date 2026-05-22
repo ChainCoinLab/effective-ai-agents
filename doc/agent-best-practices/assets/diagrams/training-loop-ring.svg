@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">机器学习训练循环</title>
+  <desc id="desc">训练过程由预测、检查错误、调整参数、再次预测组成，循环迭代让模型逐步拟合数据规律。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <style>
+      .bg { fill: #f8faf7; }
+      .title { font: 700 26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .body { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #465867; }
+      .label { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #65727b; }
+      .node { fill: #ffffff; stroke: #d7ded3; stroke-width: 2; }
+      .nodeA { fill: #e7f0ed; stroke: #8fb5aa; stroke-width: 2; }
+      .nodeB { fill: #fff0d3; stroke: #d6a64d; stroke-width: 2; }
+      .nodeC { fill: #eee9f8; stroke: #a99ad0; stroke-width: 2; }
+      .nodeD { fill: #f7ddd7; stroke: #c98272; stroke-width: 2; }
+      .arrow { stroke: #2f5d62; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .center { fill: #ffffff; stroke: #d7ded3; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect class="bg" width="1000" height="560"/>
+  <text class="title" x="48" y="56">训练循环：猜、错、调、再猜</text>
+
+  <path class="arrow" d="M500 120 C650 120, 760 230, 760 280"/>
+  <path class="arrow" d="M760 280 C760 430, 650 460, 500 460"/>
+  <path class="arrow" d="M500 460 C350 460, 240 430, 240 280"/>
+  <path class="arrow" d="M240 280 C240 130, 350 120, 500 120"/>
+
+  <g transform="translate(380 72)">
+    <rect class="nodeA" width="240" height="96" rx="18"/>
+    <text class="label" x="82" y="42">1. 猜</text>
+    <text class="small" x="46" y="70">模型先给出预测</text>
+  </g>
+
+  <g transform="translate(668 232)">
+    <rect class="nodeD" width="240" height="96" rx="18"/>
+    <text class="label" x="82" y="42">2. 错</text>
+    <text class="small" x="34" y="70">用答案检查误差</text>
+  </g>
+
+  <g transform="translate(380 392)">
+    <rect class="nodeC" width="240" height="96" rx="18"/>
+    <text class="label" x="82" y="42">3. 调</text>
+    <text class="small" x="36" y="70">根据误差更新参数</text>
+  </g>
+
+  <g transform="translate(92 232)">
+    <rect class="nodeB" width="240" height="96" rx="18"/>
+    <text class="label" x="64" y="42">4. 再猜</text>
+    <text class="small" x="48" y="70">进入下一轮迭代</text>
+  </g>
+
+  <g transform="translate(390 220)">
+    <rect class="center" width="220" height="120" rx="18"/>
+    <text class="label" x="52" y="50">训练</text>
+    <text class="body" x="38" y="82">让函数越来越接近</text>
+    <text class="body" x="58" y="106">数据里的规律</text>
+  </g>
+
+  <text class="body" x="48" y="520">二维分类是一条线在调整；大模型是海量参数在调整，但核心循环仍然一致。</text>
+</svg>

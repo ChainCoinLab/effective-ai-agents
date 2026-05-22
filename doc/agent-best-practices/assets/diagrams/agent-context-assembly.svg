@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 上下文构造</title>
+  <desc id="desc">展示指令、用户输入、任务状态、检索证据、工具观察和预算如何组装成模型本轮上下文。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #fff; stroke: #334155; stroke-width: 1.5; rx: 12; }
+      .input { fill: #e0f2fe; stroke: #0369a1; }
+      .filter { fill: #fef3c7; stroke: #92400e; }
+      .model { fill: #f3e8ff; stroke: #7e22ce; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #374151; }
+      .tiny { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1120" height="620"/>
+  <text class="title" x="48" y="58">上下文工程：不是把所有材料塞给模型，而是构造本轮最小充分输入</text>
+
+  <rect class="box input" x="60" y="115" width="210" height="78"/>
+  <text class="label" x="92" y="148">稳定指令</text>
+  <text class="tiny" x="92" y="172">角色、边界、输出格式</text>
+
+  <rect class="box input" x="60" y="220" width="210" height="78"/>
+  <text class="label" x="92" y="253">用户输入</text>
+  <text class="tiny" x="92" y="277">本次目标和约束</text>
+
+  <rect class="box input" x="60" y="325" width="210" height="78"/>
+  <text class="label" x="92" y="358">任务状态</text>
+  <text class="tiny" x="92" y="382">进度、checkpoint、已知事实</text>
+
+  <rect class="box input" x="60" y="430" width="210" height="78"/>
+  <text class="label" x="92" y="463">外部证据</text>
+  <text class="tiny" x="92" y="487">RAG、文件、数据库、工具观察</text>
+
+  <rect class="box filter" x="370" y="145" width="250" height="330"/>
+  <text class="label" x="420" y="185">Context Builder</text>
+  <text class="small" x="405" y="225">1. 去重和排序</text>
+  <text class="small" x="405" y="258">2. 证据裁剪</text>
+  <text class="small" x="405" y="291">3. 历史摘要</text>
+  <text class="small" x="405" y="324">4. 敏感信息过滤</text>
+  <text class="small" x="405" y="357">5. token 预算分配</text>
+  <text class="small" x="405" y="390">6. 注入边界标记</text>
+  <text class="tiny" x="405" y="430">输出的是本轮模型需要看的材料，</text>
+  <text class="tiny" x="405" y="452">不是系统保存的全部事实。</text>
+
+  <rect class="box model" x="735" y="160" width="300" height="285"/>
+  <text class="label" x="830" y="200">Model Input</text>
+  <text class="small" x="775" y="242">system / instruction</text>
+  <text class="small" x="775" y="276">task state summary</text>
+  <text class="small" x="775" y="310">relevant evidence</text>
+  <text class="small" x="775" y="344">recent observations</text>
+  <text class="small" x="775" y="378">user request</text>
+  <text class="tiny" x="775" y="416">输出：回答、工具调用、澄清或停止</text>
+
+  <path class="arrow" d="M270 154 H370"/>
+  <path class="arrow" d="M270 259 H370"/>
+  <path class="arrow" d="M270 364 H370"/>
+  <path class="arrow" d="M270 469 H370"/>
+  <path class="arrow" d="M620 310 H735"/>
+
+  <rect class="box" x="350" y="520" width="520" height="55"/>
+  <text class="small" x="380" y="553">关键边界：状态库保存完整事实；上下文只给模型当前决策需要的最小充分子集。</text>
+</svg>

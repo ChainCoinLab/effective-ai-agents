@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+  <title id="title">文字到 token 和 embedding 的转换链路</title>
+  <desc id="desc">展示自然语言如何经过 tokenizer、token id、embedding table，变成模型可以计算的向量序列。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#4f6673"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f9f6; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #53626b; }
+      .box { fill: #ffffff; stroke: #d1d9d1; stroke-width: 2; }
+      .box2 { fill: #edf5fb; stroke: #86a7c8; stroke-width: 2; }
+      .box3 { fill: #fff3df; stroke: #d3a456; stroke-width: 2; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #425361; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64727a; }
+      .token { fill: #eef6f1; stroke: #86b29a; stroke-width: 1.8; }
+      .id { fill: #f4effb; stroke: #a890c8; stroke-width: 1.8; }
+      .vec { fill: #fff8ea; stroke: #cba45b; stroke-width: 1.8; }
+      .arrow { stroke: #4f6673; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="470"/>
+  <text class="title" x="48" y="52">从文字到 token，再到 embedding：模型看到的是向量序列</text>
+  <text class="sub" x="48" y="80">token 解决“怎么切”，token id 解决“怎么查”，embedding 解决“怎么让神经网络计算语义关系”。</text>
+
+  <g transform="translate(48 125)">
+    <rect class="box2" width="205" height="145" rx="16"/>
+    <text class="head" x="22" y="38">自然语言</text>
+    <text class="body" x="22" y="76">“北京是中国首都”</text>
+    <text class="small" x="22" y="108">人能读懂，模型不能直接计算</text>
+  </g>
+
+  <path class="arrow" d="M267 198 H335"/>
+
+  <g transform="translate(350 125)">
+    <rect class="box" width="230" height="145" rx="16"/>
+    <text class="head" x="22" y="38">Tokenizer</text>
+    <rect class="token" x="22" y="62" width="50" height="30" rx="8"/>
+    <text class="small" x="33" y="82">北京</text>
+    <rect class="token" x="80" y="62" width="34" height="30" rx="8"/>
+    <text class="small" x="91" y="82">是</text>
+    <rect class="token" x="122" y="62" width="50" height="30" rx="8"/>
+    <text class="small" x="133" y="82">中国</text>
+    <rect class="token" x="22" y="102" width="50" height="30" rx="8"/>
+    <text class="small" x="33" y="122">首都</text>
+    <text class="small" x="84" y="122">按词表切成基本单位</text>
+  </g>
+
+  <path class="arrow" d="M594 198 H662"/>
+
+  <g transform="translate(677 125)">
+    <rect class="box" width="200" height="145" rx="16"/>
+    <text class="head" x="22" y="38">Token id</text>
+    <rect class="id" x="22" y="62" width="58" height="30" rx="8"/>
+    <text class="small" x="38" y="82">4217</text>
+    <rect class="id" x="88" y="62" width="50" height="30" rx="8"/>
+    <text class="small" x="104" y="82">322</text>
+    <rect class="id" x="22" y="102" width="58" height="30" rx="8"/>
+    <text class="small" x="38" y="122">9081</text>
+    <rect class="id" x="88" y="102" width="58" height="30" rx="8"/>
+    <text class="small" x="104" y="122">1462</text>
+  </g>
+
+  <path class="arrow" d="M891 198 H959"/>
+
+  <g transform="translate(974 125)">
+    <rect class="box3" width="178" height="145" rx="16"/>
+    <text class="head" x="22" y="38">Embedding</text>
+    <rect class="vec" x="22" y="62" width="132" height="24" rx="7"/>
+    <rect class="vec" x="22" y="92" width="132" height="24" rx="7"/>
+    <rect class="vec" x="22" y="122" width="132" height="24" rx="7"/>
+    <text class="small" x="34" y="79">[0.12, -0.3, ...]</text>
+    <text class="small" x="36" y="109">[0.41, 0.08, ...]</text>
+    <text class="small" x="34" y="139">向量序列进入模型</text>
+  </g>
+
+  <g transform="translate(106 330)">
+    <rect class="box" width="988" height="82" rx="16"/>
+    <text class="head" x="28" y="36">关键理解</text>
+    <text class="body" x="28" y="64">编号本身不代表语义；embedding 是训练出来的可学习坐标。模型真正处理的是这些坐标之间的关系。</text>
+  </g>
+</svg>

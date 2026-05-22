@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">预测下一个 token 如何逼出能力</title>
+  <desc id="desc">展示 next-token prediction 从局部预测压力逐层逼迫模型学习语法、语义、事实、格式和任务模式。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8faf7; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #53626b; }
+      .panel { fill: #ffffff; stroke: #d4dbd1; stroke-width: 2; }
+      .layer1 { fill: #eef6f1; stroke: #82ac95; stroke-width: 2; }
+      .layer2 { fill: #edf5fb; stroke: #83a4c5; stroke-width: 2; }
+      .layer3 { fill: #fff2de; stroke: #d0a057; stroke-width: 2; }
+      .layer4 { fill: #f2edf8; stroke: #aa91c7; stroke-width: 2; }
+      .layer5 { fill: #f8eeee; stroke: #bd8585; stroke-width: 2; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #435462; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #63727a; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="48" y="52">为什么“预测下一个 token”会产生能力</text>
+  <text class="sub" x="48" y="80">训练目标很简单，但要预测准，模型必须压缩语言背后的多层结构。</text>
+
+  <g transform="translate(70 122)">
+    <rect class="panel" width="1060" height="350" rx="18"/>
+    <rect class="layer1" x="64" y="250" width="932" height="54" rx="13"/>
+    <text class="head" x="96" y="284">字词搭配和语法</text>
+    <text class="body" x="330" y="284">知道“因为”后面常接原因，“如果”后面常有条件</text>
+
+    <rect class="layer2" x="118" y="190" width="824" height="54" rx="13"/>
+    <text class="head" x="150" y="224">语义和指代</text>
+    <text class="body" x="330" y="224">判断“它”“这个”“上面那件事”指向什么</text>
+
+    <rect class="layer3" x="172" y="130" width="716" height="54" rx="13"/>
+    <text class="head" x="204" y="164">事实关联和常识</text>
+    <text class="body" x="410" y="164">城市、人物、概念、因果、数量关系</text>
+
+    <rect class="layer4" x="226" y="70" width="608" height="54" rx="13"/>
+    <text class="head" x="258" y="104">任务格式和代码模式</text>
+    <text class="body" x="510" y="104">摘要、翻译、SQL、JSON、测试</text>
+
+    <rect class="layer5" x="280" y="10" width="500" height="54" rx="13"/>
+    <text class="head" x="312" y="44">上下文学习和迁移</text>
+    <text class="body" x="530" y="44">从例子里临时学任务</text>
+  </g>
+
+  <g transform="translate(118 500)">
+    <text class="body" x="0" y="0">结论：能力不是魔法涌现，而是大规模数据、参数和训练目标共同施加的压缩压力；边界也来自同一机制。</text>
+  </g>
+</svg>

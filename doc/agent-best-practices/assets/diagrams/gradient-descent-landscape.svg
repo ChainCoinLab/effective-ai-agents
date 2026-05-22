@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">梯度下降与训练循环示意</title>
+  <desc id="desc">左侧展示参数沿着损失地形下降，右侧展示由 batch、前向传播、损失、反向传播和优化器组成的训练循环。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f4ed; }
+      .panel { fill: #ffffff; stroke: #d8d1c3; stroke-width: 2; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .head { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #425466; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b6873; }
+      .axis { stroke: #70828a; stroke-width: 2; }
+      .land { fill: none; stroke: #2f5d62; stroke-width: 5; }
+      .path { fill: none; stroke: #b85c48; stroke-width: 4; stroke-dasharray: 9 7; marker-end: url(#arrow); }
+      .dot { fill: #b85c48; stroke: #ffffff; stroke-width: 3; }
+      .good { fill: #8fb5aa; stroke: #2f5d62; stroke-width: 3; }
+      .box { fill: #ffffff; stroke: #cfc7b8; stroke-width: 2; }
+      .boxBlue { fill: #eef5f2; stroke: #8fb5aa; stroke-width: 2; }
+      .boxOrange { fill: #fff8e8; stroke: #f4c978; stroke-width: 2; }
+      .arrow { stroke: #2f5d62; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .formula { font: 700 16px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #203040; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="48" y="52">梯度下降：用很多小步把参数推向更低损失</text>
+  <g transform="translate(52 88)">
+    <rect class="panel" width="520" height="384" rx="14"/>
+    <text class="head" x="28" y="42">损失地形中的参数更新</text>
+    <g transform="translate(66 78)">
+      <line class="axis" x1="0" y1="270" x2="390" y2="270"/>
+      <line class="axis" x1="0" y1="270" x2="0" y2="20"/>
+      <text class="small" x="315" y="300">参数 theta</text>
+      <text class="small" x="-8" y="12">损失</text>
+      <path class="land" d="M8 68 C62 32 96 222 150 210 C206 198 210 82 268 96 C318 108 326 238 386 156"/>
+      <path class="path" d="M34 72 C72 128 104 174 142 207 C178 238 220 160 264 99"/>
+      <circle class="dot" cx="34" cy="72" r="9"/>
+      <circle class="dot" cx="90" cy="154" r="9"/>
+      <circle class="dot" cx="144" cy="207" r="9"/>
+      <circle class="dot" cx="220" cy="160" r="9"/>
+      <circle class="good" cx="264" cy="99" r="10"/>
+      <text class="small" x="18" y="44">起点</text>
+      <text class="small" x="244" y="74">更低损失</text>
+      <rect class="boxOrange" x="34" y="314" width="330" height="44" rx="10"/>
+      <text class="formula" x="58" y="342">theta = theta - lr * grad</text>
+    </g>
+  </g>
+  <g transform="translate(628 88)">
+    <rect class="panel" width="520" height="384" rx="14"/>
+    <text class="head" x="28" y="42">训练循环</text>
+    <g transform="translate(118 74)">
+      <rect class="boxBlue" x="88" y="0" width="160" height="54" rx="10"/>
+      <text class="head" x="130" y="34">取 batch</text>
+      <path class="arrow" d="M248 27 C316 28 334 90 286 128"/>
+      <rect class="box" x="214" y="130" width="160" height="54" rx="10"/>
+      <text class="head" x="252" y="164">前向传播</text>
+      <path class="arrow" d="M292 184 C316 246 260 292 206 276"/>
+      <rect class="boxOrange" x="88" y="252" width="160" height="54" rx="10"/>
+      <text class="head" x="127" y="286">计算损失</text>
+      <path class="arrow" d="M88 279 C24 280 6 214 54 178"/>
+      <rect class="box" x="-38" y="130" width="160" height="54" rx="10"/>
+      <text class="head" x="-1" y="164">反向传播</text>
+      <path class="arrow" d="M42 130 C20 72 74 26 88 27"/>
+      <rect class="boxBlue" x="96" y="124" width="144" height="66" rx="12"/>
+      <text class="head" x="129" y="150">optimizer</text>
+      <text class="small" x="118" y="174">按梯度更新参数</text>
+    </g>
+  </g>
+  <text class="body" x="52" y="520">batch 决定每次看多少样本，epoch 表示完整看完训练集一遍，学习率决定每次参数更新的步长。</text>
+</svg>

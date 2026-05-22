@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">预训练、指令微调与对齐流程</title>
+  <desc id="desc">展示大模型从随机参数开始，经过预训练、指令微调、偏好对齐，形成可部署模型，并在工程中通过评测集持续验证。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#315f72"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .title { font: 700 26px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #18232d; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5d6e7c; }
+      .stage { fill: #ffffff; stroke: #cbd8e3; stroke-width: 2; }
+      .stageA { fill: #eef6f4; stroke: #8fb7ac; stroke-width: 2; }
+      .stageB { fill: #fff3db; stroke: #d0a24b; stroke-width: 2; }
+      .stageC { fill: #f1ecfb; stroke: #aa9bd4; stroke-width: 2; }
+      .stageD { fill: #f9e7e2; stroke: #cd8b7c; stroke-width: 2; }
+      .eval { fill: #ffffff; stroke: #7f95a3; stroke-width: 2; stroke-dasharray: 7 6; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #445766; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #657684; }
+      .arrow { stroke: #315f72; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .softArrow { stroke: #7f95a3; stroke-width: 2.5; fill: none; marker-end: url(#arrow); stroke-dasharray: 8 7; }
+      .divider { stroke: #d8e0e7; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="620"/>
+  <text class="title" x="48" y="54">从随机参数到可用助手：训练与对齐流水线</text>
+  <text class="subtitle" x="48" y="82">能力主要来自预训练；交互行为来自指令微调；偏好与安全边界来自对齐；工程可靠性依赖持续评测。</text>
+
+  <g transform="translate(48 130)">
+    <rect class="stageD" width="170" height="122" rx="14"/>
+    <text class="head" x="22" y="36">随机参数</text>
+    <text class="body" x="22" y="66">结构已定义</text>
+    <text class="body" x="22" y="90">语言规律未学习</text>
+  </g>
+
+  <path class="arrow" d="M230 191 H292"/>
+
+  <g transform="translate(306 130)">
+    <rect class="stageA" width="230" height="122" rx="14"/>
+    <text class="head" x="22" y="36">预训练</text>
+    <text class="body" x="22" y="64">海量 token 预测下一个 token</text>
+    <text class="small" x="22" y="90">data / batch / loss / optimizer</text>
+  </g>
+
+  <path class="arrow" d="M548 191 H610"/>
+
+  <g transform="translate(624 130)">
+    <rect class="stageB" width="210" height="122" rx="14"/>
+    <text class="head" x="22" y="36">SFT 指令微调</text>
+    <text class="body" x="22" y="64">学习指令到回答</text>
+    <text class="small" x="22" y="90">示范答案提供行为格式</text>
+  </g>
+
+  <path class="arrow" d="M846 191 H908"/>
+
+  <g transform="translate(922 130)">
+    <rect class="stageC" width="230" height="122" rx="14"/>
+    <text class="head" x="22" y="36">偏好对齐</text>
+    <text class="body" x="22" y="64">RLHF 或 DPO</text>
+    <text class="small" x="22" y="90">更有帮助、更安全、更稳</text>
+  </g>
+
+  <line class="divider" x1="48" y1="302" x2="1152" y2="302"/>
+
+  <g transform="translate(88 348)">
+    <rect class="stage" width="260" height="132" rx="14"/>
+    <text class="head" x="22" y="36">训练闭环</text>
+    <text class="body" x="22" y="66">预测 → cross entropy</text>
+    <text class="body" x="22" y="91">反向传播 → optimizer</text>
+    <text class="small" x="22" y="116">反复降低平均预测损失</text>
+  </g>
+
+  <g transform="translate(470 348)">
+    <rect class="eval" width="260" height="132" rx="14"/>
+    <text class="head" x="22" y="36">保留评测集</text>
+    <text class="body" x="22" y="66">不参与训练和调参</text>
+    <text class="body" x="22" y="91">检查能力、事实、格式、安全</text>
+    <text class="small" x="22" y="116">防止记题和回归</text>
+  </g>
+
+  <g transform="translate(852 348)">
+    <rect class="stage" width="260" height="132" rx="14"/>
+    <text class="head" x="22" y="36">推理阶段</text>
+    <text class="body" x="22" y="66">加载训练好的 checkpoint</text>
+    <text class="body" x="22" y="91">按当前上下文逐 token 生成</text>
+    <text class="small" x="22" y="116">参数通常不再更新</text>
+  </g>
+
+  <path class="softArrow" d="M421 252 C401 286, 310 313, 236 343"/>
+  <path class="softArrow" d="M729 252 C716 294, 653 320, 612 343"/>
+  <path class="softArrow" d="M1037 252 C1034 299, 1010 324, 984 343"/>
+  <path class="arrow" d="M742 414 H838"/>
+
+  <text class="subtitle" x="48" y="562">关键区分：预训练主要形成 capability；SFT 和偏好优化主要塑造 alignment；评测集负责证明改动真的有效。</text>
+</svg>

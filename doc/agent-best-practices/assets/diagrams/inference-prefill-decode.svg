@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
+  <title id="title">推理阶段的 prefill 与 decode</title>
+  <desc id="desc">展示大模型推理时先用 prefill 处理完整上下文并建立 KV cache，再在 decode 阶段逐 token 生成，同时受采样参数、停止条件和性能指标影响。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2f5d62"/>
+    </marker>
+    <style>
+      .bg { fill: #f7faf9; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .subtitle { font: 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52616b; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #465867; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #65727b; }
+      .box { fill: #ffffff; stroke: #d2dde3; stroke-width: 2; }
+      .boxA { fill: #e9f3f0; stroke: #8eb7ad; stroke-width: 2; }
+      .boxB { fill: #fff1d7; stroke: #d3a753; stroke-width: 2; }
+      .boxC { fill: #efeafb; stroke: #aa9cd4; stroke-width: 2; }
+      .boxD { fill: #f9e0da; stroke: #ca8273; stroke-width: 2; }
+      .arrow { stroke: #2f5d62; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #667985; stroke-width: 2; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+      .label { font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #2f5d62; }
+      .metric { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #6b4e16; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="540"/>
+  <text class="title" x="48" y="54">推理机制：先读完整上下文，再逐 token 生成</text>
+  <text class="subtitle" x="48" y="82">推理不是一次吐出整段答案，而是 prefill 建立状态、decode 循环采样，直到满足停止条件。</text>
+
+  <g transform="translate(48 126)">
+    <rect class="boxA" width="230" height="134" rx="14"/>
+    <text class="head" x="22" y="36">输入上下文</text>
+    <text class="body" x="22" y="67">系统指令、用户问题</text>
+    <text class="body" x="22" y="92">历史消息、检索资料</text>
+    <text class="small" x="22" y="116">长度受 context window 限制</text>
+  </g>
+
+  <path class="arrow" d="M292 193 H358"/>
+  <text class="label" x="304" y="178">tokenize</text>
+
+  <g transform="translate(372 126)">
+    <rect class="boxB" width="250" height="134" rx="14"/>
+    <text class="head" x="22" y="36">Prefill 阶段</text>
+    <text class="body" x="22" y="67">一次处理完整 prompt</text>
+    <text class="body" x="22" y="92">计算每层注意力状态</text>
+    <text class="small" x="22" y="116">决定 TTFT 的重要部分</text>
+  </g>
+
+  <path class="arrow" d="M636 193 H704"/>
+
+  <g transform="translate(718 126)">
+    <rect class="boxC" width="210" height="134" rx="14"/>
+    <text class="head" x="22" y="36">KV cache</text>
+    <text class="body" x="22" y="67">保存历史 token 的 K/V</text>
+    <text class="body" x="22" y="92">decode 时复用计算</text>
+    <text class="small" x="22" y="116">占用显存，随上下文增长</text>
+  </g>
+
+  <path class="arrow" d="M942 193 H1000"/>
+
+  <g transform="translate(1014 126)">
+    <rect class="box" width="138" height="134" rx="14"/>
+    <text class="head" x="20" y="36">概率分布</text>
+    <text class="body" x="20" y="67">logits</text>
+    <text class="body" x="20" y="92">softmax</text>
+    <text class="small" x="20" y="116">下个 token</text>
+  </g>
+
+  <path class="arrow" d="M1084 268 V318"/>
+
+  <g transform="translate(906 332)">
+    <rect class="boxD" width="246" height="114" rx="14"/>
+    <text class="head" x="22" y="34">采样与停止</text>
+    <text class="body" x="22" y="63">temperature / top_p / top_k</text>
+    <text class="body" x="22" y="88">max_tokens / stop / penalty</text>
+  </g>
+
+  <path class="arrow" d="M892 389 H762"/>
+
+  <g transform="translate(526 332)">
+    <rect class="boxA" width="222" height="114" rx="14"/>
+    <text class="head" x="22" y="34">Decode 循环</text>
+    <text class="body" x="22" y="63">生成 1 个 token</text>
+    <text class="body" x="22" y="88">接回上下文继续预测</text>
+  </g>
+
+  <path class="dash" d="M526 389 C394 389, 332 325, 418 267"/>
+  <text class="label" x="334" y="379">自回归生成</text>
+
+  <g transform="translate(48 320)">
+    <rect class="box" width="390" height="126" rx="14"/>
+    <text class="head" x="22" y="34">性能指标</text>
+    <text class="metric" x="22" y="64">TTFT</text>
+    <text class="body" x="84" y="64">首个 token 出现前的等待时间</text>
+    <text class="metric" x="22" y="91">tokens/s</text>
+    <text class="body" x="101" y="91">decode 生成速度</text>
+    <text class="metric" x="220" y="91">throughput</text>
+    <text class="body" x="313" y="91">整体吞吐</text>
+  </g>
+
+  <text class="subtitle" x="48" y="500">工程启发：长上下文主要抬高 prefill 和 KV cache 成本；长答案主要拉长 decode 时间；流式输出能改善体感等待，但不等于模型算得更少。</text>
+</svg>

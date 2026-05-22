@@ -3,22 +3,42 @@
 * [00. 总览：AI 工程知识结构](README.md)
 * [00.1 中文速览](guide.zh.md)
 
-## 一、大模型开发
+## 一、大模型基础与工程边界
 
-* [01. 大模型本体：由浅入深](00-llm-basics/README.md)
-  * [01. 大模型发展历史](00-llm-basics/01-llm-history.md)
-  * [02. 从函数到机器学习](00-llm-basics/01-function-to-machine-learning.md)
-  * [03. 从现实对象到特征向量](00-llm-basics/02-real-world-to-vectors.md)
-  * [04. 从文字到 token 和 embedding](00-llm-basics/03-token-and-embedding.md)
-  * [05. 语言模型为什么预测下一个 token](00-llm-basics/04-next-token-prediction.md)
-  * [06. 为什么预测下一个 token 会产生能力](00-llm-basics/05-capability-from-prediction.md)
-  * [07. 从上下文问题到 Attention](00-llm-basics/06-attention-from-context.md)
-  * [08. Transformer 如何一步步形成](00-llm-basics/07-transformer-architecture.md)
-  * [09. 训练与对齐：模型能力从哪里来](00-llm-basics/09-training-and-alignment.md)
-  * [10. 推理机制与调参](00-llm-basics/10-inference-and-parameters.md)
-  * [11. 校验评估：怎么判断模型真的更好](00-llm-basics/12-evaluation.md)
+* [00. 本章导读：大模型开发：从原理到工程边界](00-llm-basics/README.md)
+
+机器学习基础：
+
+* [01. 大模型发展历史](00-llm-basics/01-llm-history.md)
+* [02. 从函数到机器学习](00-llm-basics/02-function-to-machine-learning.md)
+* [03. 从线性模型到神经网络](00-llm-basics/03-linear-to-neural-network.md)
+* [04. 前向传播、损失函数与反向传播](00-llm-basics/04-forward-loss-backprop.md)
+* [05. 梯度下降与模型训练](00-llm-basics/05-gradient-descent-training.md)
+* [06. 拟合、泛化与过拟合](00-llm-basics/06-fitting-generalization-overfitting.md)
+
+表示与架构：
+
+* [07. 从现实世界到向量表示](00-llm-basics/07-real-world-to-vectors.md)
+* [08. 从文字到 token 和 embedding](00-llm-basics/08-token-and-embedding.md)
+* [09. 语言模型为什么预测下一个 token](00-llm-basics/09-next-token-prediction.md)
+* [10. 为什么预测下一个 token 会产生能力](00-llm-basics/10-capability-from-prediction.md)
+* [11. 从上下文问题到 Attention](00-llm-basics/11-attention-from-context.md)
+* [12. Transformer 如何一步步形成](00-llm-basics/12-transformer-architecture.md)
+
+代码实现补充：
+
+* [代码实现：token id 到 embedding 向量矩阵](07-source-implementation/llm-from-zero/01-token-embedding-matrix.md)
+
+训练、推理、评测和边界：
+
+* [13. 预训练、指令微调与对齐](00-llm-basics/13-training-and-alignment.md)
+* [14. 推理机制与生成参数](00-llm-basics/14-inference-and-parameters.md)
+* [15. 模型评测与工程验证](00-llm-basics/15-evaluation.md)
+* [16. 大模型能做什么，不能做什么](00-llm-basics/16-llm-capabilities-boundaries.md)
 
 ## 二、Agent 开发
+
+上一部分说明了大模型擅长理解、归纳和生成，但不能独自承担事实、状态、权限、执行和审计。Agent 开发部分继续学习这些缺口如何由 Prompt、RAG、记忆、状态、工具、MCP、评测和工程流程补齐，并组织成可推进、可验证、可恢复的任务闭环。
 
 * [01. Agent 原理](00-llm-basics/agent-principles.md)
 * [02. Agent 发展历史](00-llm-basics/agent-history.md)
@@ -28,10 +48,13 @@
 * [06. 工具调用与 MCP](04-tools-agents/README.md)
 * [07. Agent 工程化](04-tools-agents/agent-engineering.md)
 * [08. 测评与反馈闭环](05-evaluation-verification/README.md)
+* [09. 生产反馈与迭代](06-feedback-iteration/README.md)
 
 ## 三、源码实现
 
-* [01. 源码实现](07-source-implementation/README.md)
+* [00. 本模块导读](07-source-implementation/README.md)
+* [01. 从零实现大模型核心组件](07-source-implementation/llm-from-zero/README.md)
+  * [01. token id 如何查出 embedding 向量矩阵](07-source-implementation/llm-from-zero/01-token-embedding-matrix.md)
 * [02. 从零使用 Go 语言开发一个 Agent](07-source-implementation/go-agent-from-zero/README.md)
   * [01. 调用 API 实现最小 Agent](07-source-implementation/go-agent-from-zero/01-api-call.md)
   * [02. 扩展成命令行循环](07-source-implementation/go-agent-from-zero/02-cli-loop.md)

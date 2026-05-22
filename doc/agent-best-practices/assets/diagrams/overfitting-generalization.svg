@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">欠拟合、合适拟合与过拟合对比</title>
+  <desc id="desc">三个面板对比欠拟合、合适拟合和过拟合；底部展示训练损失和验证损失的分离用于判断泛化差距。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ed; }
+      .panel { fill: #ffffff; stroke: #d8d1c3; stroke-width: 2; }
+      .title { font: 700 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+      .head { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #203040; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #425466; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b6873; }
+      .grid { stroke: #e3ded3; stroke-width: 1; }
+      .axis { stroke: #70828a; stroke-width: 2; }
+      .blue { fill: #8fb5aa; stroke: #2f5d62; stroke-width: 2; }
+      .orange { fill: #f4c978; stroke: #a76d18; stroke-width: 2; }
+      .fitBad { fill: none; stroke: #b85c48; stroke-width: 5; }
+      .fitGood { fill: none; stroke: #2f5d62; stroke-width: 5; }
+      .train { fill: none; stroke: #2f5d62; stroke-width: 4; }
+      .val { fill: none; stroke: #b85c48; stroke-width: 4; stroke-dasharray: 8 6; }
+      .legendTrain { fill: #2f5d62; }
+      .legendVal { fill: #b85c48; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="560"/>
+  <text class="title" x="48" y="52">拟合不是目标，泛化才是目标</text>
+  <g transform="translate(50 86)">
+    <rect class="panel" width="338" height="256" rx="14"/>
+    <text class="head" x="24" y="38">欠拟合</text>
+    <g transform="translate(36 58)">
+      <line class="grid" x1="0" y1="50" x2="266" y2="50"/>
+      <line class="grid" x1="0" y1="100" x2="266" y2="100"/>
+      <line class="grid" x1="0" y1="150" x2="266" y2="150"/>
+      <line class="axis" x1="0" y1="178" x2="276" y2="178"/>
+      <line class="axis" x1="0" y1="178" x2="0" y2="0"/>
+      <circle class="blue" cx="36" cy="142" r="8"/>
+      <circle class="blue" cx="70" cy="124" r="8"/>
+      <circle class="blue" cx="108" cy="116" r="8"/>
+      <circle class="orange" cx="148" cy="82" r="8"/>
+      <circle class="orange" cx="184" cy="68" r="8"/>
+      <circle class="orange" cx="226" cy="52" r="8"/>
+      <path class="fitBad" d="M20 118 L246 94"/>
+    </g>
+    <text class="body" x="24" y="232">模型太简单，主要规律也没抓住。</text>
+  </g>
+  <g transform="translate(431 86)">
+    <rect class="panel" width="338" height="256" rx="14"/>
+    <text class="head" x="24" y="38">合适拟合</text>
+    <g transform="translate(36 58)">
+      <line class="grid" x1="0" y1="50" x2="266" y2="50"/>
+      <line class="grid" x1="0" y1="100" x2="266" y2="100"/>
+      <line class="grid" x1="0" y1="150" x2="266" y2="150"/>
+      <line class="axis" x1="0" y1="178" x2="276" y2="178"/>
+      <line class="axis" x1="0" y1="178" x2="0" y2="0"/>
+      <circle class="blue" cx="36" cy="142" r="8"/>
+      <circle class="blue" cx="70" cy="124" r="8"/>
+      <circle class="blue" cx="108" cy="116" r="8"/>
+      <circle class="orange" cx="148" cy="82" r="8"/>
+      <circle class="orange" cx="184" cy="68" r="8"/>
+      <circle class="orange" cx="226" cy="52" r="8"/>
+      <path class="fitGood" d="M22 150 C84 126 108 112 132 98 C160 82 194 62 246 48"/>
+    </g>
+    <text class="body" x="24" y="232">抓住稳定规律，未见数据也更可靠。</text>
+  </g>
+  <g transform="translate(812 86)">
+    <rect class="panel" width="338" height="256" rx="14"/>
+    <text class="head" x="24" y="38">过拟合</text>
+    <g transform="translate(36 58)">
+      <line class="grid" x1="0" y1="50" x2="266" y2="50"/>
+      <line class="grid" x1="0" y1="100" x2="266" y2="100"/>
+      <line class="grid" x1="0" y1="150" x2="266" y2="150"/>
+      <line class="axis" x1="0" y1="178" x2="276" y2="178"/>
+      <line class="axis" x1="0" y1="178" x2="0" y2="0"/>
+      <circle class="blue" cx="36" cy="142" r="8"/>
+      <circle class="blue" cx="70" cy="124" r="8"/>
+      <circle class="blue" cx="108" cy="116" r="8"/>
+      <circle class="orange" cx="148" cy="82" r="8"/>
+      <circle class="orange" cx="184" cy="68" r="8"/>
+      <circle class="orange" cx="226" cy="52" r="8"/>
+      <path class="fitBad" d="M24 142 C44 86 62 178 72 124 C82 70 96 170 108 116 C120 64 136 124 148 82 C162 34 174 108 184 68 C198 24 216 92 226 52 C238 30 246 42 252 48"/>
+    </g>
+    <text class="body" x="24" y="232">连噪声也贴合，训练集好但泛化差。</text>
+  </g>
+  <g transform="translate(174 376)">
+    <rect class="panel" width="852" height="124" rx="14"/>
+    <text class="head" x="24" y="36">训练损失与验证损失</text>
+    <g transform="translate(248 20)">
+      <line class="axis" x1="0" y1="76" x2="360" y2="76"/>
+      <line class="axis" x1="0" y1="76" x2="0" y2="8"/>
+      <path class="train" d="M8 18 C80 32 146 50 214 62 C278 72 326 74 354 74"/>
+      <path class="val" d="M8 24 C72 36 126 50 172 58 C218 64 260 50 354 28"/>
+      <circle class="legendTrain" cx="410" cy="28" r="7"/>
+      <text class="small" x="426" y="33">train loss 持续下降</text>
+      <circle class="legendVal" cx="410" cy="58" r="7"/>
+      <text class="small" x="426" y="63">val loss 回升，说明泛化变差</text>
+    </g>
+    <text class="body" x="24" y="82">关键观察：训练集越来越好，不代表验证集和真实场景也会越来越好。</text>
+  </g>
+</svg>

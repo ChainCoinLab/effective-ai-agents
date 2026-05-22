@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">ReAct 循环控制</title>
+  <desc id="desc">展示 ReAct 循环中的思考、行动、观察、状态更新、停止条件和熔断控制。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #fff; stroke: #1f2937; stroke-width: 1.5; rx: 14; }
+      .think { fill: #f3e8ff; stroke: #7e22ce; }
+      .act { fill: #dbeafe; stroke: #1d4ed8; }
+      .obs { fill: #dcfce7; stroke: #166534; }
+      .guard { fill: #fee2e2; stroke: #991b1b; }
+      .state { fill: #fef3c7; stroke: #92400e; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .label { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #374151; }
+      .tiny { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #0f766e; stroke-width: 2.4; stroke-dasharray: 8 6; fill: none; marker-end: url(#arrowGreen); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1120" height="620"/>
+  <text class="title" x="48" y="58">ReAct 不是无限“思考”，而是受预算和状态约束的执行循环</text>
+
+  <rect class="box think" x="115" y="155" width="220" height="105"/>
+  <text class="label" x="174" y="193">Reason</text>
+  <text class="small" x="147" y="223">基于当前上下文决定下一步</text>
+
+  <rect class="box act" x="450" y="155" width="220" height="105"/>
+  <text class="label" x="515" y="193">Act</text>
+  <text class="small" x="482" y="223">回答、调用工具或请求澄清</text>
+
+  <rect class="box obs" x="785" y="155" width="220" height="105"/>
+  <text class="label" x="844" y="193">Observe</text>
+  <text class="small" x="817" y="223">拿到工具结果或用户反馈</text>
+
+  <rect class="box state" x="450" y="360" width="220" height="105"/>
+  <text class="label" x="500" y="398">Update State</text>
+  <text class="small" x="482" y="428">记录证据、进度和失败</text>
+
+  <rect class="box guard" x="115" y="360" width="220" height="105"/>
+  <text class="label" x="176" y="398">Guards</text>
+  <text class="small" x="147" y="428">最大轮次、成本、重复动作</text>
+
+  <rect class="box guard" x="785" y="360" width="220" height="105"/>
+  <text class="label" x="836" y="398">Stop / Escalate</text>
+  <text class="small" x="817" y="428">完成、失败、转人工或确认</text>
+
+  <path class="arrow" d="M335 207 H450"/>
+  <path class="arrow" d="M670 207 H785"/>
+  <path class="arrow" d="M895 260 C895 315 650 320 610 360"/>
+  <path class="arrow" d="M450 412 H335"/>
+  <path class="loop" d="M225 360 C210 310 220 278 225 260"/>
+  <path class="arrow" d="M670 412 H785"/>
+
+  <rect class="box" x="115" y="520" width="890" height="55"/>
+  <text class="small" x="145" y="553">工程要点：每一轮都必须可记录、可中断、可恢复；重复调用同一失败工具时要改变策略或停止。</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">DeepSeek V4 长上下文效率路线</title>
+  <desc id="desc">展示 DeepSeek V4 视频中提到的长上下文效率思路：长上下文主要贵在 attention 计算和 KV cache，CSA 和 HCA 压缩注意力，mHC 和 Muon 稳定训练，百万 token 从能跑走向工作流里用得起。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#315d61"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #213137; letter-spacing: 0; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #607073; }
+      .panel { fill: #ffffff; stroke: #d9ded8; stroke-width: 2; }
+      .panelSoft { fill: #f7fbfa; stroke: #b6cdc8; stroke-width: 2; }
+      .head { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #23333a; }
+      .body { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #48585e; }
+      .small { font: 12.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #667477; }
+      .mono { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #34464b; }
+      .chip { fill: #fff4dd; stroke: #ddb86c; stroke-width: 1.5; }
+      .chip2 { fill: #edf4ff; stroke: #90abd0; stroke-width: 1.5; }
+      .chip3 { fill: #f0edf9; stroke: #ad9bd0; stroke-width: 1.5; }
+      .token { fill: #dfeee9; stroke: #9bb8ad; stroke-width: 1.5; }
+      .summary { fill: #ffe6ad; stroke: #d6a64d; stroke-width: 1.5; }
+      .hot { fill: #f7c6b0; stroke: #d28b6e; stroke-width: 1.5; }
+      .arrow { stroke: #315d61; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .softArrow { stroke: #8eaaa5; stroke-width: 2; fill: none; marker-end: url(#arrow); opacity: .75; }
+      .line { stroke: #ccd7d4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+  <text class="title" x="52" y="58">DeepSeek V4 的长上下文效率案例：不是只把窗口做大</text>
+  <text class="subtitle" x="52" y="86">视频观点：把远处上下文压缩、筛选和粗读，同时稳住训练，让百万 token 更接近工程可用。</text>
+
+  <g transform="translate(52 128)">
+    <rect class="panel" width="300" height="420" rx="18"/>
+    <text class="head" x="26" y="42">长上下文为什么贵</text>
+    <text class="small" x="26" y="68">输入长只是表象，瓶颈在计算和缓存。</text>
+
+    <rect class="chip" x="28" y="110" width="244" height="58" rx="12"/>
+    <text class="mono" x="50" y="136">Attention FLOPs</text>
+    <text class="small" x="50" y="156">上下文越长，相关性计算越重</text>
+
+    <rect class="chip2" x="28" y="196" width="244" height="58" rx="12"/>
+    <text class="mono" x="50" y="222">KV cache</text>
+    <text class="small" x="50" y="242">历史 K/V 随 token 数占显存和带宽</text>
+
+    <rect class="chip3" x="28" y="282" width="244" height="58" rx="12"/>
+    <text class="mono" x="50" y="308">Latency / Throughput</text>
+    <text class="small" x="50" y="328">prefill、decode、并发都会被拖慢</text>
+
+    <text class="body" x="26" y="384">因此“支持 1M token”不等于“每次都便宜、都可靠”。</text>
+  </g>
+
+  <path class="arrow" d="M370 338 H434"/>
+
+  <g transform="translate(452 128)">
+    <rect class="panel" width="344" height="420" rx="18"/>
+    <text class="head" x="26" y="42">CSA / HCA 压缩注意力</text>
+    <text class="small" x="26" y="68">让远处内容先变成更少的可读入口。</text>
+
+    <text class="mono" x="30" y="108">CSA：压缩 + top-k 精读</text>
+    <g transform="translate(30 128)">
+      <rect class="token" x="0" y="0" width="24" height="34" rx="5"/>
+      <rect class="token" x="30" y="0" width="24" height="34" rx="5"/>
+      <rect class="token" x="60" y="0" width="24" height="34" rx="5"/>
+      <rect class="token" x="90" y="0" width="24" height="34" rx="5"/>
+      <path class="softArrow" d="M126 17 H164"/>
+      <rect class="summary" x="176" y="-2" width="50" height="38" rx="8"/>
+      <text class="small" x="191" y="22">摘要</text>
+      <path class="softArrow" d="M236 17 H274"/>
+      <rect class="hot" x="284" y="-2" width="34" height="38" rx="8"/>
+      <text class="small" x="293" y="22">K</text>
+    </g>
+    <text class="small" x="30" y="196">远处 token 先压缩成摘要，indexer 选最相关的摘要精算。</text>
+
+    <line class="line" x1="28" y1="224" x2="316" y2="224"/>
+
+    <text class="mono" x="30" y="264">HCA：重压缩 + 全局粗读</text>
+    <g transform="translate(30 286)">
+      <rect class="token" x="0" y="0" width="160" height="38" rx="9"/>
+      <text class="small" x="44" y="24">约 128 tokens</text>
+      <path class="softArrow" d="M174 19 H220"/>
+      <rect class="summary" x="234" y="0" width="72" height="38" rx="9"/>
+      <text class="small" x="252" y="24">一份摘要</text>
+    </g>
+    <text class="small" x="30" y="356">用更粗颗粒度补全全局轮廓，减少远距离上下文成本。</text>
+  </g>
+
+  <path class="arrow" d="M812 338 H876"/>
+
+  <g transform="translate(894 128)">
+    <rect class="panel" width="254" height="420" rx="18"/>
+    <text class="head" x="24" y="42">mHC / Muon 稳训练</text>
+    <text class="small" x="24" y="68">效率结构越复杂，训练稳定性越关键。</text>
+
+    <rect class="panelSoft" x="24" y="106" width="206" height="96" rx="14"/>
+    <text class="mono" x="46" y="134">mHC</text>
+    <text class="small" x="46" y="158">多残差流混合</text>
+    <text class="small" x="46" y="180">Sinkhorn 约束信号放大</text>
+
+    <rect class="panelSoft" x="24" y="228" width="206" height="96" rx="14"/>
+    <text class="mono" x="46" y="256">Muon</text>
+    <text class="small" x="46" y="280">近似正交化更新方向</text>
+    <text class="small" x="46" y="302">部分模块仍按工程取舍用 AdamW</text>
+
+    <text class="body" x="24" y="374">目标不是炫技，而是让深层大模型能稳定训练和推理。</text>
+  </g>
+
+  <g transform="translate(82 590)">
+    <rect class="panelSoft" width="1036" height="72" rx="18"/>
+    <text class="head" x="28" y="32">工程含义</text>
+    <text class="body" x="148" y="32">百万 token 从“理论上能跑”走向“工作流里更可能用得起”；但 RAG 仍负责新鲜知识、权限、外部数据库和成本控制。</text>
+    <text class="small" x="148" y="56">视频中的 27% FLOPs、10% KV cache 等数字应按论文/模型卡自评口径理解，不等同于最终 API 价格或综合能力胜出。</text>
+  </g>
+</svg>

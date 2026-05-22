@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">大模型与 Agent 工程闭环</title>
+  <desc id="desc">大模型负责语义理解和候选生成，RAG、工具、状态、权限、评测、日志和人类审批共同形成 Agent 工程闭环。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#586f7c"/>
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8790"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f8f4; }
+      .title { font: 700 27px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172026; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52616b; }
+      .panel { fill: #ffffff; stroke: #d5d0c4; stroke-width: 2; }
+      .llm { fill: #edf6f1; stroke: #6d9f87; stroke-width: 3; }
+      .loop { fill: #eef2fa; stroke: #8298c4; stroke-width: 2; }
+      .risk { fill: #fff2e6; stroke: #d89551; stroke-width: 2; }
+      .system { fill: #f8fbff; stroke: #8fa3cc; stroke-width: 2; }
+      .head { font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2e3a; }
+      .subhead { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #27343e; }
+      .body { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #3e4f5d; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #61717a; }
+      .tiny { font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #6c7780; }
+      .tag { fill: #ffffff; stroke: #c9d2df; stroke-width: 1.5; }
+      .tagGreen { fill: #f7fcf9; stroke: #86b69a; stroke-width: 1.5; }
+      .tagRisk { fill: #fffaf5; stroke: #dda264; stroke-width: 1.5; }
+      .arrow { stroke: #586f7c; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .arrowSoft { stroke: #7b8790; stroke-width: 2.5; fill: none; marker-end: url(#arrowSoft); }
+      .divider { stroke: #d9d5ca; stroke-width: 1.5; stroke-dasharray: 5 7; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="48" y="52">大模型适合做大脑的一部分，不适合单独当完整系统</text>
+  <text class="subtitle" x="48" y="82">模型基于上下文预测 token；Agent 工程把它放进感知、规划、行动、观察、校验的可控闭环。</text>
+
+  <g transform="translate(48 122)">
+    <rect class="panel" width="318" height="438" rx="18"/>
+    <text class="head" x="24" y="42">模型本体</text>
+    <text class="small" x="24" y="68">概率生成，不是完整后端</text>
+
+    <rect class="llm" x="28" y="96" width="262" height="92" rx="18"/>
+    <text class="subhead" x="52" y="130">基于上下文预测 token</text>
+    <text class="body" x="52" y="158">理解、压缩、归纳、生成</text>
+
+    <rect class="tagGreen" x="28" y="218" width="262" height="34" rx="17"/>
+    <text class="body" x="46" y="241">语言理解与意图识别</text>
+    <rect class="tagGreen" x="28" y="264" width="262" height="34" rx="17"/>
+    <text class="body" x="46" y="287">模式压缩与候选生成</text>
+    <rect class="tagGreen" x="28" y="310" width="262" height="34" rx="17"/>
+    <text class="body" x="46" y="333">迁移、归纳、解释和草拟</text>
+
+    <line class="divider" x1="28" y1="370" x2="290" y2="370"/>
+    <text class="small" x="28" y="400">输出是高概率候选，</text>
+    <text class="small" x="28" y="424">不是事实、权限、状态、</text>
+    <text class="small" x="28" y="448">执行和责任的最终来源。</text>
+  </g>
+
+  <path class="arrow" d="M382 340 H456"/>
+
+  <g transform="translate(456 122)">
+    <rect class="loop" width="294" height="438" rx="18"/>
+    <text class="head" x="24" y="42">Agent 工程闭环</text>
+    <text class="small" x="24" y="68">把模型能力组织成任务系统</text>
+
+    <circle cx="147" cy="229" r="102" fill="#f8fbff" stroke="#8fa3cc" stroke-width="2"/>
+    <circle cx="147" cy="229" r="38" class="llm"/>
+    <text class="subhead" x="118" y="224">LLM</text>
+    <text class="tiny" x="108" y="244">语义节点</text>
+
+    <rect class="tag" x="104" y="96" width="86" height="34" rx="17"/>
+    <text class="body" x="131" y="119">感知</text>
+    <rect class="tag" x="206" y="179" width="72" height="34" rx="17"/>
+    <text class="body" x="226" y="202">规划</text>
+    <rect class="tag" x="188" y="308" width="72" height="34" rx="17"/>
+    <text class="body" x="208" y="331">行动</text>
+    <rect class="tag" x="34" y="308" width="72" height="34" rx="17"/>
+    <text class="body" x="54" y="331">观察</text>
+    <rect class="tag" x="16" y="179" width="72" height="34" rx="17"/>
+    <text class="body" x="36" y="202">校验</text>
+
+    <path class="arrowSoft" d="M174 120 C238 136 258 152 244 180"/>
+    <path class="arrowSoft" d="M246 213 C262 255 250 288 224 308"/>
+    <path class="arrowSoft" d="M194 334 C148 365 106 360 78 334"/>
+    <path class="arrowSoft" d="M52 308 C24 262 26 230 48 212"/>
+    <path class="arrowSoft" d="M72 180 C92 142 112 126 132 120"/>
+  </g>
+
+  <path class="arrow" d="M766 340 H842"/>
+
+  <g transform="translate(842 122)">
+    <rect class="panel" width="310" height="438" rx="18"/>
+    <text class="head" x="24" y="42">工程系统补位</text>
+    <text class="small" x="24" y="68">确定性、可控性和可追责</text>
+
+    <rect class="system" x="24" y="96" width="120" height="56" rx="14"/>
+    <text class="subhead" x="48" y="124">RAG</text>
+    <text class="tiny" x="42" y="142">外部证据</text>
+
+    <rect class="system" x="166" y="96" width="120" height="56" rx="14"/>
+    <text class="subhead" x="203" y="124">工具</text>
+    <text class="tiny" x="194" y="142">外部动作</text>
+
+    <rect class="system" x="24" y="174" width="120" height="56" rx="14"/>
+    <text class="subhead" x="48" y="202">状态</text>
+    <text class="tiny" x="42" y="220">进度与恢复</text>
+
+    <rect class="system" x="166" y="174" width="120" height="56" rx="14"/>
+    <text class="subhead" x="203" y="202">权限</text>
+    <text class="tiny" x="188" y="220">身份与边界</text>
+
+    <rect class="system" x="24" y="252" width="120" height="56" rx="14"/>
+    <text class="subhead" x="48" y="280">评测</text>
+    <text class="tiny" x="42" y="298">质量与回归</text>
+
+    <rect class="system" x="166" y="252" width="120" height="56" rx="14"/>
+    <text class="subhead" x="190" y="280">Trace</text>
+    <text class="tiny" x="194" y="298">过程留痕</text>
+
+    <rect class="risk" x="24" y="338" width="262" height="56" rx="14"/>
+    <text class="subhead" x="50" y="366">人类审批与最终责任</text>
+    <text class="tiny" x="50" y="384">高风险、不可逆、合规敏感场景</text>
+  </g>
+
+  <g transform="translate(48 606)">
+    <rect class="risk" width="1104" height="88" rx="18"/>
+    <text class="head" x="24" y="38">判断原则</text>
+    <text class="body" x="146" y="38">把语义理解、归纳和候选生成交给模型；把事实、实时数据、私有知识、权限、状态、执行、审计和责任交给工程系统。</text>
+    <text class="small" x="146" y="64">Agent 的价值不是取消边界，而是在边界内形成可观察、可验证、可恢复的任务闭环。</text>
+  </g>
+</svg>

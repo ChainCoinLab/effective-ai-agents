@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">从 MDP 到 GRPO 和 R1-Zero 的强化学习路线</title>
+  <desc id="desc">展示强化学习如何从状态、动作、奖励出发，经过信用分配、策略梯度、PPO 和 GRPO，最后应用到 R1-Zero 的可验证推理训练。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#315d61"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #213137; letter-spacing: 0; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #617174; }
+      .panel { fill: #ffffff; stroke: #d9ded8; stroke-width: 2; }
+      .softPanel { fill: #f5faf8; stroke: #b5ccc6; stroke-width: 2; }
+      .stageA { fill: #eef7f5; stroke: #91bbb2; stroke-width: 2; }
+      .stageB { fill: #fff4dd; stroke: #dfbd70; stroke-width: 2; }
+      .stageC { fill: #f0edf9; stroke: #ad9bd0; stroke-width: 2; }
+      .stageD { fill: #edf4ff; stroke: #90add2; stroke-width: 2; }
+      .stageE { fill: #fbe8df; stroke: #d29178; stroke-width: 2; }
+      .head { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #24343b; }
+      .body { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #4a5b60; }
+      .small { font: 12.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #667578; }
+      .mono { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #35474c; }
+      .arrow { stroke: #315d61; stroke-width: 2.7; fill: none; marker-end: url(#arrow); }
+      .softArrow { stroke: #8aa9a3; stroke-width: 2; fill: none; marker-end: url(#arrow); opacity: .78; }
+      .line { stroke: #d3ddd9; stroke-width: 1.5; }
+      .chip { fill: #ffffff; stroke: #d8ded8; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+  <text class="title" x="52" y="58">强化学习推理路线：不是教步骤，而是筛出高回报行为</text>
+  <text class="subtitle" x="52" y="86">MDP 给世界观，策略梯度给更新方向，PPO/GRPO 控制训练成本和稳定性，R1-Zero 展示可验证奖励下的自我修正行为。</text>
+
+  <g transform="translate(54 126)">
+    <rect class="stageA" width="170" height="112" rx="16"/>
+    <text class="head" x="22" y="34">MDP</text>
+    <text class="body" x="22" y="62">状态、动作、奖励</text>
+    <text class="small" x="22" y="86">优化长期累计奖励</text>
+  </g>
+  <path class="arrow" d="M236 182 H286"/>
+
+  <g transform="translate(300 126)">
+    <rect class="stageB" width="170" height="112" rx="16"/>
+    <text class="head" x="22" y="34">信用分配</text>
+    <text class="body" x="22" y="62">最后赢了或答对</text>
+    <text class="small" x="22" y="86">功劳该分给哪一步？</text>
+  </g>
+  <path class="arrow" d="M482 182 H532"/>
+
+  <g transform="translate(546 126)">
+    <rect class="stageC" width="170" height="112" rx="16"/>
+    <text class="head" x="22" y="34">策略梯度</text>
+    <text class="body" x="22" y="62">高奖励轨迹上调</text>
+    <text class="small" x="22" y="86">低奖励轨迹下调</text>
+  </g>
+  <path class="arrow" d="M728 182 H778"/>
+
+  <g transform="translate(792 126)">
+    <rect class="stageD" width="150" height="112" rx="16"/>
+    <text class="head" x="22" y="34">PPO</text>
+    <text class="body" x="22" y="62">clip 限制步子</text>
+    <text class="small" x="22" y="86">但训练组件较重</text>
+  </g>
+  <path class="arrow" d="M954 182 H1004"/>
+
+  <g transform="translate(1018 126)">
+    <rect class="stageE" width="130" height="112" rx="16"/>
+    <text class="head" x="22" y="34">GRPO</text>
+    <text class="body" x="22" y="62">组内相对优势</text>
+    <text class="small" x="22" y="86">省掉 Critic</text>
+  </g>
+
+  <g transform="translate(74 300)">
+    <rect class="panel" width="318" height="226" rx="18"/>
+    <text class="head" x="24" y="38">棋盘里的例子</text>
+    <text class="body" x="24" y="70">AlphaGo 通过自我对弈和搜索，</text>
+    <text class="body" x="24" y="94">发现人类不直觉但回报高的走法。</text>
+    <line class="line" x1="24" y1="122" x2="294" y2="122"/>
+    <rect class="chip" x="28" y="150" width="116" height="46" rx="10"/>
+    <text class="mono" x="48" y="178">状态</text>
+    <rect class="chip" x="172" y="150" width="116" height="46" rx="10"/>
+    <text class="mono" x="192" y="178">落子</text>
+    <path class="softArrow" d="M146 173 H166"/>
+    <text class="small" x="24" y="210">奖励来自最终胜负和搜索评估。</text>
+  </g>
+
+  <g transform="translate(442 300)">
+    <rect class="softPanel" width="318" height="226" rx="18"/>
+    <text class="head" x="24" y="38">语言推理里的映射</text>
+    <text class="body" x="24" y="70">状态是 prompt 和已生成内容，</text>
+    <text class="body" x="24" y="94">动作是下一个 token 或完整回答。</text>
+    <line class="line" x1="24" y1="122" x2="294" y2="122"/>
+    <rect class="chip" x="28" y="150" width="116" height="46" rx="10"/>
+    <text class="mono" x="50" y="178">推理轨迹</text>
+    <rect class="chip" x="172" y="150" width="116" height="46" rx="10"/>
+    <text class="mono" x="198" y="178">验证奖励</text>
+    <path class="softArrow" d="M146 173 H166"/>
+    <text class="small" x="24" y="210">数学、代码、格式任务更容易给清晰奖励。</text>
+  </g>
+
+  <g transform="translate(810 300)">
+    <rect class="panel" width="318" height="226" rx="18"/>
+    <text class="head" x="24" y="38">R1-Zero 的现象</text>
+    <text class="body" x="24" y="70">没有先给人类思维链示范，</text>
+    <text class="body" x="24" y="94">只用规则奖励推动探索。</text>
+    <line class="line" x1="24" y1="122" x2="294" y2="122"/>
+    <rect class="chip" x="28" y="150" width="260" height="46" rx="10"/>
+    <text class="mono" x="50" y="178">更长推理 / 回头检查 / 自我修正</text>
+    <text class="small" x="24" y="210">这些行为应理解为高回报策略被强化。</text>
+  </g>
+
+  <path class="softArrow" d="M626 246 C626 270, 602 282, 602 300"/>
+  <path class="softArrow" d="M1083 246 C1083 270, 970 282, 970 300"/>
+
+  <g transform="translate(92 580)">
+    <rect class="stageB" width="1016" height="78" rx="18"/>
+    <text class="head" x="28" y="32">工程警告</text>
+    <text class="body" x="148" y="32">奖励函数决定模型会优化什么；奖励片面或可绕过时，模型会找到人类不希望的捷径。</text>
+    <text class="small" x="148" y="58">所以 RL 系统必须配合 verifier、评测集、安全约束、人工复核和 reward hacking 防护。</text>
+  </g>
+</svg>

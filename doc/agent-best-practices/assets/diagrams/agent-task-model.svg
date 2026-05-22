@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 任务模型</title>
+  <desc id="desc">展示 Task、Step、ToolCall、ToolResult、TraceEvent、TaskState 和 Verification 的关系。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #fff; stroke: #1f2937; stroke-width: 1.5; rx: 12; }
+      .core { fill: #dbeafe; stroke: #1d4ed8; }
+      .state { fill: #fef3c7; stroke: #92400e; }
+      .tool { fill: #ecfdf5; stroke: #047857; }
+      .trace { fill: #f3e8ff; stroke: #7e22ce; }
+      .verify { fill: #fee2e2; stroke: #b91c1c; }
+      .title { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .label { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #374151; }
+      .code { font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1120" height="620"/>
+  <text class="title" x="48" y="58">把 Agent 任务拆成可存储、可恢复、可测试的数据结构</text>
+
+  <rect class="box core" x="410" y="105" width="300" height="150"/>
+  <text class="label" x="525" y="138">Task</text>
+  <text class="code" x="442" y="168">goal</text>
+  <text class="code" x="442" y="192">success_criteria</text>
+  <text class="code" x="442" y="216">budget / policy / status</text>
+  <text class="small" x="442" y="240">任务的业务边界，而不是一段聊天记录</text>
+
+  <rect class="box" x="80" y="310" width="220" height="150"/>
+  <text class="label" x="154" y="343">Step</text>
+  <text class="code" x="112" y="373">step_id</text>
+  <text class="code" x="112" y="397">decision_type</text>
+  <text class="code" x="112" y="421">status</text>
+  <text class="small" x="112" y="445">每一轮可单独追踪</text>
+
+  <rect class="box tool" x="330" y="310" width="220" height="150"/>
+  <text class="label" x="387" y="343">ToolCall</text>
+  <text class="code" x="362" y="373">name</text>
+  <text class="code" x="362" y="397">arguments</text>
+  <text class="code" x="362" y="421">risk_level</text>
+  <text class="small" x="362" y="445">模型提出意图</text>
+
+  <rect class="box tool" x="580" y="310" width="220" height="150"/>
+  <text class="label" x="632" y="343">ToolResult</text>
+  <text class="code" x="612" y="373">call_id</text>
+  <text class="code" x="612" y="397">output / error</text>
+  <text class="code" x="612" y="421">source</text>
+  <text class="small" x="612" y="445">应用执行后的观察</text>
+
+  <rect class="box state" x="830" y="310" width="220" height="150"/>
+  <text class="label" x="882" y="343">TaskState</text>
+  <text class="code" x="862" y="373">facts</text>
+  <text class="code" x="862" y="397">progress</text>
+  <text class="code" x="862" y="421">checkpoint</text>
+  <text class="small" x="862" y="445">恢复和调度依据</text>
+
+  <rect class="box trace" x="205" y="500" width="300" height="70"/>
+  <text class="label" x="310" y="532">TraceEvent</text>
+  <text class="small" x="237" y="556">记录 prompt、模型输出、工具参数、结果和错误</text>
+
+  <rect class="box verify" x="615" y="500" width="300" height="70"/>
+  <text class="label" x="710" y="532">Verification</text>
+  <text class="small" x="647" y="556">判断是否完成、是否越权、证据是否支撑结论</text>
+
+  <path class="arrow" d="M510 255 L245 310"/>
+  <path class="arrow" d="M560 255 L440 310"/>
+  <path class="arrow" d="M610 255 L690 310"/>
+  <path class="arrow" d="M665 255 L940 310"/>
+  <path class="arrow" d="M300 425 L275 500"/>
+  <path class="arrow" d="M550 425 L390 500"/>
+  <path class="arrow" d="M800 425 L720 500"/>
+  <path class="arrow" d="M940 460 L825 500"/>
+</svg>

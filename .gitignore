@@ -16,6 +16,14 @@ doc/video-insights/**/raw/*.m4a
 doc/video-insights/**/raw/*.m4s
 doc/video-insights/**/raw/*.mov
 doc/video-insights/**/raw/*.wav
+doc/video-insights/**/raw/*.mp3
+doc/video-insights/**/raw/*.aac
+doc/video-insights/**/raw/*.flac
+doc/video-insights/**/raw/*.ogg
+doc/video-insights/**/raw/*.webm
+doc/video-insights/**/raw/*.mkv
+doc/video-insights/**/raw/*.avi
+doc/video-insights/**/raw/*.ts
 
 # Generated image assets from video analysis
 doc/video-insights/**/images/
