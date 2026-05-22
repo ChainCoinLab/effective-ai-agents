@@ -42,6 +42,22 @@ function mdPathToUrl(mdPath) {
   return mdPath.replace(/\.md$/, ".html");
 }
 
+function escapeHtmlAttribute(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function cloudflareAnalyticsTag(token) {
+  const config = escapeHtmlAttribute(JSON.stringify({ token }));
+  return `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${config}'></script>`;
+}
+
+const navigationStyleTag = `<style id="agent-summary-depth-style">.book-summary ul.summary ul.articles{display:none}.book-summary li.chapter[data-path="07-source-implementation/"]{display:none}</style>`;
+
 const summary = read(summaryPath);
 const mdPaths = [];
 const seen = new Set();
@@ -227,7 +243,7 @@ const clientScript = `(() => {
     if (document.getElementById("agent-search-highlight-style")) return;
     const style = document.createElement("style");
     style.id = "agent-search-highlight-style";
-    style.textContent = "#book-search-results mark{background:#ffe58a;color:inherit;padding:0 .08em;border-radius:2px;box-shadow:inset 0 -0.2em rgba(255,193,7,.35)}";
+    style.textContent = "#book-search-results mark{background:#ffe58a;color:inherit;padding:0 .08em;border-radius:2px;box-shadow:inset 0 -0.2em rgba(255,193,7,.35)}.book-summary ul.summary ul.articles{display:none}.book-summary li.chapter[data-path=\"07-source-implementation/\"]{display:none}";
     document.head.appendChild(style);
   }
 
@@ -248,13 +264,45 @@ const clientScript = `(() => {
 fs.writeFileSync(path.join(outDir, "agent-search.js"), clientScript, "utf8");
 
 const buildId = Date.now();
-for (const htmlFile of walk(outDir)) {
+const cloudflareAnalyticsToken = (process.env.CF_WEB_ANALYTICS_TOKEN || "").trim();
+const analyticsTag = cloudflareAnalyticsToken
+  ? cloudflareAnalyticsTag(cloudflareAnalyticsToken)
+  : "";
+let searchInjected = 0;
+let analyticsInjected = 0;
+const htmlFiles = walk(outDir);
+
+for (const htmlFile of htmlFiles) {
   let html = read(htmlFile);
   const rel = path.relative(path.dirname(htmlFile), outDir).split(path.sep).join("/") || ".";
   const scriptTag = `<script src="${rel}/agent-search.js?v=${buildId}"></script>`;
-  if (html.includes("agent-search.js")) continue;
-  html = html.replace("</body>", `    ${scriptTag}\n</body>`);
-  fs.writeFileSync(htmlFile, html, "utf8");
+  let changed = false;
+
+  if (!html.includes("agent-search.js")) {
+    html = html.replace("</body>", `    ${scriptTag}\n</body>`);
+    changed = true;
+    searchInjected += 1;
+  }
+
+  if (analyticsTag && !html.includes("static.cloudflareinsights.com/beacon.min.js")) {
+    html = html.replace("</body>", `    ${analyticsTag}\n</body>`);
+    changed = true;
+    analyticsInjected += 1;
+  }
+
+  if (!html.includes("agent-summary-depth-style")) {
+    html = html.replace("</head>", `    ${navigationStyleTag}\n</head>`);
+    changed = true;
+  }
+
+  if (changed) {
+    fs.writeFileSync(htmlFile, html, "utf8");
+  }
 }
 
-console.log(`Injected custom search into ${walk(outDir).length} HTML pages with ${entries.length} search entries.`);
+console.log(`Injected custom search into ${searchInjected}/${htmlFiles.length} HTML pages with ${entries.length} search entries.`);
+if (analyticsTag) {
+  console.log(`Injected Cloudflare Web Analytics into ${analyticsInjected}/${htmlFiles.length} HTML pages.`);
+} else {
+  console.log("Skipped Cloudflare Web Analytics injection because CF_WEB_ANALYTICS_TOKEN is not set.");
+}

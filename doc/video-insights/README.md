@@ -39,6 +39,7 @@ doc/video-insights/_index.md
 
 | 视频 | 目录 | 状态 |
 | --- | --- | --- |
+| 【B站强推】Harness Engineering深度解析，从概念解析到落地指南一次性讲透，小白也能轻松看懂，快速掌握！少走99% 弯路！ | `harness-engineering-deep-dive/` | 已转写，已做结构化、思维导图、摘录和体验总结 |
 | Claude Code: 从零搭建你的 AI 工作团队（Skills + Agents） | `claude-code-skills-agents-axton/` | 已转写，已做结构化和思维导图提炼 |
 | Anthropic 最新分享：Claude Code 提示词缓存的最佳实践 | `claude-code-prompt-caching-best-practices/` | 已转写，已做结构化、思维导图、摘录和体验总结 |
 
