@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">03. Prompt 与指令工程 - 风险兜底图</title>
+  <desc id="desc">常见失败模式和工程兜底：把 Prompt 从一次性文本变成可版本化、可测试、可回滚的工程资产。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.7; }
+      .ok { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">03. Prompt 与指令工程 - 风险兜底图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">常见失败模式和工程兜底</text>
+  
+  <rect class="risk" x="80" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="98" y="178" text-anchor="start">风险 1：规则混杂冲突</text>
+  <text class="small" x="98" y="207" text-anchor="start">解决：分层管理指令</text>
+  <rect class="risk" x="430" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="448" y="178" text-anchor="start">风险 2：外部上下文污染指令</text>
+  <text class="small" x="448" y="207" text-anchor="start">解决：把外部材料标成 data</text>
+  <rect class="risk" x="780" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="798" y="178" text-anchor="start">风险 3：输出格式漂移</text>
+  <text class="small" x="798" y="207" text-anchor="start">解决：使用 schema 校验</text>
+  <rect class="risk" x="80" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="98" y="373" text-anchor="start">风险 4：示例过多噪声大</text>
+  <text class="small" x="98" y="402" text-anchor="start">解决：少量高质量示例</text>
+  <rect class="risk" x="430" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="448" y="373" text-anchor="start">风险 5：Prompt 改动不可</text>
+  <text class="label" x="448" y="393" text-anchor="start">追踪</text>
+  <text class="small" x="448" y="402" text-anchor="start">解决：保存版本和回归样例</text>
+  <rect class="ok" x="780" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="798" y="373" text-anchor="start">兜底组合</text>
+  <text class="small" x="798" y="402" text-anchor="start">schema、权限、状态、预算、确认、t</text>
+  <text class="small" x="798" y="422" text-anchor="start">race、eval</text>
+  <path class="arrow" d="M365 195 H430"/><path class="arrow" d="M715 195 H780"/><path class="arrow" d="M365 390 H430"/><path class="arrow" d="M715 390 H780"/>
+</svg>

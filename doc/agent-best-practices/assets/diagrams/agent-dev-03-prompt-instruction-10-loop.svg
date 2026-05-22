@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">03. Prompt 与指令工程 - 闭环总结图</title>
+  <desc id="desc">设计、执行、验证、反馈的闭环：把 Prompt 从一次性文本变成可版本化、可测试、可回滚的工程资产。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.7; }
+      .ok { fill: #fefce8; stroke: #854d0e; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #f0fdfa; stroke: #0f766e; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">03. Prompt 与指令工程 - 闭环总结图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">设计、执行、验证、反馈的闭环</text>
+  
+  <circle class="center" cx="560" cy="310" r="92"/>
+  <text class="centerTitle" x="560" y="300" text-anchor="middle">Prompt 与指令工程</text>
+  <text class="centerSmall" x="560" y="330" text-anchor="middle">Agent 工程闭环</text>
+  <rect class="accent" x="80" y="105" width="220" height="105" rx="14"/>
+  <text class="label" x="98" y="138" text-anchor="start">1. 设计</text>
+  <text class="small" x="98" y="167" text-anchor="start">目标、边界、对象、接口、风险、验收</text>
+  <rect class="card" x="820" y="105" width="220" height="105" rx="14"/>
+  <text class="label" x="838" y="138" text-anchor="start">2. 执行</text>
+  <text class="small" x="838" y="167" text-anchor="start">模型决策、工具执行、状态更新、trace</text>
+  <rect class="ok" x="820" y="430" width="220" height="105" rx="14"/>
+  <text class="label" x="838" y="463" text-anchor="start">3. 验证</text>
+  <text class="small" x="838" y="492" text-anchor="start">schema、证据、权限、业务规则、评估</text>
+  <text class="small" x="838" y="512" text-anchor="start">集</text>
+  <rect class="risk" x="80" y="430" width="220" height="105" rx="14"/>
+  <text class="label" x="98" y="463" text-anchor="start">4. 迭代</text>
+  <text class="small" x="98" y="492" text-anchor="start">失败分类、样例沉淀、回归和灰度</text>
+  <path class="arrow" d="M300 158 C430 80 690 80 820 158"/>
+  <path class="arrow" d="M930 210 C1030 285 1030 380 930 430"/>
+  <path class="arrow" d="M820 480 C690 560 430 560 300 480"/>
+  <path class="arrow" d="M190 430 C90 365 90 240 190 210"/>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">01. Agent 原理 - 核心对象图</title>
+  <desc id="desc">需要在代码里落地的对象和接口：从模型能力边界出发，解释 Agent 为什么必须由目标、上下文、工具、状态、权限、验证和 trace 共同组成。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #f0fdf4; stroke: #15803d; stroke-width: 1.7; }
+      .ok { fill: #fff7ed; stroke: #c2410c; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #f0fdf4; stroke: #15803d; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">01. Agent 原理 - 核心对象图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">需要在代码里落地的对象和接口</text>
+  <rect class="card" x="70" y="145" width="190" height="100" rx="14"/>
+  <text class="label" x="88" y="178" text-anchor="start">用户目标</text>
+  <text class="small" x="88" y="207" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="335" y="145" width="190" height="100" rx="14"/>
+  <text class="label" x="353" y="178" text-anchor="start">成功标准</text>
+  <text class="small" x="353" y="207" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="600" y="145" width="190" height="100" rx="14"/>
+  <text class="label" x="618" y="178" text-anchor="start">上下文构造</text>
+  <text class="small" x="618" y="207" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="865" y="145" width="190" height="100" rx="14"/>
+  <text class="label" x="883" y="178" text-anchor="start">模型决策</text>
+  <text class="small" x="883" y="207" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="205" y="355" width="190" height="100" rx="14"/>
+  <text class="label" x="223" y="388" text-anchor="start">工具执行</text>
+  <text class="small" x="223" y="417" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="470" y="355" width="190" height="100" rx="14"/>
+  <text class="label" x="488" y="388" text-anchor="start">状态更新</text>
+  <text class="small" x="488" y="417" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <rect class="card" x="735" y="355" width="190" height="100" rx="14"/>
+  <text class="label" x="753" y="388" text-anchor="start">结果验证</text>
+  <text class="small" x="753" y="417" text-anchor="start">字段、版本、校验、错误码、trace</text>
+  <path class="arrow" d="M260 195 H335"/><path class="arrow" d="M525 195 H600"/><path class="arrow" d="M790 195 H865"/><path class="arrow" d="M960 245 C940 315 850 340 830 355"/><path class="arrow" d="M735 405 H660"/><path class="arrow" d="M470 405 H395"/>
+</svg>

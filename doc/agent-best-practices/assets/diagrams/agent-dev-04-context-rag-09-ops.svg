@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">04. 上下文工程与 RAG - 生产运行图</title>
+  <desc id="desc">上线后的监控、预算、告警和降级：围绕证据链构造本轮模型输入，让模型基于可追溯材料回答，而不是靠参数记忆猜事实。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #f0fdfa; stroke: #0f766e; stroke-width: 1.7; }
+      .ok { fill: #fefce8; stroke: #854d0e; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #f0fdfa; stroke: #0f766e; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">04. 上下文工程与 RAG - 生产运行图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">上线后的监控、预算、告警和降级</text>
+  
+  <rect class="accent" x="80" y="145" width="220" height="105" rx="14"/>
+  <text class="label" x="98" y="178" text-anchor="start">上线前</text>
+  <text class="small" x="98" y="207" text-anchor="start">评估通过、权限策略、预算、灰度、回滚</text>
+  <rect class="card" x="330" y="145" width="220" height="105" rx="14"/>
+  <text class="label" x="348" y="178" text-anchor="start">运行中</text>
+  <text class="small" x="348" y="207" text-anchor="start">trace、metrics、logs、a</text>
+  <text class="small" x="348" y="227" text-anchor="start">lerts、cost</text>
+  <rect class="risk" x="580" y="145" width="220" height="105" rx="14"/>
+  <text class="label" x="598" y="178" text-anchor="start">异常时</text>
+  <text class="small" x="598" y="207" text-anchor="start">熔断、降级、暂停、转人工、恢复</text>
+  <rect class="ok" x="830" y="145" width="220" height="105" rx="14"/>
+  <text class="label" x="848" y="178" text-anchor="start">迭代后</text>
+  <text class="small" x="848" y="207" text-anchor="start">失败分类、样例沉淀、回归验证、发布记录</text>
+  <path class="arrow" d="M300 197 H330"/><path class="arrow" d="M550 197 H580"/><path class="arrow" d="M800 197 H830"/>
+  <rect class="card" x="140" y="365" width="250" height="105" rx="14"/>
+  <text class="label" x="158" y="398" text-anchor="start">监控重点</text>
+  <text class="small" x="158" y="427" text-anchor="start">质量、成本、延迟、安全、工具错误和队列堆</text>
+  <text class="small" x="158" y="447" text-anchor="start">积</text>
+  <rect class="risk" x="455" y="365" width="250" height="105" rx="14"/>
+  <text class="label" x="473" y="398" text-anchor="start">告警策略</text>
+  <text class="small" x="473" y="427" text-anchor="start">失败率上升、成本突增、越权拦截、超时增加</text>
+  <rect class="ok" x="770" y="365" width="250" height="105" rx="14"/>
+  <text class="label" x="788" y="398" text-anchor="start">运维动作</text>
+  <text class="small" x="788" y="427" text-anchor="start">切模型、限流、回滚 Prompt、切只读</text>
+  <text class="small" x="788" y="447" text-anchor="start">模式</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">09. 生产反馈与迭代 - 风险兜底图</title>
+  <desc id="desc">常见失败模式和工程兜底：把线上反馈、失败 trace、人工审核和指标变化转成可执行的改进闭环。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #eef2ff; stroke: #3730a3; stroke-width: 1.7; }
+      .ok { fill: #ecfeff; stroke: #0e7490; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #eef2ff; stroke: #3730a3; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">09. 生产反馈与迭代 - 风险兜底图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">常见失败模式和工程兜底</text>
+  
+  <rect class="risk" x="80" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="98" y="178" text-anchor="start">风险 1：反馈直接当训练数据</text>
+  <text class="small" x="98" y="207" text-anchor="start">解决：先分类和标注反馈</text>
+  <rect class="risk" x="430" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="448" y="178" text-anchor="start">风险 2：只修个例不沉淀</text>
+  <text class="small" x="448" y="207" text-anchor="start">解决：失败转 eval case</text>
+  <rect class="risk" x="780" y="145" width="285" height="100" rx="14"/>
+  <text class="label" x="798" y="178" text-anchor="start">风险 3：无灰度直接发布</text>
+  <text class="small" x="798" y="207" text-anchor="start">解决：灰度和回滚</text>
+  <rect class="risk" x="80" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="98" y="373" text-anchor="start">风险 4：指标只看满意度</text>
+  <text class="small" x="98" y="402" text-anchor="start">解决：同时看质量/成本/延迟/安全</text>
+  <rect class="risk" x="430" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="448" y="373" text-anchor="start">风险 5：团队标准不统一</text>
+  <text class="small" x="448" y="402" text-anchor="start">解决：沉淀 prompt/tool/ev</text>
+  <text class="small" x="448" y="422" text-anchor="start">al 标准</text>
+  <rect class="ok" x="780" y="340" width="285" height="100" rx="14"/>
+  <text class="label" x="798" y="373" text-anchor="start">兜底组合</text>
+  <text class="small" x="798" y="402" text-anchor="start">schema、权限、状态、预算、确认、t</text>
+  <text class="small" x="798" y="422" text-anchor="start">race、eval</text>
+  <path class="arrow" d="M365 195 H430"/><path class="arrow" d="M715 195 H780"/><path class="arrow" d="M365 390 H430"/><path class="arrow" d="M715 390 H780"/>
+</svg>

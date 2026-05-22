@@ -1,3 +1,7 @@
+# 30. 优先 workflow，再升级 Agent
+
+[返回全局摘要](../README.md) · [返回本组：MCP、工具调用与多 Agent](README.md)
+
 ## Status
 Recommended
 
@@ -5,6 +9,8 @@ Category: tools-agents
 
 ## Rule
 优先使用 workflow，必要时再升级为 Agent。固定流程、长文本多轮任务，以及 RAG、MCP、Skill、Tool 多模块协作，都应先设计成可观察、可恢复、可验证的工作流。
+
+![Workflow 与 Agent 边界](../assets/diagrams/workflow-agent-boundary.svg)
 
 ## Why
 很多业务流程有清晰步骤和条件，用确定性 workflow 更容易测试、审计和控制。Agent 适合开放式判断、动态规划和工具选择。
@@ -21,6 +27,19 @@ Category: tools-agents
 
 ## Optimize
 先把稳定流程建成工作流，把模型放在需要理解、生成或决策的节点。只有当路径无法提前枚举时，再引入更自主的 Agent。
+
+可以把 Harness Engineering 理解为 workflow-first 在复杂 Agent 里的落地外壳：它不只是一个规则文件或提示词，而是一组围绕模型外部运行链路的控制面。
+
+| Harness 模块 | workflow 中的职责 |
+| --- | --- |
+| 上下文工程 | 只注入当前步骤需要的信息，隔离无关材料，维护阶段摘要和证据引用。 |
+| 工具编排 | 按任务阶段、权限和风险裁剪工具集，避免把全部工具暴露给模型。 |
+| 验证机制 | 用确定性规则、测试、lint、schema 和独立评估节点验收模型输出。 |
+| 状态管理 | 把任务进度、检查点、开放问题和下一步动作持久化到外部系统。 |
+| 可观测性 | 记录上下文、工具调用、验证反馈、错误类型和人工确认，支持 trace 回放。 |
+| 人类接管 | 在高风险、不可逆、权限冲突、成本超限或反复失败时暂停自动执行。 |
+
+这个视角的价值在于避免把 Agent 可靠性误解成“多写几条 prompt”。Prompt 可以引导单轮行为，Context 可以补充信息，但长链路任务的可靠性来自外部流程、状态、验证、回滚和审计。
 
 工作流设计时先明确模块职责：
 
@@ -113,6 +132,7 @@ Category: tools-agents
 - RAG evidence-bound generation
 - MCP resources, tools and prompts
 - Skill-based task reuse
+- 视频提炼: `doc/video-insights/harness-engineering-deep-dive/`
 
 ---
 

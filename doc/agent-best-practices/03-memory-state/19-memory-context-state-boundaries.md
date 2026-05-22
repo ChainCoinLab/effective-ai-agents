@@ -10,6 +10,8 @@ Category: memory-state
 ## Rule
 长任务或长时间运行的 Agent 要分层管理记忆，不应把历史消息、工具结果、错误日志和中间结论无限追加到上下文窗口里。
 
+![状态、记忆和上下文边界](../assets/diagrams/agent-state-memory-boundaries.svg)
+
 ## Goals
 长任务记忆管理要达到几个目标：
 

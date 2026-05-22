@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">03. Prompt 与指令工程 - 数据分层图</title>
+  <desc id="desc">上下文、状态、记忆、证据和 trace 如何分层：把 Prompt 从一次性文本变成可版本化、可测试、可回滚的工程资产。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #fdf2f8; stroke: #be185d; stroke-width: 1.7; }
+      .ok { fill: #f8fafc; stroke: #334155; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .center { fill: #fdf2f8; stroke: #be185d; stroke-width: 2; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">03. Prompt 与指令工程 - 数据分层图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">上下文、状态、记忆、证据和 trace 如何分层</text>
+  <rect class="accent" x="90" y="160" width="165" height="120" rx="14"/>
+  <text class="label" x="108" y="193" text-anchor="start">Context</text>
+  <text class="small" x="108" y="222" text-anchor="start">本轮给模型看的最小相关输入</text>
+  <path class="arrow" d="M255 220 H290"/>
+  <rect class="card" x="290" y="160" width="165" height="120" rx="14"/>
+  <text class="label" x="308" y="193" text-anchor="start">Memory</text>
+  <text class="small" x="308" y="222" text-anchor="start">跨任务稳定事实和偏好</text>
+  <path class="arrow" d="M455 220 H490"/>
+  <rect class="card" x="490" y="160" width="165" height="120" rx="14"/>
+  <text class="label" x="508" y="193" text-anchor="start">State</text>
+  <text class="small" x="508" y="222" text-anchor="start">当前任务进度和业务事实</text>
+  <path class="arrow" d="M655 220 H690"/>
+  <rect class="card" x="690" y="160" width="165" height="120" rx="14"/>
+  <text class="label" x="708" y="193" text-anchor="start">Evidence</text>
+  <text class="small" x="708" y="222" text-anchor="start">原文、工具结果和引用材料</text>
+  <path class="arrow" d="M855 220 H890"/>
+  <rect class="card" x="890" y="160" width="165" height="120" rx="14"/>
+  <text class="label" x="908" y="193" text-anchor="start">Trace</text>
+  <text class="small" x="908" y="222" text-anchor="start">每一步决策、错误和验证记录</text>
+  <rect class="ok" x="160" y="385" width="250" height="105" rx="14"/>
+  <text class="label" x="178" y="418" text-anchor="start">分层原则</text>
+  <text class="small" x="178" y="447" text-anchor="start">不同生命周期、可信度、体积和权限的数据不</text>
+  <text class="small" x="178" y="467" text-anchor="start">要混放</text>
+  <rect class="risk" x="470" y="385" width="250" height="105" rx="14"/>
+  <text class="label" x="488" y="418" text-anchor="start">常见错误</text>
+  <text class="small" x="488" y="447" text-anchor="start">示例过多噪声大；少量高质量示例</text>
+  <rect class="card" x="780" y="385" width="250" height="105" rx="14"/>
+  <text class="label" x="798" y="418" text-anchor="start">验收方式</text>
+  <text class="small" x="798" y="447" text-anchor="start">能说明每条信息为什么进入当前上下文</text>
+</svg>
