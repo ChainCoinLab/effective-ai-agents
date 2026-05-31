@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Web3 撮合系统瓶颈定位图</title>
+  <desc id="desc">从接入、鉴权、资金、排序、撮合、日志、行情和结算定位高并发瓶颈。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .hot { fill: #fef3c7; stroke: #b45309; stroke-width: 1.8; }
+      .state { fill: #e0f2fe; stroke: #0369a1; stroke-width: 1.8; }
+      .async { fill: #ecfdf5; stroke: #047857; stroke-width: 1.8; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="56">图 1：Web3 撮合系统瓶颈定位</text>
+  <text class="sub" x="54" y="88">先找资源饱和点，再决定缓存、分片、队列、限流和降级放在哪里。</text>
+
+  <rect class="box" x="55" y="145" width="120" height="96" rx="10"/>
+  <text class="label" x="73" y="176">接入层</text>
+  <text class="small" x="73" y="205">QPS / p99</text>
+  <text class="small" x="73" y="225">限流命中</text>
+
+  <path class="arrow" d="M175 193 H210"/>
+  <rect class="box" x="210" y="145" width="130" height="96" rx="10"/>
+  <text class="label" x="228" y="176">签名 nonce</text>
+  <text class="small" x="228" y="205">验签耗时</text>
+  <text class="small" x="228" y="225">重放冲突</text>
+
+  <path class="arrow" d="M340 193 H375"/>
+  <rect class="hot" x="375" y="145" width="130" height="96" rx="10"/>
+  <text class="label" x="393" y="176">资金预占</text>
+  <text class="small" x="393" y="205">余额锁冲突</text>
+  <text class="small" x="393" y="225">reserve p99</text>
+
+  <path class="arrow" d="M505 193 H540"/>
+  <rect class="state" x="540" y="145" width="130" height="96" rx="10"/>
+  <text class="label" x="558" y="176">Sequencer</text>
+  <text class="small" x="558" y="205">seq gap</text>
+  <text class="small" x="558" y="225">append p99</text>
+
+  <path class="arrow" d="M670 193 H705"/>
+  <rect class="state" x="705" y="145" width="140" height="96" rx="10"/>
+  <text class="label" x="723" y="176">撮合引擎</text>
+  <text class="small" x="723" y="205">match loop</text>
+  <text class="small" x="723" y="225">book depth</text>
+
+  <path class="arrow" d="M845 193 H880"/>
+  <rect class="hot" x="880" y="145" width="145" height="96" rx="10"/>
+  <text class="label" x="898" y="176">事件日志</text>
+  <text class="small" x="898" y="205">fsync p99</text>
+  <text class="small" x="898" y="225">replica lag</text>
+
+  <rect class="async" x="220" y="360" width="180" height="110" rx="12"/>
+  <text class="label" x="240" y="394">行情推送</text>
+  <text class="small" x="240" y="424">fanout lag</text>
+  <text class="small" x="240" y="444">client gap rate</text>
+
+  <rect class="async" x="470" y="360" width="180" height="110" rx="12"/>
+  <text class="label" x="490" y="394">查询视图</text>
+  <text class="small" x="490" y="424">slow query</text>
+  <text class="small" x="490" y="444">replica lag</text>
+
+  <rect class="async" x="720" y="360" width="180" height="110" rx="12"/>
+  <text class="label" x="740" y="394">清结算</text>
+  <text class="small" x="740" y="424">settlement lag</text>
+  <text class="small" x="740" y="444">DLQ / retry</text>
+
+  <path class="arrow" d="M952 241 C952 310 810 315 810 360"/>
+  <path class="arrow" d="M952 241 C952 310 560 315 560 360"/>
+  <path class="arrow" d="M952 241 C952 310 310 315 310 360"/>
+
+  <rect class="box" x="120" y="535" width="880" height="54" rx="10"/>
+  <text class="label" x="142" y="568">判断顺序：先看同步热路径 p99 和饱和度，再看异步链路 lag，最后决定扩容、分片、削峰或降级。</text>
+</svg>

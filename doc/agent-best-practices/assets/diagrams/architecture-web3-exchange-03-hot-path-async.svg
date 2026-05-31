@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Web3 撮合同步热路径与异步派生链路</title>
+  <desc id="desc">下单热路径只做必须同步的校验、排序、撮合和事实写入，其他视图异步派生。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .hot { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.8; }
+      .ok { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.7; }
+      .async { fill: #ecfdf5; stroke: #047857; stroke-width: 1.6; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2.1; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #047857; stroke-width: 2; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#047857"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="56">图 3：同步热路径与异步派生链路</text>
+  <text class="sub" x="54" y="88">撮合热路径不查数据库、不等链上；查询、行情、结算、审计从事件日志派生。</text>
+
+  <text class="label" x="68" y="135">同步热路径</text>
+  <rect class="ok" x="65" y="165" width="118" height="76" rx="10"/><text class="label" x="83" y="196">Client</text><text class="small" x="83" y="220">place/cancel</text>
+  <path class="arrow" d="M183 203 H220"/>
+  <rect class="ok" x="220" y="165" width="118" height="76" rx="10"/><text class="label" x="238" y="196">Gateway</text><text class="small" x="238" y="220">限流 去重</text>
+  <path class="arrow" d="M338 203 H375"/>
+  <rect class="ok" x="375" y="165" width="118" height="76" rx="10"/><text class="label" x="393" y="196">Auth</text><text class="small" x="393" y="220">签名 nonce</text>
+  <path class="arrow" d="M493 203 H530"/>
+  <rect class="hot" x="530" y="165" width="130" height="76" rx="10"/><text class="label" x="548" y="196">Reserve</text><text class="small" x="548" y="220">资金预占</text>
+  <path class="arrow" d="M660 203 H697"/>
+  <rect class="hot" x="697" y="165" width="130" height="76" rx="10"/><text class="label" x="715" y="196">Matching</text><text class="small" x="715" y="220">内存订单簿</text>
+  <path class="arrow" d="M827 203 H864"/>
+  <rect class="hot" x="864" y="165" width="145" height="76" rx="10"/><text class="label" x="882" y="196">Journal</text><text class="small" x="882" y="220">成交事实</text>
+
+  <text class="label" x="68" y="330">异步派生链路</text>
+  <rect class="async" x="120" y="375" width="170" height="86" rx="10"/><text class="label" x="138" y="407">订单查询</text><text class="small" x="138" y="434">read model</text>
+  <rect class="async" x="345" y="375" width="170" height="86" rx="10"/><text class="label" x="363" y="407">行情推送</text><text class="small" x="363" y="434">snapshot + delta</text>
+  <rect class="async" x="570" y="375" width="170" height="86" rx="10"/><text class="label" x="588" y="407">清结算</text><text class="small" x="588" y="434">ledger batch</text>
+  <rect class="async" x="795" y="375" width="170" height="86" rx="10"/><text class="label" x="813" y="407">审计回放</text><text class="small" x="813" y="434">trace replay</text>
+
+  <path class="dash" d="M936 241 C936 315 205 320 205 375"/>
+  <path class="dash" d="M936 241 C936 315 430 320 430 375"/>
+  <path class="dash" d="M936 241 C936 315 655 320 655 375"/>
+  <path class="dash" d="M936 241 C936 315 880 320 880 375"/>
+
+  <rect class="ok" x="205" y="525" width="710" height="52" rx="10"/>
+  <text class="label" x="225" y="558">原则：同步链路只做接单正确性；所有可延后工作都由事件日志异步派生。</text>
+</svg>

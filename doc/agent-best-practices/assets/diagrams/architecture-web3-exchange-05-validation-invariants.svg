@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Web3 撮合校验链路与不变量图</title>
+  <desc id="desc">展示订单从接入到链上确认的分层校验，以及撮合引擎必须维护的不变量。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .check { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.6; }
+      .core { fill: #fef3c7; stroke: #b45309; stroke-width: 1.8; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2.1; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="56">图 5：校验链路与撮合不变量</text>
+  <text class="sub" x="54" y="88">校验分层前置，撮合引擎只维护确定性订单簿不变量。</text>
+
+  <rect class="check" x="55" y="150" width="130" height="86" rx="10"/>
+  <text class="label" x="73" y="182">接入校验</text>
+  <text class="small" x="73" y="212">schema 精度</text>
+  <path class="arrow" d="M185 193 H215"/>
+
+  <rect class="check" x="215" y="150" width="130" height="86" rx="10"/>
+  <text class="label" x="233" y="182">身份校验</text>
+  <text class="small" x="233" y="212">签名 nonce</text>
+  <path class="arrow" d="M345 193 H375"/>
+
+  <rect class="risk" x="375" y="150" width="140" height="86" rx="10"/>
+  <text class="label" x="393" y="182">风控余额</text>
+  <text class="small" x="393" y="212">预占 限额</text>
+  <path class="arrow" d="M515 193 H545"/>
+
+  <rect class="check" x="545" y="150" width="130" height="86" rx="10"/>
+  <text class="label" x="563" y="182">顺序校验</text>
+  <text class="small" x="563" y="212">seq 幂等</text>
+  <path class="arrow" d="M675 193 H705"/>
+
+  <rect class="core" x="705" y="150" width="150" height="86" rx="10"/>
+  <text class="label" x="723" y="182">撮合校验</text>
+  <text class="small" x="723" y="212">价格时间优先</text>
+  <path class="arrow" d="M855 193 H885"/>
+
+  <rect class="check" x="885" y="150" width="150" height="86" rx="10"/>
+  <text class="label" x="903" y="182">清结算校验</text>
+  <text class="small" x="903" y="212">资产守恒</text>
+
+  <rect class="core" x="120" y="345" width="390" height="170" rx="12"/>
+  <text class="label" x="145" y="382">撮合引擎不变量</text>
+  <text class="small" x="145" y="414">remaining_quantity &gt;= 0</text>
+  <text class="small" x="145" y="438">fill.quantity 不超过 maker/taker 剩余量</text>
+  <text class="small" x="145" y="462">buy.price &gt;= sell.price 才能成交</text>
+  <text class="small" x="145" y="486">同一价格档位按 seq FIFO</text>
+
+  <rect class="risk" x="610" y="345" width="390" height="170" rx="12"/>
+  <text class="label" x="635" y="382">失败即阻断</text>
+  <text class="small" x="635" y="414">签名失败：拒单</text>
+  <text class="small" x="635" y="438">余额不足：拒单或风控</text>
+  <text class="small" x="635" y="462">Journal 写失败：不确认成交</text>
+  <text class="small" x="635" y="486">回放不一致：暂停 market</text>
+</svg>

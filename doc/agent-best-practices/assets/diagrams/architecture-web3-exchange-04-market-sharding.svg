@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Web3 撮合按交易对分片图</title>
+  <desc id="desc">同一交易对由单 writer 维护订单簿，多交易对并行扩展。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .router { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.8; }
+      .shard { fill: #fef3c7; stroke: #b45309; stroke-width: 1.8; }
+      .log { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 1.8; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2.1; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="56">图 4：按交易对分片与单 writer 撮合</text>
+  <text class="sub" x="54" y="88">同一 market 保持全序；多 market 并行，热门 market 独占实例。</text>
+
+  <rect class="router" x="70" y="250" width="170" height="100" rx="12"/>
+  <text class="label" x="92" y="286">Market Router</text>
+  <text class="small" x="92" y="316">按 market_id 路由</text>
+
+  <rect class="shard" x="330" y="120" width="225" height="130" rx="12"/>
+  <text class="label" x="352" y="154">Shard A: ETH-USDC</text>
+  <text class="small" x="352" y="184">Sequencer A</text>
+  <text class="small" x="352" y="206">Single Writer Engine</text>
+  <text class="small" x="352" y="228">Order Book A</text>
+
+  <rect class="shard" x="330" y="300" width="225" height="130" rx="12"/>
+  <text class="label" x="352" y="334">Shard B: BTC-USDC</text>
+  <text class="small" x="352" y="364">Sequencer B</text>
+  <text class="small" x="352" y="386">Single Writer Engine</text>
+  <text class="small" x="352" y="408">Order Book B</text>
+
+  <rect class="shard" x="330" y="480" width="225" height="90" rx="12"/>
+  <text class="label" x="352" y="514">Shard C: cold markets</text>
+  <text class="small" x="352" y="544">多个冷门交易对合并托管</text>
+
+  <path class="arrow" d="M240 300 C285 300 285 185 330 185"/>
+  <path class="arrow" d="M240 300 H330"/>
+  <path class="arrow" d="M240 300 C285 300 285 525 330 525"/>
+
+  <rect class="log" x="680" y="120" width="245" height="130" rx="12"/>
+  <text class="label" x="702" y="154">Journal Partition A</text>
+  <text class="small" x="702" y="184">ETH-USDC append-only</text>
+  <text class="small" x="702" y="206">snapshot + replay</text>
+
+  <rect class="log" x="680" y="300" width="245" height="130" rx="12"/>
+  <text class="label" x="702" y="334">Journal Partition B</text>
+  <text class="small" x="702" y="364">BTC-USDC append-only</text>
+  <text class="small" x="702" y="386">snapshot + replay</text>
+
+  <path class="arrow" d="M555 185 H680"/>
+  <path class="arrow" d="M555 365 H680"/>
+
+  <rect class="router" x="700" y="500" width="270" height="64" rx="10"/>
+  <text class="label" x="720" y="536">禁止：同一本订单簿多 writer 并发乱写</text>
+</svg>

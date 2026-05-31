@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">Web3 撮合系统模块拆分与通信图</title>
+  <desc id="desc">展示接入、认证、余额、排序、撮合、事件日志以及异步派生模块的边界。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .sub { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .sync { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.7; }
+      .state { fill: #fef3c7; stroke: #b45309; stroke-width: 1.8; }
+      .event { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 1.8; }
+      .async { fill: #ecfdf5; stroke: #047857; stroke-width: 1.6; }
+      .label { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .arrow { stroke: #475569; stroke-width: 2.1; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #047857; stroke-width: 2; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#047857"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="56">图 2：模块拆分与通信边界</text>
+  <text class="sub" x="54" y="88">状态 owner 决定模块边界；命令走同步热路径，事实事件驱动异步视图。</text>
+
+  <rect class="sync" x="55" y="145" width="126" height="92" rx="10"/>
+  <text class="label" x="73" y="176">Gateway</text>
+  <text class="small" x="73" y="205">限流 去重</text>
+
+  <path class="arrow" d="M181 191 H218"/>
+  <rect class="sync" x="218" y="145" width="126" height="92" rx="10"/>
+  <text class="label" x="236" y="176">Auth</text>
+  <text class="small" x="236" y="205">签名 nonce</text>
+
+  <path class="arrow" d="M344 191 H381"/>
+  <rect class="sync" x="381" y="145" width="140" height="92" rx="10"/>
+  <text class="label" x="399" y="176">Risk &amp; Balance</text>
+  <text class="small" x="399" y="205">风控 资金预占</text>
+
+  <path class="arrow" d="M521 191 H558"/>
+  <rect class="state" x="558" y="145" width="132" height="92" rx="10"/>
+  <text class="label" x="576" y="176">Sequencer</text>
+  <text class="small" x="576" y="205">market 全序</text>
+
+  <path class="arrow" d="M690 191 H727"/>
+  <rect class="state" x="727" y="145" width="142" height="92" rx="10"/>
+  <text class="label" x="745" y="176">Matching</text>
+  <text class="small" x="745" y="205">订单簿状态机</text>
+
+  <path class="arrow" d="M869 191 H906"/>
+  <rect class="event" x="906" y="145" width="150" height="92" rx="10"/>
+  <text class="label" x="924" y="176">Event Journal</text>
+  <text class="small" x="924" y="205">事实源 重放</text>
+
+  <rect class="async" x="135" y="385" width="160" height="92" rx="10"/>
+  <text class="label" x="153" y="416">Order View</text>
+  <text class="small" x="153" y="445">订单查询</text>
+
+  <rect class="async" x="360" y="385" width="160" height="92" rx="10"/>
+  <text class="label" x="378" y="416">Market Data</text>
+  <text class="small" x="378" y="445">盘口 成交 K线</text>
+
+  <rect class="async" x="585" y="385" width="160" height="92" rx="10"/>
+  <text class="label" x="603" y="416">Clearing</text>
+  <text class="small" x="603" y="445">账务 链上批次</text>
+
+  <rect class="async" x="810" y="385" width="160" height="92" rx="10"/>
+  <text class="label" x="828" y="416">Audit</text>
+  <text class="small" x="828" y="445">审计 风控回放</text>
+
+  <path class="dash" d="M981 237 C981 315 215 320 215 385"/>
+  <path class="dash" d="M981 237 C981 315 440 320 440 385"/>
+  <path class="dash" d="M981 237 C981 315 665 320 665 385"/>
+  <path class="dash" d="M981 237 C981 315 890 320 890 385"/>
+</svg>

@@ -95,3 +95,9 @@
 
 * [01. 金融行业理解](08-industry-finance/README.md)
 * [02. Web3 行业理解](09-industry-web3/README.md)
+
+## 五、架构设计
+
+* [01. 永续合约订单簿 L1 架构设计](10-architecture-design/perp-orderbook-l1-architecture.md)
+  * [01A. 分阶段执行路线](10-architecture-design/perp-orderbook-l1-staged-execution.md)
+  * [01B. 验证测试方案](10-architecture-design/perp-orderbook-l1-verification.md)
