@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">11. 安全与权限 - 落地闭环图</title>
+  <desc id="desc">安全与权限：用一个闭环总结学习重点：设计、实现、验证、上线和迭代。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #ecfeff; stroke: #0e7490; stroke-width: 1.7; }
+      .ok { fill: #f0fdf4; stroke: #14532d; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #ecfeff; stroke: #0e7490; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #0e7490; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0e7490"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">11. 安全与权限 - 落地闭环图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">用一个闭环总结学习重点：设计、实现、验证、上线和迭代。</text>
+  
+  <circle class="accentCircle" cx="560" cy="305" r="86"/>
+  <text class="centerTitle" x="560" y="292" text-anchor="middle">安全与权限</text>
+  <text class="centerSmall" x="560" y="323" text-anchor="middle">工程闭环</text>
+  <rect class="accent" x="80" y="105" width="220" height="100" rx="14"/>
+  <text class="label" x="98" y="139" text-anchor="start">1. 设计</text>
+  <text class="small" x="98" y="169" text-anchor="start">建立威胁模型、权限校验、高风险确认、注</text>
+  <text class="small" x="98" y="189" text-anchor="start">入防御、数据最小化和安全评估。</text>
+  <rect class="card" x="820" y="105" width="220" height="100" rx="14"/>
+  <text class="label" x="838" y="139" text-anchor="start">2. 实现</text>
+  <text class="small" x="838" y="169" text-anchor="start">落地对象：Threat Model / </text>
+  <text class="small" x="838" y="189" text-anchor="start">Policy Engine / Per</text>
+  <text class="small" x="838" y="209" text-anchor="start">mission Check</text>
+  <rect class="ok" x="820" y="430" width="220" height="100" rx="14"/>
+  <text class="label" x="838" y="464" text-anchor="start">3. 验证</text>
+  <text class="small" x="838" y="494" text-anchor="start">为一个邮件发送 Agent 设计安全策</text>
+  <text class="small" x="838" y="514" text-anchor="start">略：读取邮件只读、草稿可自动生成、发送</text>
+  <text class="small" x="838" y="534" text-anchor="start">必须确认，敏感收件人</text>
+  <rect class="risk" x="80" y="430" width="220" height="100" rx="14"/>
+  <text class="label" x="98" y="464" text-anchor="start">4. 迭代</text>
+  <text class="small" x="98" y="494" text-anchor="start">把失败 trace 转成评估样例和工程</text>
+  <text class="small" x="98" y="514" text-anchor="start">改进</text>
+  <path class="arrow" d="M300 155 C430 80 690 80 820 155"/>
+  <path class="arrow" d="M930 205 C1030 285 1010 380 930 430"/>
+  <path class="arrow" d="M820 480 C690 560 430 560 300 480"/>
+  <path class="arrow" d="M190 430 C90 355 90 240 190 205"/>
+</svg>

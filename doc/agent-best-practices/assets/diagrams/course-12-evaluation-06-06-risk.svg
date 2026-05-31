@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">12. 评估 Evaluation - 风险与兜底图</title>
+  <desc id="desc">评估 Evaluation：列出最常见失败模式，并把它们连接到工程兜底手段。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #fef3c7; stroke: #92400e; stroke-width: 1.7; }
+      .ok { fill: #f8fafc; stroke: #111827; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #fef3c7; stroke: #92400e; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #92400e; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#92400e"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">12. 评估 Evaluation - 风险与兜底图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">列出最常见失败模式，并把它们连接到工程兜底手段。</text>
+  
+  <rect class="risk" x="80" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="179" text-anchor="start">风险 1：忽略成本延迟</text>
+  <text class="small" x="98" y="209" text-anchor="start">质量略升但成本翻倍</text>
+  <rect class="ok" x="430" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="179" text-anchor="start">兜底 1</text>
+  <text class="small" x="448" y="209" text-anchor="start">同时记录 cost、latency、t</text>
+  <text class="small" x="448" y="229" text-anchor="start">oken。生产质量包含资源约束</text>
+  <rect class="risk" x="80" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="334" text-anchor="start">风险 2：回归不自动跑</text>
+  <text class="small" x="98" y="364" text-anchor="start">每次靠人工试几个 case</text>
+  <rect class="ok" x="430" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="334" text-anchor="start">兜底 2</text>
+  <text class="small" x="448" y="364" text-anchor="start">CI 或发布前自动跑 eval。防止隐</text>
+  <text class="small" x="448" y="384" text-anchor="start">性退化</text>
+  <rect class="risk" x="80" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="489" text-anchor="start">风险 3：失败样例不沉淀</text>
+  <text class="small" x="98" y="519" text-anchor="start">线上问题修完就忘</text>
+  <rect class="ok" x="430" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="489" text-anchor="start">兜底 3</text>
+  <text class="small" x="448" y="519" text-anchor="start">把事故转成 eval case。反馈闭</text>
+  <text class="small" x="448" y="539" text-anchor="start">环让系统持续变稳</text>
+  <path class="arrow" d="M360 199 H430"/><path class="arrow" d="M360 354 H430"/><path class="arrow" d="M360 509 H430"/>
+  <rect class="card" x="790" y="260" width="250" height="145" rx="14"/>
+  <text class="label" x="808" y="294" text-anchor="start">原则</text>
+  <text class="small" x="808" y="324" text-anchor="start">高风险靠工程兜底，低风险靠策略约束；所</text>
+  <text class="small" x="808" y="344" text-anchor="start">有兜底都要能在 trace 中看到。</text>
+</svg>

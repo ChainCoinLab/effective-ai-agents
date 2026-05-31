@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">13. 可观测性 Observability - 风险与兜底图</title>
+  <desc id="desc">可观测性 Observability：列出最常见失败模式，并把它们连接到工程兜底手段。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #e0f2fe; stroke: #0369a1; stroke-width: 1.7; }
+      .ok { fill: #fff7ed; stroke: #9a3412; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #0369a1; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0369a1"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">13. 可观测性 Observability - 风险与兜底图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">列出最常见失败模式，并把它们连接到工程兜底手段。</text>
+  
+  <rect class="risk" x="80" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="179" text-anchor="start">风险 1：无失败分类</text>
+  <text class="small" x="98" y="209" text-anchor="start">所有错误都是 unknown</text>
+  <rect class="ok" x="430" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="179" text-anchor="start">兜底 1</text>
+  <text class="small" x="448" y="209" text-anchor="start">建立 failure taxonomy。</text>
+  <text class="small" x="448" y="229" text-anchor="start">分类后才能优先修复</text>
+  <rect class="risk" x="80" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="334" text-anchor="start">风险 2：trace 不能搜索</text>
+  <text class="small" x="98" y="364" text-anchor="start">事故排查靠翻文件</text>
+  <rect class="ok" x="430" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="334" text-anchor="start">兜底 2</text>
+  <text class="small" x="448" y="364" text-anchor="start">按 task_id、user_id、t</text>
+  <text class="small" x="448" y="384" text-anchor="start">ool、error_code 索引。运</text>
+  <text class="small" x="448" y="404" text-anchor="start">维需要快速定位</text>
+  <rect class="risk" x="80" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="489" text-anchor="start">风险 3：没有回放能力</text>
+  <text class="small" x="98" y="519" text-anchor="start">修复后不知道是否解决</text>
+  <rect class="ok" x="430" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="489" text-anchor="start">兜底 3</text>
+  <text class="small" x="448" y="519" text-anchor="start">保存可回放样例并进入 eval。可观测</text>
+  <text class="small" x="448" y="539" text-anchor="start">要连接回归测试</text>
+  <path class="arrow" d="M360 199 H430"/><path class="arrow" d="M360 354 H430"/><path class="arrow" d="M360 509 H430"/>
+  <rect class="card" x="790" y="260" width="250" height="145" rx="14"/>
+  <text class="label" x="808" y="294" text-anchor="start">原则</text>
+  <text class="small" x="808" y="324" text-anchor="start">高风险靠工程兜底，低风险靠策略约束；所</text>
+  <text class="small" x="808" y="344" text-anchor="start">有兜底都要能在 trace 中看到。</text>
+</svg>

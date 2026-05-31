@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">07. 记忆系统 Memory - 核心对象图</title>
+  <desc id="desc">记忆系统 Memory：列出工程实现里需要落地的数据对象、字段和接口。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #ecfeff; stroke: #0e7490; stroke-width: 1.7; }
+      .ok { fill: #f0fdf4; stroke: #14532d; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #ecfeff; stroke: #0e7490; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #0e7490; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0e7490"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">07. 记忆系统 Memory - 核心对象图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">列出工程实现里需要落地的数据对象、字段和接口。</text>
+  <rect class="card" x="70" y="150" width="200" height="100" rx="14"/>
+  <text class="label" x="88" y="184" text-anchor="start">Memory Record</text>
+  <text class="small" x="88" y="214" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="330" y="150" width="200" height="100" rx="14"/>
+  <text class="label" x="348" y="184" text-anchor="start">Memory Type</text>
+  <text class="small" x="348" y="214" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="590" y="150" width="200" height="100" rx="14"/>
+  <text class="label" x="608" y="184" text-anchor="start">Source</text>
+  <text class="small" x="608" y="214" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="850" y="150" width="200" height="100" rx="14"/>
+  <text class="label" x="868" y="184" text-anchor="start">Confidence</text>
+  <text class="small" x="868" y="214" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="200" y="350" width="200" height="100" rx="14"/>
+  <text class="label" x="218" y="384" text-anchor="start">TTL</text>
+  <text class="small" x="218" y="414" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="460" y="350" width="200" height="100" rx="14"/>
+  <text class="label" x="478" y="384" text-anchor="start">Retrieval Policy</text>
+  <text class="small" x="478" y="414" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <rect class="card" x="720" y="350" width="200" height="100" rx="14"/>
+  <text class="label" x="738" y="384" text-anchor="start">Write Policy</text>
+  <text class="small" x="738" y="414" text-anchor="start">字段清晰、可序列化、可测试</text>
+  <path class="arrow" d="M270 200 H330"/><path class="arrow" d="M530 200 H590"/><path class="arrow" d="M790 200 H850"/><path class="arrow" d="M950 250 C950 315 820 340 820 350"/><path class="arrow" d="M720 400 H660"/><path class="arrow" d="M460 400 H400"/>
+</svg>

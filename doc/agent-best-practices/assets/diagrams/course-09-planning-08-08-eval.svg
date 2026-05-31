@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">09. 规划 Planning - 验收评估图</title>
+  <desc id="desc">规划 Planning：把本课能力转成可测试的样例、断言、指标和回归机制。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #faf5ff; stroke: #7e22ce; stroke-width: 1.7; }
+      .ok { fill: #f0f9ff; stroke: #0369a1; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #faf5ff; stroke: #7e22ce; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #7e22ce; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7e22ce"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">09. 规划 Planning - 验收评估图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">把本课能力转成可测试的样例、断言、指标和回归机制。</text>
+  
+  <rect class="accent" x="65" y="145" width="205" height="105" rx="14"/>
+  <text class="label" x="83" y="179" text-anchor="start">样例集</text>
+  <text class="small" x="83" y="209" text-anchor="start">黄金路径、失败路径、边界输入、攻击样例</text>
+  <rect class="card" x="320" y="145" width="205" height="105" rx="14"/>
+  <text class="label" x="338" y="179" text-anchor="start">过程断言</text>
+  <text class="small" x="338" y="209" text-anchor="start">工具选择、参数、状态转移、证据引用</text>
+  <rect class="card" x="575" y="145" width="205" height="105" rx="14"/>
+  <text class="label" x="593" y="179" text-anchor="start">结果断言</text>
+  <text class="small" x="593" y="209" text-anchor="start">格式、事实、引用、安全、用户体验</text>
+  <rect class="ok" x="830" y="145" width="205" height="105" rx="14"/>
+  <text class="label" x="848" y="179" text-anchor="start">回归门禁</text>
+  <text class="small" x="848" y="209" text-anchor="start">模型、prompt、工具、schema </text>
+  <text class="small" x="848" y="229" text-anchor="start">变化都要跑</text>
+  <path class="arrow" d="M270 197 H320"/><path class="arrow" d="M525 197 H575"/><path class="arrow" d="M780 197 H830"/>
+  <rect class="card" x="120" y="350" width="260" height="112" rx="14"/>
+  <text class="label" x="138" y="384" text-anchor="start">验收标准</text>
+  <text class="small" x="138" y="414" text-anchor="start">实现一个研究报告 Agent 的计划结</text>
+  <text class="small" x="138" y="434" text-anchor="start">构：选题澄清、资料检索、证据筛选、大纲、</text>
+  <text class="small" x="138" y="454" text-anchor="start">初稿、审阅、修订，每步有验收标准和重规</text>
+  <text class="small" x="138" y="474" text-anchor="start">划触发。</text>
+  <rect class="ok" x="430" y="350" width="260" height="112" rx="14"/>
+  <text class="label" x="448" y="384" text-anchor="start">质量指标</text>
+  <text class="small" x="448" y="414" text-anchor="start">成功率、失败分类、成本、延迟、安全拦截</text>
+  <rect class="accent" x="740" y="350" width="260" height="112" rx="14"/>
+  <text class="label" x="758" y="384" text-anchor="start">回归价值</text>
+  <text class="small" x="758" y="414" text-anchor="start">把线上失败沉淀成下一次发布的测试样例</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">00. Agent 开发全局蓝图 - 执行流程图</title>
+  <desc id="desc">Agent 开发全局蓝图：展示从输入、处理、输出到失败路径的数据流和控制流。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #fff7ed; stroke: #c2410c; stroke-width: 1.7; }
+      .ok { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #fff7ed; stroke: #c2410c; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #c2410c; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c2410c"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">00. Agent 开发全局蓝图 - 执行流程图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">展示从输入、处理、输出到失败路径的数据流和控制流。</text>
+  <rect class="accent" x="55" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="73" y="224" text-anchor="start">输入</text>
+  <text class="small" x="73" y="254" text-anchor="start">从宏观上看清 Agent 从请求进入到</text>
+  <text class="small" x="73" y="274" text-anchor="start">任务完成的完整工程链路。</text>
+  <path class="arrow" d="M175 250 H205"/>
+  <rect class="card" x="205" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="223" y="224" text-anchor="start">构造</text>
+  <text class="small" x="223" y="254" text-anchor="start">Runtime、Tool、State、</text>
+  <text class="small" x="223" y="274" text-anchor="start">Obs</text>
+  <path class="arrow" d="M325 250 H355"/>
+  <rect class="accent" x="355" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="373" y="224" text-anchor="start">决策</text>
+  <text class="small" x="373" y="254" text-anchor="start">模型输出候选动作</text>
+  <path class="arrow" d="M475 250 H505"/>
+  <rect class="card" x="505" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="523" y="224" text-anchor="start">执行</text>
+  <text class="small" x="523" y="254" text-anchor="start">应用层校验后执行</text>
+  <path class="arrow" d="M625 250 H655"/>
+  <rect class="card" x="655" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="673" y="224" text-anchor="start">观察</text>
+  <text class="small" x="673" y="254" text-anchor="start">结构化结果回写</text>
+  <path class="arrow" d="M775 250 H805"/>
+  <rect class="card" x="805" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="823" y="224" text-anchor="start">更新</text>
+  <text class="small" x="823" y="254" text-anchor="start">状态和 trace 更新</text>
+  <path class="arrow" d="M925 250 H955"/>
+  <rect class="card" x="955" y="190" width="120" height="120" rx="14"/>
+  <text class="label" x="973" y="224" text-anchor="start">验证</text>
+  <text class="small" x="973" y="254" text-anchor="start">按验收标准结束或继续</text>
+  <rect class="risk" x="110" y="390" width="270" height="100" rx="14"/>
+  <text class="label" x="128" y="424" text-anchor="start">失败路径 A</text>
+  <text class="small" x="128" y="454" text-anchor="start">只加工具不加权限：工具前做 polic</text>
+  <text class="small" x="128" y="474" text-anchor="start">y check</text>
+  <rect class="risk" x="425" y="390" width="270" height="100" rx="14"/>
+  <text class="label" x="443" y="424" text-anchor="start">失败路径 B</text>
+  <text class="small" x="443" y="454" text-anchor="start">只看最终答案：记录 trace 并评估</text>
+  <text class="small" x="443" y="474" text-anchor="start">中间步骤</text>
+  <rect class="risk" x="740" y="390" width="270" height="100" rx="14"/>
+  <text class="label" x="758" y="424" text-anchor="start">失败路径 C</text>
+  <text class="small" x="758" y="454" text-anchor="start">只做 demo 不做部署：引入队列、状</text>
+  <text class="small" x="758" y="474" text-anchor="start">态和观测</text>
+  <path class="loop" d="M955 310 C955 540 175 540 115 310"/>
+</svg>

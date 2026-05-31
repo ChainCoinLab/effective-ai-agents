@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">01. Agent 本质与边界 - 风险与兜底图</title>
+  <desc id="desc">Agent 本质与边界：列出最常见失败模式，并把它们连接到工程兜底手段。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #faf5ff; stroke: #7e22ce; stroke-width: 1.7; }
+      .ok { fill: #f0f9ff; stroke: #0369a1; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #faf5ff; stroke: #7e22ce; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #7e22ce; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7e22ce"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">01. Agent 本质与边界 - 风险与兜底图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">列出最常见失败模式，并把它们连接到工程兜底手段。</text>
+  
+  <rect class="risk" x="80" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="179" text-anchor="start">风险 1：把状态藏在自然语言里</text>
+  <text class="small" x="98" y="209" text-anchor="start">中断后靠模型猜当前进度</text>
+  <rect class="ok" x="430" y="145" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="179" text-anchor="start">兜底 1</text>
+  <text class="small" x="448" y="209" text-anchor="start">结构化保存 phase、facts、c</text>
+  <text class="small" x="448" y="229" text-anchor="start">heckpoint。状态要可查询、可断</text>
+  <text class="small" x="448" y="249" text-anchor="start">言、可回放</text>
+  <rect class="risk" x="80" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="334" text-anchor="start">风险 2：多 Agent 提前拆</text>
+  <text class="label" x="98" y="355" text-anchor="start">分</text>
+  <text class="small" x="98" y="364" text-anchor="start">多个角色互相等待或重复做事</text>
+  <rect class="ok" x="430" y="300" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="334" text-anchor="start">兜底 2</text>
+  <text class="small" x="448" y="364" text-anchor="start">先跑通单 Agent 闭环，再按职责拆</text>
+  <text class="small" x="448" y="384" text-anchor="start">分。复杂度应来自真实边界，不来自架构想</text>
+  <text class="small" x="448" y="404" text-anchor="start">象</text>
+  <rect class="risk" x="80" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="98" y="489" text-anchor="start">风险 3：没有 trace</text>
+  <text class="small" x="98" y="519" text-anchor="start">失败后只看到最终回答</text>
+  <rect class="ok" x="430" y="455" width="280" height="108" rx="14"/>
+  <text class="label" x="448" y="489" text-anchor="start">兜底 3</text>
+  <text class="small" x="448" y="519" text-anchor="start">记录每轮输入、决策、工具、观察和状态变</text>
+  <text class="small" x="448" y="539" text-anchor="start">化。Agent 质量只能通过过程定位</text>
+  <path class="arrow" d="M360 199 H430"/><path class="arrow" d="M360 354 H430"/><path class="arrow" d="M360 509 H430"/>
+  <rect class="card" x="790" y="260" width="250" height="145" rx="14"/>
+  <text class="label" x="808" y="294" text-anchor="start">原则</text>
+  <text class="small" x="808" y="324" text-anchor="start">高风险靠工程兜底，低风险靠策略约束；所</text>
+  <text class="small" x="808" y="344" text-anchor="start">有兜底都要能在 trace 中看到。</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">05. Agent 控制循环 - 系统位置图</title>
+  <desc id="desc">Agent 控制循环：把本课能力放在 Agent Runtime 的全局链路中，说明它解决哪个缺口。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #f1f5f9; stroke: #334155; stroke-width: 1.7; }
+      .ok { fill: #ecfdf5; stroke: #047857; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #f1f5f9; stroke: #334155; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #334155; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">05. Agent 控制循环 - 系统位置图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">把本课能力放在 Agent Runtime 的全局链路中，说明它解决哪个缺口。</text>
+  
+  <rect class="accent" x="55" y="150" width="210" height="105" rx="14"/>
+  <text class="label" x="73" y="184" text-anchor="start">本课解决</text>
+  <text class="small" x="73" y="214" text-anchor="start">没有循环控制的 Agent 会反复调用</text>
+  <text class="small" x="73" y="234" text-anchor="start">工具、越过预算、忽略失败、过早回答，或</text>
+  <text class="small" x="73" y="254" text-anchor="start">在没有证</text>
+  <rect class="card" x="320" y="150" width="210" height="105" rx="14"/>
+  <text class="label" x="338" y="184" text-anchor="start">核心目标</text>
+  <text class="small" x="338" y="214" text-anchor="start">实现 ReAct/Plan-Act-O</text>
+  <text class="small" x="338" y="234" text-anchor="start">bserve 循环，并加入预算、停止、</text>
+  <text class="small" x="338" y="254" text-anchor="start">验证、恢复和失败路径。</text>
+  <rect class="ok" x="585" y="150" width="210" height="105" rx="14"/>
+  <text class="label" x="603" y="184" text-anchor="start">工程公式</text>
+  <text class="small" x="603" y="214" text-anchor="start">Agent Loop = build </text>
+  <text class="small" x="603" y="234" text-anchor="start">context -&gt; decide -</text>
+  <text class="small" x="603" y="254" text-anchor="start">&gt; validate -&gt; act -</text>
+  <text class="small" x="603" y="274" text-anchor="start">&gt; observe -&gt; update </text>
+  <rect class="card" x="850" y="150" width="210" height="105" rx="14"/>
+  <text class="label" x="868" y="184" text-anchor="start">验收方向</text>
+  <text class="small" x="868" y="214" text-anchor="start">实现一个循环控制器：支持最多 5 步、</text>
+  <text class="small" x="868" y="234" text-anchor="start">3 次工具调用、每轮 trace、重复</text>
+  <text class="small" x="868" y="254" text-anchor="start">工具熔断、需要</text>
+  <path class="arrow" d="M265 202 H320"/><path class="arrow" d="M530 202 H585"/><path class="arrow" d="M795 202 H850"/>
+  <rect class="card" x="90" y="350" width="170" height="92" rx="14"/>
+  <text class="label" x="108" y="384" text-anchor="start">第一步</text>
+  <text class="small" x="108" y="414" text-anchor="start">5.1 决策类型：模型每轮能输出哪些动</text>
+  <text class="small" x="108" y="434" text-anchor="start">作</text>
+  <rect class="card" x="295" y="350" width="170" height="92" rx="14"/>
+  <text class="label" x="313" y="384" text-anchor="start">第二步</text>
+  <text class="small" x="313" y="414" text-anchor="start">5.2 上下文构造：每轮给模型看什么</text>
+  <rect class="card" x="500" y="350" width="170" height="92" rx="14"/>
+  <text class="label" x="518" y="384" text-anchor="start">第三步</text>
+  <text class="small" x="518" y="414" text-anchor="start">5.3 执行与观察：动作如何变成事实</text>
+  <rect class="card" x="705" y="350" width="170" height="92" rx="14"/>
+  <text class="label" x="723" y="384" text-anchor="start">落地对象</text>
+  <text class="small" x="723" y="414" text-anchor="start">Loop Controller / D</text>
+  <text class="small" x="723" y="434" text-anchor="start">ecision / Action</text>
+  <rect class="risk" x="910" y="350" width="170" height="92" rx="14"/>
+  <text class="label" x="928" y="384" text-anchor="start">质量闸门</text>
+  <text class="small" x="928" y="414" text-anchor="start">trace、状态、评估和回归</text>
+  <path class="arrow" d="M260 396 H295"/><path class="arrow" d="M465 396 H500"/><path class="arrow" d="M670 396 H705"/><path class="arrow" d="M875 396 H910"/>
+</svg>

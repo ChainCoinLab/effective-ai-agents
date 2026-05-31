@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="640" viewBox="0 0 1120 640" role="img" aria-labelledby="title desc">
+  <title id="title">16. 综合实战项目 - 生产运行图</title>
+  <desc id="desc">综合实战项目：展示上线后需要关注的监控、预算、权限、降级和告警。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .subtitle { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .card { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .accent { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .ok { fill: #f8fafc; stroke: #111827; stroke-width: 1.7; }
+      .risk { fill: #fee2e2; stroke: #b91c1c; stroke-width: 1.7; }
+      .label { font: 700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .small { font: 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .centerTitle { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #111827; }
+      .centerSmall { font: 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .accentCircle { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; }
+      .arrow { stroke: #475569; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #b91c1c; stroke-width: 2.3; fill: none; stroke-dasharray: 7 6; marker-end: url(#arrow2); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="640"/>
+  <text class="title" x="52" y="55">16. 综合实战项目 - 生产运行图</text>
+  <text class="subtitle" x="54" y="86" text-anchor="start">展示上线后需要关注的监控、预算、权限、降级和告警。</text>
+  
+  <rect class="accent" x="75" y="145" width="220" height="112" rx="14"/>
+  <text class="label" x="93" y="179" text-anchor="start">上线前</text>
+  <text class="small" x="93" y="209" text-anchor="start">eval 通过、权限策略、预算、回滚、</text>
+  <text class="small" x="93" y="229" text-anchor="start">灰度</text>
+  <rect class="card" x="330" y="145" width="220" height="112" rx="14"/>
+  <text class="label" x="348" y="179" text-anchor="start">运行中</text>
+  <text class="small" x="348" y="209" text-anchor="start">trace、metrics、logs、</text>
+  <text class="small" x="348" y="229" text-anchor="start">alerts、cost</text>
+  <rect class="risk" x="585" y="145" width="220" height="112" rx="14"/>
+  <text class="label" x="603" y="179" text-anchor="start">异常时</text>
+  <text class="small" x="603" y="209" text-anchor="start">降级、暂停、转人工、熔断、恢复</text>
+  <rect class="ok" x="840" y="145" width="220" height="112" rx="14"/>
+  <text class="label" x="858" y="179" text-anchor="start">迭代后</text>
+  <text class="small" x="858" y="209" text-anchor="start">失败样例进入回归集，版本可回滚</text>
+  <path class="arrow" d="M295 201 H330"/><path class="arrow" d="M550 201 H585"/><path class="arrow" d="M805 201 H840"/>
+  <rect class="card" x="120" y="365" width="260" height="108" rx="14"/>
+  <text class="label" x="138" y="399" text-anchor="start">监控指标</text>
+  <text class="small" x="138" y="429" text-anchor="start">任务完成率、失败率、工具错误、toke</text>
+  <text class="small" x="138" y="449" text-anchor="start">n、延迟</text>
+  <rect class="risk" x="430" y="365" width="260" height="108" rx="14"/>
+  <text class="label" x="448" y="399" text-anchor="start">告警策略</text>
+  <text class="small" x="448" y="429" text-anchor="start">成本突增、越权拦截、失败率上升、队列堆</text>
+  <text class="small" x="448" y="449" text-anchor="start">积</text>
+  <rect class="ok" x="740" y="365" width="260" height="108" rx="14"/>
+  <text class="label" x="758" y="399" text-anchor="start">运维动作</text>
+  <text class="small" x="758" y="429" text-anchor="start">限流、切模型、回滚 prompt、转人</text>
+  <text class="small" x="758" y="449" text-anchor="start">工</text>
+</svg>
