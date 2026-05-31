@@ -11,7 +11,7 @@
 
 - 专用 L1 的价值不只是提高 TPS，而是把最终性、排序、撮合、保证金、资金费率、清算和行情事件变成同一个可重放状态机。
 - MVP 更适合选择 `Cosmos SDK + CometBFT + 自研订单簿/永续合约模块`，先完成确定性撮合和风控闭环，再逐步增强公平排序和订单隐私。
-- 区块执行主线应该是：价格快照 -> 保护类交易 -> 普通订单撮合 -> 仓位和保证金提交 -> 清算 -> 事件和状态根。
+- 区块执行主线应该是：先固定本区块使用的价格状态，也就是指数价、标记价和市场状态；再优先处理撤单、补保证金、reduce-only 平仓等降风险交易；然后撮合普通订单、提交仓位和保证金变化、执行清算，最后输出事件和状态根。
 - 订单簿可以先用验证者内存结构承载热路径，但它不能只是本地内存。每个 resting order 必须能从 committed state、快照、事件和 root 中恢复。
 - 共识解决的是“提交后不回滚”，不自动解决“提交前是否公平排序”。MEV 防护必须在订单参数、mempool、区块执行、清算和监控层分层设计。
 - 前端、K 线、WebSocket、Indexer 只能重建和展示状态，不能决定链上订单优先级、成交结果或清算状态。
@@ -184,7 +184,6 @@
     <li><a href="#perp-section-10"><span class="perp-page-guide__num">10</span><span class="perp-page-guide__label">Indexer 和行情</span></a></li>
     <li><a href="#perp-section-11"><span class="perp-page-guide__num">11</span><span class="perp-page-guide__label">风险和验证</span></a></li>
     <li><a href="#perp-section-12"><span class="perp-page-guide__num">12</span><span class="perp-page-guide__label">落地路线</span></a></li>
-    <li><a href="#perp-section-13"><span class="perp-page-guide__num">13</span><span class="perp-page-guide__label">总结</span></a></li>
   </ol>
 </nav>
 
@@ -310,6 +309,8 @@ Alex 的新订单：
 | maker / taker | maker 提供盘口流动性，taker 吃掉盘口流动性 |
 | index price | 来自外部现货或综合市场的参考价格 |
 | mark price | 用于保证金、未实现 PnL 和清算的风控价格 |
+| 价格快照 | 区块执行前固定下来的一组价格和市场状态，例如 index price、mark price、Normal/ProtectOnly 状态；本区块后续风控和清算都基于这组固定输入 |
+| 保护类交易 | 优先降低风险或保护既有状态的交易，例如撤单、批量撤单、补保证金、reduce-only 平仓 |
 | app hash / root | 应用状态承诺值，用来证明所有节点执行后得到同一状态 |
 | sequence | 协议内确定性分配的序号，不能依赖某个 Gateway 的本地时间 |
 | ProtectOnly | 市场保护状态，只允许撤单、补保证金、减仓和平仓等降风险操作 |
@@ -1330,31 +1331,6 @@ market open interest cap 不可绕过
 ```
 
 更详细的阶段设计见 [分阶段执行路线](./perp-orderbook-l1-staged-execution.md)。
-
-<span id="perp-section-13" class="perp-page-anchor"></span>
-
-## 13. 总结：这条链的主线是什么
-
-这类专用 L1 的主线可以压缩成一句话：
-
-```text
-用 BFT 最终性确定区块顺序，
-用确定性状态机执行价格、撤单、撮合、仓位、保证金、资金费率和清算，
-用 root、快照和事件让订单簿可恢复、可审计、可展示。
-```
-
-建议按下面顺序组织架构说明：
-
-1. 先明确目标：高并发订单簿永续 L1 不是只追求 TPS，而是追求最终性、确定性撮合和风控闭环。
-2. 再说明为什么普通智能合约不够：排序、撤单、成本、状态增长和风控热路径都受限。
-3. 然后用 Alex/Bob 例子说明一笔订单要经过哪些关键问题。
-4. 接着说明总体架构：Gateway、mempool、CometBFT、ABCI 状态机、Indexer 的边界。
-5. 再进入区块执行：价格快照、保护队列、撮合、仓位保证金、清算、root。
-6. 然后说明撮合和订单簿恢复：内存是热索引，root 和快照才是可验证真相。
-7. 再说明永续风控：标记价、保证金、funding、清算和坏账 waterfall。
-8. 最后补充 MEV、共识选型、验证方案和分阶段路线。
-
-这个顺序能避免把读者一开始淹没在共识比较、MEV 方案或订单字段细节里，也能让每个模块都回到同一个核心问题：它在订单生命周期里解决什么风险。
 
 ## 附录 A：共识机制简要比较
 
